@@ -1,0 +1,52 @@
+'use strict';
+/* global Monogatari */
+
+/**
+ * =============================================================================
+ * This is the file where you should put all your custom JavaScript code,
+ * depending on what you want to do, there are 3 different places in this file
+ * where you can add code.
+ *
+ * 1. Outside the $_ready function: At this point, the page may not be fully
+ *    loaded yet, however you can interact with Monogatari to register new
+ *    actions, components, labels, characters, etc.
+ *
+ * 2. Inside the $_ready function: At this point, the page has been loaded, and
+ *    you can now interact with the HTML elements on it.
+ *
+ * 3. Inside the init function: At this point, Monogatari has been initialized,
+ *    the event listeners for its inner workings have been registered, assets
+ *    have been preloaded (if enabled) and your game is ready to be played.
+ *
+ * You should always keep the $_ready function as the last thing on this file.
+ * =============================================================================
+ **/
+
+const { $_ready, $_ } = Monogatari;
+
+// 1. Outside the $_ready function:
+
+
+$_ready (() => {
+	// 2. Inside the $_ready function:
+	
+	// 调试用的代码
+	// monogatari.debug.level (5);
+
+	monogatari.init ('#monogatari').then (() => {
+		// 3. Inside the init function:
+
+		// 读取存储进度并再次进入游戏后，如果要回滚到存档点前的游戏状态，就会报错
+		// 这个问题从5月3号的版本开始就存在了
+		// 实在解决不了，不如禁掉回滚操作吧
+		// This will remove the "Back" button from the quick menu
+		monogatari.component ('quick-menu').removeButton ('Back');
+
+		// This will disable the left key listener to roll back
+		monogatari.unregisterListener ('back');
+	});
+	
+	monogatari.on ('didLoadGame', () => {
+		set_bar_zoom()
+	});
+});
