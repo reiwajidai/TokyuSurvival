@@ -109,7 +109,7 @@ game-title {
 /* Choice Buttons style */
 [data-component="choice-container"] button {
 	color:#000000;
-	background:#bbbbbb;
+	background:#959595;
 	border-style: solid;
 	border-width: 2px;
 	box-shadow: 3px 3px 0px #000000;
@@ -194,7 +194,7 @@ message-modal button:hover{
 
 /* Quick Menu Style */
 [data-component="quick-menu"] {
-
+	background:#202020;
 }
 
 /* Quick Menu Buttons Style */

@@ -102,7 +102,6 @@ monogatari.characters ({
 monogatari.script ({
 	// The game starts here.
 	'balcony': [
-		'show scene dorm with fadeIn',
 		's 夜幕降临，你正在百无聊赖之时，忽然听见宿舍阳台外面，仿佛响起了人的呼喊声',
 		'i 是有人在喊什么东西吗？',
 		'a 去听听呗',
@@ -133,7 +132,6 @@ monogatari.script ({
 
 	// day2
 	'balcony2': [
-		'show scene dorm',
 		's 夜幕降临，你又听见宿舍阳台外面响起了呼喊声，你走到了阳台前',
 		'lg 我！要！出！去！',
 		'lg2 我想回家！',
@@ -194,7 +192,6 @@ monogatari.script ({
 
 	//day3
 	'balcony3': [
-		'show scene dorm',
 		'p （叮咚！）',
 		'i 咦？群聊邀请？“国际东急”群？点进去看看。',
 		'i 哟呵，这群还有群通告呢。',
@@ -271,7 +268,6 @@ monogatari.script ({
 
 	//day4
 	'balcony4': [
-		'show scene dorm with fadeIn',
 		'p （叮咚！）',
 		'show character a normal',
 		'a 你看到群里疯传的这张图没？',

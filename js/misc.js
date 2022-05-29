@@ -20,14 +20,14 @@ monogatari.action ('Canvas').objects ({
                 const ctx = bar.getContext('2d');
 
                 ctx.fillStyle="#FFFFFF";
-                ctx.fillRect(0, 35 * p_ratio, bar.width, 20 * p_ratio);
+                ctx.fillRect(0, 40 * p_ratio, bar.width, 30 * p_ratio);
 
                 ctx.fillStyle="#000000";
                 ctx.lineWidth=1 * p_ratio;
-                ctx.strokeRect(0,35 * p_ratio, bar.width,20 * p_ratio); 
+                ctx.strokeRect(0, 40 * p_ratio, bar.width, 30 * p_ratio); 
 
                 ctx.fillStyle="#000000";
-				ctx.font= 15*p_ratio + "px Arial";
+				ctx.font= 1*p_ratio + "rem Arial";
 
 				const {day} = monogatari.storage('player');
                 const {health} = monogatari.storage('player');
@@ -39,7 +39,7 @@ monogatari.action ('Canvas').objects ({
 				// For debug and Testing
                 // ctx.fillText("第"+day+"天 健康值="+health+"，精神值="+sanity+"，物资="+food+" 护="+school+" 关="+care,10,50);
 				// For publish
-				ctx.fillText("第"+day+"天 健康值="+health+"，精神值="+sanity+"，物资="+food,10* p_ratio,50* p_ratio);
+				ctx.fillText("第"+day+"天 健康值="+health+"，精神值="+sanity+"，物资="+food, 10* p_ratio, 60* p_ratio);
 
 			},
 		},
@@ -53,6 +53,13 @@ monogatari.action ('Canvas').objects ({
 		stop: ({ bar }, props, state, container) => {
             // 在给定的矩形内清除指定的像素。
 			bar.getContext('2d').clearRect (0, 0, bar.width, bar.height);
+		},
+		resize: function ({ bar }, props, state, container) {
+			bar.getContext('2d').clearRect (0, 0, bar.width, bar.height);
+			bar.width = this.width () * p_ratio;
+			bar.height = this.height () * p_ratio;
+			props.drawText (bar);
+			return Promise.resolve ();
 		},
     },
 
