@@ -116,12 +116,6 @@
  * （1）高兴参与：护校>=5可选择，精神+1
  * （2）不参与：若护校<=1可解锁吐槽语句
  * 
- * 
- * 【day8】网购申报
- * 伊东老师表示可以网购必要物资，申报就行
- * 但当学生问到申报流程时，伊东老师开始剥洋葱了
- * 具体操作细则闪烁其词，完全是自己也没想好。
- * 
  *
  * 如何整合进主线剧情：
  * （1）在主线剧情中使用命令：jump bureau
@@ -132,24 +126,6 @@
  * 建议本文件内所有剧情block的名字都带上bureau-前缀
  * =======================================
  **/
-
-/* global monogatari */
-
-// Define the backgrounds for each scene.
-monogatari.assets ('scenes', {
-
-});
-
-// Define the messages used in the game.
-monogatari.action ('message').messages ({
-	'bureau7-end': {
-		title: '',
-		subtitle: '',
-		body: `
-			<p>会议已结束。</p>
-		`
-	},
-});
 
 
 // Define the Characters
@@ -217,6 +193,9 @@ monogatari.script ({
 	'bureau7-ending': [
 		'jump Day10-5'
 	],
+	'bureau8-ending': [
+		'jump Day14-4'
+	],
 
 
 	// The game starts here.
@@ -227,15 +206,18 @@ monogatari.script ({
 		'jump patrol2'
 	],
 	'bureau3': [
-		'jump patrol3'
+		'jump antigen'
 	],
 	'bureau3-2': [
-		'jump bureau3-ending'
+		'jump patrol3'
 	],
 	'bureau4': [
 		'jump strike'
 	],
 	'bureau5': [
+		'jump antigen2'
+	],
+	'bureau5-2': [
 		'jump strike2'
 	],
 	'bureau6': [
@@ -246,5 +228,8 @@ monogatari.script ({
 	],
 	'bureau7': [
 		'jump speech'
+	],
+	'bureau8': [
+		'jump awarding'
 	],
 });

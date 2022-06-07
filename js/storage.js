@@ -48,6 +48,7 @@ monogatari.storage ({
 		exodus_help: 0,
 		patrol_obey: false,
 		starve_positive: false,
+        antigen_call: false,
 	},
 });
 

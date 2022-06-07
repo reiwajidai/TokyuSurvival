@@ -51,7 +51,7 @@ monogatari.script ({
         'jump Day11-2',
     ],
     'pork3-ending': [
-        'jump Day12-2',
+        'jump Day13-3',
     ],
 
 

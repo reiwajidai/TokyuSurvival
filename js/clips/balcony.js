@@ -75,6 +75,14 @@ monogatari.action ('message').messages ({
 			<p>每一个东急的学生都是学校的一份子，东急的荣辱和大家的荣辱是一体的，今晚楼内的活动我院全体同学不准参加，并请劝阻身边的同学，冷静的提出述求并解决问题。</p>
 		`
 	},
+	'balcony-leader': {
+		title: '各位层长同学',
+		subtitle: '来自：水谷 虎 老师',
+		body: `
+			<p>如果今天晚上有播放高音喇叭或者喊叫行为的话，请立即在所在楼层和相邻楼层进行巡视并锁定房间号，感谢大家的支持。</p>
+			<p>对于此事，我们已经掌握相关证据，X楼的兄弟们绝对不能出现这种行为！</p>
+		`
+	},
 });
 
 
@@ -275,6 +283,24 @@ monogatari.script ({
 		'show message balcony-apologize',
 		'i 这是要搞波大的啊',
 		'a 学校里各种群都在传，应该是全校都知道了，只是不知道到八点是啥状况呢',
+		{
+			'Conditional': {
+				'Condition': function(){
+					const {leader} = monogatari.storage('player');
+					return leader;
+				},
+				'True': 'jump balcony4-leader-msg',
+				'False': 'jump balcony4-continue',
+			}
+		},
+	],
+	'balcony4-leader-msg': [
+		'p （叮咚！）',
+		's 你发现层长群也来了一条消息',
+		'show message balcony-leader',
+		'jump balcony4-continue',
+	],
+	'balcony4-continue': [
 		'show character a happy',
 		'a 突然觉得等不及了呢哈哈哈',
 		'hide character a',

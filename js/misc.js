@@ -37,9 +37,9 @@ monogatari.action ('Canvas').objects ({
 				const {care} = monogatari.storage('player');
 
 				// For debug and Testing
-                // ctx.fillText("第"+day+"天 健康值="+health+"，精神值="+sanity+"，物资="+food+" 护="+school+" 关="+care,10,50);
+                ctx.fillText("第"+day+"天 健康值="+health+"，精神值="+sanity+"，物资="+food+" 护="+school+" 关="+care,10* p_ratio,60* p_ratio);
 				// For publish
-				ctx.fillText("第"+day+"天 健康值="+health+"，精神值="+sanity+"，物资="+food, 10* p_ratio, 60* p_ratio);
+				// ctx.fillText("第"+day+"天 健康值="+health+"，精神值="+sanity+"，物资="+food, 10* p_ratio, 60* p_ratio);
 
 			},
 		},

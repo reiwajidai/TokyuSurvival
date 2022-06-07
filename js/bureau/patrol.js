@@ -28,7 +28,7 @@
 		'jump bureau2-ending'
 	],
 	'patrol3-ending': [
-		'jump bureau3-2'
+		'jump bureau3-ending'
 	],
 
 	// The game starts here.
