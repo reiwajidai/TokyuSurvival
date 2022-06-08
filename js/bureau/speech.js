@@ -22,7 +22,7 @@ monogatari.action ('message').messages ({
 
 // Define the images that will be available on your game's image gallery
 monogatari.assets ('gallery', {
-	'speech':'speech.jpg',
+	'speech':'speech.png',
 });
 
  monogatari.characters ({

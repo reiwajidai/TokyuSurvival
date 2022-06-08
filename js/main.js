@@ -44,6 +44,16 @@ $_ready (() => {
 
 		// This will disable the left key listener to roll back
 		monogatari.unregisterListener ('back');
+
+		// 生成图片编号
+		generate_img_label();
+		monogatari.assets ('images', {
+			'p1': get_img_link(),
+			'p2': get_img_link(),
+			'p3': get_img_link(),
+			'p4': get_img_link(),
+			'p5': get_img_link(),
+		});
 	});
 	
 	monogatari.on ('didLoadGame', () => {
