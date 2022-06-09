@@ -47,11 +47,11 @@ monogatari.storage ({
 		rainbow_glue: false,
 		exodus_help: 0,
 		patrol_obey: false,
-        patrol_blame_escape:false,
+        patrol_blame_escape:false, // 竖中指逃脱概率：80%
 		starve_positive: false,
-        starve_sneak:false,
+        starve_escape:false, // 小卖部逃脱概率：50%
         cat_positive: false,
-        cat_escape:false,
+        cat_escape:false, // 撸猫逃脱概率：60%
         antigen_call: false,
 	},
 });

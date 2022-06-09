@@ -77,7 +77,45 @@
 				add_sanity(-1);
 			},
 		}},
+		{
+			'Conditional': {
+				'Condition': function(){
+					const result = Math.random();
+					if(result <= 0.2) {
+						return "blame";
+					} else {
+						return 'safe';
+					}
+				},
+				'blame': 'jump patrol-blame',
+				'safe': 'next',
+			}
+		},
 		's 你在凉飕飕的楼道里呆了二十分钟，突然觉得书记并不会真的看摄像头，于是你溜回了宿舍',
+		{'Function':{
+			'Apply':function(){
+				monogatari.storage({
+					story:{	patrol_blame_escape: true }
+				});
+			},
+			'Reverse':function(){
+				monogatari.storage({
+					story:{	patrol_blame_escape: false }
+				});
+			},
+		}},
+		'jump patrol-evening',
+	],
+	'patrol-blame': [
+		's 你在凉飕飕的楼道里呆了二十分钟，突然接到了辅导员的电话。在电话里，辅导员批评了你在摄像头前面的行为。完成巡逻后，你回到了宿舍。',
+		{'Function':{
+			'Apply':function(){
+				add_care(1);
+			},
+			'Reverse':function(){
+				add_care(-1);
+			},
+		}},
 		'jump patrol-evening',
 	],
 	'patrol-endure': [

@@ -172,17 +172,13 @@
 			'Apply':function(){
 				add_food(2);
 				monogatari.storage({
-					story:{
-						starve_sneak: true
-					}
+					story:{ starve_escape: true }
 				});
 			},
 			'Reverse':function(){
                 add_food(-2);
 				monogatari.storage({
-					story:{
-						starve_sneak: false
-					}
+					story:{ starve_escape: false }
 				});
 			},
 		}},
@@ -200,19 +196,13 @@
 			'Apply':function(){
 				add_food(2);
 				monogatari.storage({
-					story:{
-						starve_positive: true,
-						starve_sneak: true
-					}
+					story:{ starve_positive: true, }
 				});
 			},
 			'Reverse':function(){
                 add_food(-2);
 				monogatari.storage({
-					story:{
-						starve_positive: false,
-						starve_sneak: false
-					}
+					story:{ starve_positive: false, }
 				});
 			},
 		}},
