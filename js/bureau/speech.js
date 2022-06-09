@@ -208,6 +208,42 @@ monogatari.assets ('gallery', {
 		}},
 		'jump speech-ending'
 	],
+	'speech-conflict':[
+		'hide character it',
+		's 你与伊东老师发生了激烈的语言冲突，水谷老师非常生气，命令你退出会议冷静冷静。',
+		'show scene dorm',
+		's 你气冲冲地退出了会议',
+		{'Function':{
+			'Apply':function(){
+				add_school(-1);
+				add_care(1);
+			},
+			'Reverse':function(){
+				add_school(1);
+				add_care(-1);
+			},
+		}},
+		'jump speech-ending'
+	],
+	'speech-conflict2':[
+		'hide character it',
+		's 你与伊东老师发生了激烈的语言冲突，水谷老师非常生气，命令你退出会议冷静冷静。',
+		'show scene dorm',
+		's 你气冲冲地退出了会议，但你同时觉得好歹出了一口气（精神+1）',
+		{'Function':{
+			'Apply':function(){
+				add_school(-1);
+				add_care(1);
+				add_sanity(1);
+			},
+			'Reverse':function(){
+				add_school(1);
+				add_care(-1);
+				add_sanity(-1);
+			},
+		}},
+		'jump speech-ending'
+	],
 	'speech-chase':[
 		'show character it dontcare',
 		'i Ok老师，您可能没太理解我的意思：我相信您是很努力的在帮我们争取权益了，我们也不想难为您，只是想让您把每天跟别的楼长的商量的结果跟我们说一下。',
@@ -238,19 +274,89 @@ monogatari.assets ('gallery', {
 		'i 我觉得这个要求对于您也不算难。如果说您不愿意继续回答我这个问题，我就静音了。',
 		'show character it confused',
 		'it 我不知道我是不是准确理解了你这个问题。你是不是指，我们为什么要定0~3这个数目对吧……',
+		{
+			'Choice': {
+				'Dialog': 's 你不禁觉得血压再次升高，你要怎么办?',
+				'yes': {
+					'Text': '开骂',
+					'Do': 'jump speech-conflict',
+					'Condition': function(){
+						const {school} = monogatari.storage('player');
+						const {sanity} = monogatari.storage('player');
+						return school <= 1 && sanity <= 1;
+					}
+				},
+				'No': {
+					'Text': '耐心地向伊东老师解释',
+					'Do': 'next'
+				}
+			}
+		},
 		'show character it dontcare',
 		'i 我的意思是：比如“今天我们楼拿到了100箱饼干，但是没有牛奶，但是一号楼拿到了100箱牛奶，没有饼干”。您直接告诉我们就这些好了，具体是否公平让同学们去做评判。',
 		'show character it confused',
 		'it 我不知道你说的意思是不是这样：我们申购了800箱，但是只到了400箱，这400箱的数目是怎么定的？……',
 		'show character it dontcare',
+		{
+			'Choice': {
+				'Dialog': 's 伊东老师真的可以让人急出病来，你要怎么办?',
+				'yes': {
+					'Text': '开骂',
+					'Do': 'jump speech-conflict',
+					'Condition': function(){
+						const {school} = monogatari.storage('player');
+						const {sanity} = monogatari.storage('player');
+						return school <= 2 && sanity <= 2;
+					}
+				},
+				'No': {
+					'Text': '深呼吸，耐心地向伊东老师解释（精神-1）',
+					'Do': 'next'
+				}
+			}
+		},
+		{'Function':{
+			'Apply':function(){
+				add_sanity(-1);
+			},
+			'Reverse':function(){
+				add_sanity(1);
+			},
+		}},
 		'i 不是这个意思，就比如说我们楼订购了800箱牛奶，实际到了400。我们也想知道一号楼订购了多少箱牛奶，实际到了多少，就这么简单。',
 		'show character it confused',
 		'it 哦~你的意思就是希望整个校区每一栋楼的订购量，然后能让大家知道是吧？',
 		'i 对',
 		'show character it happy',
 		'it 好的，我把你这个问题记一下，谢谢你。',
+		'a MD，绕这么半天，他到最后也只是“记一下”。',
+		{
+			'Choice': {
+				'Dialog': 's 你觉得你之前的耐心解释似乎都白费了，你真的很想骂人，你要怎么办？？',
+				'yes': {
+					'Text': '管不了了！开骂！（精神+1）',
+					'Do': 'jump speech-conflict2',
+					'Condition': function(){
+						const {school} = monogatari.storage('player');
+						const {sanity} = monogatari.storage('player');
+						return school <= 3;
+					}
+				},
+				'No': {
+					'Text': '不行，一定要忍，忍住！（精神-1）',
+					'Do': 'next'
+				}
+			}
+		},
+		{'Function':{
+			'Apply':function(){
+				add_sanity(-1);
+			},
+			'Reverse':function(){
+				add_sanity(1);
+			},
+		}},
 		'hide character it',
-		'a:happy 哈哈哈绕这么半天，他也只是“记一下”。',
 		's 你关闭麦克风之后，跟室友说道：',
 		'i 唉，说白了，这些驻楼老师没有决定权。他们遇到什么问题都只能向上反映。',
 		'a:normal 对！之前我跟老师怼的时候，他们也说他们不能决定，规则不是他们定的。',

@@ -125,15 +125,13 @@
 		}
     ],
 	'strike2-starve': [
-        's 不知为何，今天的盒饭送的特别晚，你挨了饿。（健康-1，精神-1）',
+        's 不知为何，今天的盒饭送的特别晚，你挨了饿。（健康-1）',
 		{'Function':{
 			'Apply':function(){
 				add_health(-1);
-				add_sanity(-1);
 			},
 			'Reverse':function(){
 				add_health(1);
-				add_sanity(1);
 			},
 		}},
         'jump strike2-ending'

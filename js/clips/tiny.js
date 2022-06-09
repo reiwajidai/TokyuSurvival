@@ -49,6 +49,14 @@ monogatari.script ({
 		'i 猫者，不rua不行！',
 		'show scene dorm with fadeIn',
         's 你跟小猫咪玩耍了很久，感觉心情好多了。结束放风后，你回到了寝室。（精神+1）',
+		{'Function':{
+			'Apply':function(){
+				add_sanity(1);
+			},
+			'Reverse':function(){
+				add_sanity(-1);
+			},
+		}},
 		{
 			'Conditional': {
 				'Condition': function(){

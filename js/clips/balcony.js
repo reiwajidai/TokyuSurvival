@@ -213,7 +213,7 @@ monogatari.script ({
 					'Do': 'jump balcony3-report',
 					'Condition': function(){
 						const {school} = monogatari.storage('player');
-						return school >= 5;
+						return school >= 4;
 					}
 				},
 				'exit': {
@@ -284,13 +284,74 @@ monogatari.script ({
 		'i 这是要搞波大的啊',
 		'a 学校里各种群都在传，应该是全校都知道了，只是不知道到八点是啥状况呢',
 		{
+			'Choice': {
+				'Dialog': 'i 对于群里这张图，你选择……',
+				'listen': {
+					'Text': '反手举报给辅导员',
+					'Do': 'jump balcony4-report',
+					'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return school >= 5;
+					}
+				},
+				'ignore': {
+					'Text': '不做什么',
+					'Do': 'jump balcony4-continue'
+				},
+				'shutup': {
+					'Text': '转发！',
+					'Do': 'jump balcony4-forward',
+					'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return school <= 1;
+					}
+				}
+			}
+		},
+	],
+	'balcony4-report': [
+		's 你默默地举报了这条消息',
+		'i （怎么这么多校外势力？）',
+		{'Function':{
+			'Apply':function(){
+				add_school(1);
+			},
+			'Reverse':function(){
+				add_school(-1);
+			},
+		}},
+		'jump balcony4-continue',
+	],
+	'balcony4-forward': [
+		's 你默默地转发了这条消息',
+		'i 就是要让更多的人看到这些！',
+		{'Function':{
+			'Apply':function(){
+				add_school(-1);
+				add_care(1);
+				monogatari.storage({
+					story:{ balcony_forward: true }
+				});
+			},
+			'Reverse':function(){
+				add_school(1);
+				add_care(-1);
+				monogatari.storage({
+					story:{ balcony_forward: false }
+				});
+			},
+		}},
+		'jump balcony4-continue',
+	],
+	'balcony4-continue': [
+		{
 			'Conditional': {
 				'Condition': function(){
 					const {leader} = monogatari.storage('player');
 					return leader;
 				},
 				'True': 'jump balcony4-leader-msg',
-				'False': 'jump balcony4-continue',
+				'False': 'jump balcony4-continue2',
 			}
 		},
 	],
@@ -298,9 +359,9 @@ monogatari.script ({
 		'p （叮咚！）',
 		's 你发现层长群也来了一条消息',
 		'show message balcony-leader',
-		'jump balcony4-continue',
+		'jump balcony4-continue2',
 	],
-	'balcony4-continue': [
+	'balcony4-continue2': [
 		'show character a happy',
 		'a 突然觉得等不及了呢哈哈哈',
 		'hide character a',
@@ -361,9 +422,11 @@ monogatari.script ({
 		{'Function':{
 			'Apply':function(){
 				add_sanity(1);
+				add_care(1);
 			},
 			'Reverse':function(){
 				add_sanity(-1);
+				add_care(-1);
 			},
 		}},
 		'jump balcony4-ending',

@@ -291,18 +291,21 @@ monogatari.script ({
 		//选择：
 		//帮助
 		'i 基于以上数点，我认为回家是非常合理的请求……',
-		's 你很快写好了措辞',
+		's 你很快写好了措辞，你觉得回家有望了，心里不禁一阵高兴（精神+1）',
 		{'Function':{
 			'Apply':function(){
+				add_care(1);
+				add_sanity(1);
 				const {exodus_help} = monogatari.storage('story');
 				monogatari.storage({
 					story:{
 						exodus_help: exodus_help + 1
 					}
 				});
-				return true;
 			},
 			'Reverse':function(){
+				add_care(-1);
+				add_sanity(-1);
 				const {exodus_help} = monogatari.storage('story');
 				monogatari.storage({
 					story:{

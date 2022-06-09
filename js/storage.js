@@ -46,6 +46,7 @@ monogatari.storage ({
 		rainbow_help: false,
 		rainbow_glue: false,
 		exodus_help: 0,
+        balcony_forward:false,
 		patrol_obey: false,
         patrol_blame_escape:false, // 竖中指逃脱概率：80%
 		starve_positive: false,

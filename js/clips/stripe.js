@@ -222,9 +222,11 @@ monogatari.script ({
         {'Function':{
 			'Apply':function(){
 				add_sanity(1);
+                add_care(1);
 			},
 			'Reverse':function(){
 				add_sanity(-1);
+                add_care(-1);
 			},
 		}},
         'jump stripe-ending'
@@ -381,9 +383,10 @@ monogatari.script ({
 			'Conditional': {
 				'Condition': function(){
                     let unlock_artist_gallery = false;
+                    const {school} = monogatari.storage('player');
 
                     // 判断是否解锁画廊+重置序号
-                    if (img_pointer > 14){
+                    if ((img_pointer > 14)&& (school < 3)){
                         img_pointer = 0;
                         if(! check_gallery('artist')){
                             unlock_artist_gallery = true;
