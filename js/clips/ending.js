@@ -89,7 +89,30 @@ monogatari.script ({
         's 不幸的是，你的核酸结果复核为阳性',
         'show scene #000000 with fadeIn',
         's 由于你的情况实属令大家担忧，你被迅速地转移到附近的隔离医院。在医院，你得到了妥善的治疗，但同时很明显，你这学期的学校生活画上了句号。',
-        
+        'i 啊，我为什么会阳性？',
+        {
+			'Conditional': {
+				'Condition': function(){
+					let {starve_positive} = monogatari.storage('story');
+                    let {cat_positive} = monogatari.storage('story');
+                    let {leader} = monogatari.storage('player');
+					if(starve_positive) {
+                        return "starve_positive";
+                    } else if (cat_positive) {
+                        return "cat";
+                    } else if (!starve_positive && leader && !cat_positive) {
+                        return "leader";
+                    }  else {
+                        return 'Other';
+                    }
+				},
+				'starve_positive': 's 你仔细想了想，莫非是因为自己某天晚上偷偷溜到小卖部买东西的缘故？虽然溜出去不会百分百中招，但现在说什么都晚了。',
+                'cat': 's 你仔细想了想，莫非是因为自己某天撸了野猫的缘故？虽然撸猫不会百分百中招，但现在说什么都晚了。',
+				'leader': 's 你仔细想了想，也许是因为自己担任层长期间，太听老师的话，操劳过度。但现在说什么都晚了。',
+                'Other': 's 你仔细想了想，并不是很明白',
+			}
+		},
+
         'show message Ending-positive',
         'gallery unlock positive',
 

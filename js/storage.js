@@ -47,7 +47,11 @@ monogatari.storage ({
 		rainbow_glue: false,
 		exodus_help: 0,
 		patrol_obey: false,
+        patrol_blame_escape:false,
 		starve_positive: false,
+        starve_sneak:false,
+        cat_positive: false,
+        cat_escape:false,
         antigen_call: false,
 	},
 });

@@ -725,6 +725,9 @@ monogatari.script ({
 		'jump Day10'
 	],
 	'Day9-1': [
+		'jump tiny-cat'
+	],
+	'tiny-cat-ending': [
 		'jump Day9-2'
 	],
 	'Day9-2': [
@@ -813,6 +816,9 @@ monogatari.script ({
 		'jump balcony4'
 	],
 	'Day11-4': [
+		'jump tiny-cat2'
+	],
+	'tiny-cat2-ending': [
 		'jump Day11-ending'
 	],
 

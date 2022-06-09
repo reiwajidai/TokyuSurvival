@@ -171,9 +171,19 @@
 		{'Function':{
 			'Apply':function(){
 				add_food(2);
+				monogatari.storage({
+					story:{
+						starve_sneak: true
+					}
+				});
 			},
 			'Reverse':function(){
                 add_food(-2);
+				monogatari.storage({
+					story:{
+						starve_sneak: false
+					}
+				});
 			},
 		}},
 		//'a 应该不会因为偷偷溜出去而被感染吧哈哈哈？',
@@ -191,7 +201,8 @@
 				add_food(2);
 				monogatari.storage({
 					story:{
-						starve_positive: true
+						starve_positive: true,
+						starve_sneak: true
 					}
 				});
 			},
@@ -199,7 +210,8 @@
                 add_food(-2);
 				monogatari.storage({
 					story:{
-						starve_positive: false
+						starve_positive: false,
+						starve_sneak: false
 					}
 				});
 			},
