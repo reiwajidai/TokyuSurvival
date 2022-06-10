@@ -171,33 +171,6 @@ monogatari.characters ({
 });
 
 monogatari.script ({
-	// Important: the destination must be correctly defined
-	'bureau-ending': [
-		'jump Day3-2'
-	],
-	'bureau2-ending': [
-		'jump Day4-2'
-	],
-	'bureau3-ending': [
-		'jump Day5-2'
-	],
-	'bureau4-ending': [
-		'jump Day6-2'
-	],
-	'bureau5-ending': [
-		'jump Day7-2'
-	],
-	'bureau6-ending': [
-		'jump Day8-4'
-	],
-	'bureau7-ending': [
-		'jump Day10-5'
-	],
-	'bureau8-ending': [
-		'jump Day14-4'
-	],
-
-
 	// The game starts here.
 	'bureau': [
 		'jump patrol'

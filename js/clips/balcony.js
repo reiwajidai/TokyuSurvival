@@ -121,23 +121,6 @@ monogatari.script ({
 		'jump balcony-ending',
 	],
 
-	'balcony-ending': [
-		// Important: the destination must be correctly defined
-		'jump Day5-4'
-	],
-	'balcony2-ending': [
-		// Important: the destination must be correctly defined
-		'jump Day8-5'
-	],
-	'balcony3-ending': [
-		// Important: the destination must be correctly defined
-		'jump Day9-4'
-	],
-	'balcony4-ending': [
-		// Important: the destination must be correctly defined
-		'jump Day11-4'
-	],
-
 	// day2
 	'balcony2': [
 		's 夜幕降临，你又听见宿舍阳台外面响起了呼喊声，你走到了阳台前',

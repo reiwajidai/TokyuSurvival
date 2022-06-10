@@ -52,22 +52,6 @@ monogatari.characters ({
 });
 
 monogatari.script ({
-	'exodus-ending': [
-		// Important: the destination must be correctly defined
-		'jump Day5-3'
-	],
-	'exodus2-ending': [
-		// Important: the destination must be correctly defined
-		'jump Day6-3'
-	],
-	'exodus3-ending': [
-		// Important: the destination must be correctly defined
-		'jump Day7-3'
-	],
-	'exodus4-ending': [
-		// Important: the destination must be correctly defined
-		'jump Day8-3'
-	],
 
 	// The game starts here.
 	'exodus': [

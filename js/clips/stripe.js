@@ -155,22 +155,6 @@ monogatari.action ('message').messages ({
 });
 
 monogatari.script ({
-    'stripe-ending': [
-        'qyc （截图：我现在很好，没有被处分）',
-        'qya 看来没事',
-        'qyc 保护我方队友',
-        'jump Day9-3',
-    ],
-    'stripe2-ending': [
-        'jump Day10-4',
-    ],
-    'stripe3-ending': [
-        'jump Day11-3',
-    ],
-    'stripe4-ending': [
-        'jump Day12-3',
-    ],
-
 
 	'stripe': [
         's 你收到一条图片信息',
@@ -215,6 +199,9 @@ monogatari.script ({
 				add_school(-1);
 			},
 		}},
+        'qyc （截图：我现在很好，没有被处分）',
+        'qya 看来没事',
+        'qyc 保护我方队友',
         'jump stripe-ending'
     ],
     'stripe-write': [
@@ -229,6 +216,9 @@ monogatari.script ({
                 add_care(-1);
 			},
 		}},
+        'qyc （截图：我现在很好，没有被处分）',
+        'qya 看来没事',
+        'qyc 保护我方队友',
         'jump stripe-ending'
     ],
 

@@ -56,19 +56,6 @@ monogatari.characters ({
 });
 
 monogatari.script ({
-	// 跳转设定
-	// Important: the destination must be correctly defined
-	'rainbow-ending': [
-		'jump Day2-3'
-	],
-
-	'rainbow2-ending': [
-		'jump Day3-4'
-	],
-
-	'rainbow3-ending': [
-		'jump Day4-4'
-	],
 
 	// day1 starts here.
 	'rainbow': [

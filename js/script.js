@@ -204,8 +204,8 @@ monogatari.action ('message').messages ({
 		title: '“足不出户”政策开始',
 		subtitle: '作为出现过阳性病例的楼宇，现进入更严格的封控状态。',
 		body: `
-			<p>在“足不出户”状态期间，由于憋得慌，每天晚上精神值会-1。</p>
-			<p>解除封控状态的时间并不清楚。</p>
+			<p>不能打水，不能洗衣服，第一批线上订购的物资滞留无法发放。满足最基本的需求都开始变得困难重重。</p>
+			<p>在“足不出户”状态期间，由于憋得慌，每天晚上精神值会-1。而且解除封控状态的时间并不清楚。</p>
 		`
 	},
 });
@@ -481,13 +481,10 @@ monogatari.script ({
 	'Day2-1': [
 		'jump starve'
 	],
-	'Day2-2': [
+	'starve-ending': [
 		'jump rainbow'
 	],
-	'Day2-3': [
-		'jump Day2-4'
-	],
-	'Day2-4': [
+	'rainbow-ending': [
 		'jump Day2-ending'
 	],
 
@@ -509,13 +506,13 @@ monogatari.script ({
 	'Day3-1': [
 		'jump bureau'
 	],
-	'Day3-2': [
+	'bureau-ending': [
 		'jump starve2'
 	],
-	'Day3-3': [
+	'starve2-ending': [
 		'jump rainbow2'
 	],
-	'Day3-4': [
+	'rainbow2-ending': [
 		'jump Day3-ending'
 	],
 
@@ -541,13 +538,16 @@ monogatari.script ({
 	'Day4-1': [
 		'jump bureau2'
 	],
-	'Day4-2': [
+	'bureau2-ending': [
+		'jump monopoly'
+	],
+	'monopoly-ending': [
 		'jump starve3'
 	],
-	'Day4-3': [
+	'starve3-ending': [
 		'jump rainbow3'
 	],
-	'Day4-4': [
+	'rainbow3-ending': [
 		'jump Day4-ending'
 	],
 
@@ -571,13 +571,13 @@ monogatari.script ({
 	'Day5-1': [
 		'jump bureau3'
 	],
-	'Day5-2': [
+	'bureau3-ending': [
 		'jump exodus'
 	],
-	'Day5-3': [
+	'exodus-ending': [
 		'jump balcony'
 	],
-	'Day5-4': [
+	'balcony-ending': [
 		'jump Day5-ending'
 	],
 
@@ -601,20 +601,20 @@ monogatari.script ({
 		'$ consume_food',
 		'i （今天就到这里吧）',
 		'$ ending_trigger',
+		's 这天晚上，你做了一个关于吃布朗尼蛋糕的美梦。',
 		'$ next_day',
-		
 		'jump Day7'
 	],
 	'Day6-1': [
 		'jump bureau4'
 	],
-	'Day6-2': [
+	'bureau4-ending': [
 		'jump exodus2'
 	],
-	'Day6-3': [
-		'jump Day6-4'
+	'exodus2-ending': [
+		'jump sakura'
 	],
-	'Day6-4': [
+	'sakura-ending': [
 		'jump Day6-ending'
 	],
 
@@ -649,13 +649,16 @@ monogatari.script ({
 	'Day7-1': [
 		'jump bureau5'
 	],
+	'bureau5-ending': [
+		'jump Day7-2'
+	],
 	'Day7-2': [
 		'jump exodus3'
 	],
-	'Day7-3': [
+	'exodus3-ending': [
 		'jump starve4'
 	],
-	'Day7-4': [
+	'starve4-ending': [
 		'jump Day7-ending'
 	],
 
@@ -686,16 +689,22 @@ monogatari.script ({
 		'jump Day9'
 	],
 	'Day8-1': [
-		'jump Day8-2'
+		'jump brownie'
 	],
-	'Day8-2': [
+	'brownie-ending': [
 		'jump exodus4'
 	],
-	'Day8-3': [
+	'exodus4-ending': [
 		'jump bureau6'
+	],
+	'bureau6-ending': [
+		'jump Day8-4'
 	],
 	'Day8-4': [
 		'jump balcony2'
+	],
+	'balcony2-ending': [
+		'jump Day8-5'
 	],
 	'Day8-5': [
 		'jump Day8-ending'
@@ -728,13 +737,13 @@ monogatari.script ({
 		'jump tiny-cat'
 	],
 	'tiny-cat-ending': [
-		'jump Day9-2'
-	],
-	'Day9-2': [
 		'jump stripe'
 	],
-	'Day9-3': [
+	'stripe-ending': [
 		'jump balcony3'
+	],
+	'balcony3-ending': [
+		'jump Day9-4'
 	],
 	'Day9-4': [
 		'jump Day9-ending'
@@ -771,11 +780,14 @@ monogatari.script ({
 	'Day10-2': [
 		'jump pork'
 	],
-	'Day10-3': [
+	'pork-ending': [
 		'jump stripe2'
 	],
-	'Day10-4': [
+	'stripe2-ending': [
 		'jump bureau7'
+	],
+	'bureau7-ending': [
+		'jump Day10-5'
 	],
 	'Day10-5': [
 		'jump Day10-ending'
@@ -809,13 +821,13 @@ monogatari.script ({
 	'Day11-1': [
 		'jump pork2'
 	],
-	'Day11-2': [
+	'pork2-ending': [
 		'jump stripe3'
 	],
-	'Day11-3': [
+	'stripe3-ending': [
 		'jump balcony4'
 	],
-	'Day11-4': [
+	'balcony4-ending': [
 		'jump tiny-cat2'
 	],
 	'tiny-cat2-ending': [
@@ -846,10 +858,7 @@ monogatari.script ({
 	'Day12-2': [
 		'jump stripe4'
 	],
-	'Day12-3': [
-		'jump Day12-4'
-	],
-	'Day12-4': [
+	'stripe4-ending': [
 		'jump Day12-ending'
 	],
 
@@ -871,15 +880,9 @@ monogatari.script ({
 		'jump Day14'
 	],
 	'Day13-1': [
-		'jump Day13-2'
-	],
-	'Day13-2': [
 		'jump pork3'
 	],
-	'Day13-3': [
-		'jump Day13-4'
-	],
-	'Day13-4': [
+	'pork3-ending': [
 		'jump Day13-ending'
 	],
 
@@ -898,22 +901,19 @@ monogatari.script ({
 		'jump Day15'
 	],
 	'Day14-1': [
-		'jump Day14-2'
-	],
-	'Day14-2': [
-		'jump Day14-3'
-	],
-	'Day14-3': [
 		'jump bureau8'
 	],
-	'Day14-4': [
+	'bureau8-ending': [
 		'jump unseen',
 	],
-	'Day14-5': [
+	'unseen-ending': [
 		'p 叮咚！',
 		's 佐佐木老师的每日问候又来了',
 		'show message Day14-letter',
 		'jump unseen2'
+	],
+	'unseen2-ending': [
+		'jump Day14-ending'
 	],
 
 

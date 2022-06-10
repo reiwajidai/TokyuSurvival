@@ -16,13 +16,6 @@ monogatari.characters ({
 });
 
 monogatari.script ({
-	// Important: the destination must be correctly defined
-	'unseen-ending': [
-		'jump Day14-5'
-	],
-    'unseen2-ending': [
-		'jump Day14-ending'
-	],
 
     // The game starts here.
     'unseen': [

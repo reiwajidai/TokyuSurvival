@@ -44,16 +44,6 @@ monogatari.action ('message').messages ({
 });
 
 monogatari.script ({
-    'pork-ending': [
-        'jump Day10-3',
-    ],
-    'pork2-ending': [
-        'jump Day11-2',
-    ],
-    'pork3-ending': [
-        'jump Day13-3',
-    ],
-
 
 	'pork': [
         's 某日中午吃饭',

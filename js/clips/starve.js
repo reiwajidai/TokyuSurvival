@@ -33,23 +33,6 @@
  **/
 
  monogatari.script ({
-	// Important: the destination must be correctly defined
-	'starve-ending': [
-		'jump Day2-2'
-	],
-	'starve2-ending': [
-		'jump Day3-3'
-	],
-	'starve3-ending': [
-		'jump Day4-3'
-	],
-	'starve4-ending': [
-		'jump Day7-4'
-	],
-	'starve5-ending': [
-		'jump Day6-4'
-	],
-
 
 	// Story [1] starts here.
 	'starve': [
@@ -261,12 +244,6 @@
 		'a 啊你…………怎么回事！',
 		's 向学校报告后，你马上被重新测试了核酸结果，核酸结果很快就会出。',
 		'jump starve4-ending'
-	],
-
-
-
-	'starve5': [
-		'jump starve5-ending'
 	],
 
 
