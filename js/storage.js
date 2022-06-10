@@ -54,6 +54,8 @@ monogatari.storage ({
         cat_positive: false,
         cat_escape:false, // 撸猫逃脱概率：60%
         antigen_call: false,
+        monopoly_bankrupt_escape: false, // 大富翁破产的逃脱概率：60%
+        // 综合运气王概率：14.4%
 	},
 });
 
