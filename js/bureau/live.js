@@ -74,7 +74,7 @@ monogatari.script ({
 				},
 				'No': {
 					'Text': '不听',
-					'Do': 'jump live-ending'
+					'Do': 'jump live-leader'
 				}
 			}
 		}
@@ -113,7 +113,7 @@ monogatari.script ({
 				},
 				'No': {
 					'Text': '什么都不做',
-					'Do': 'jump live-ending'
+					'Do': 'jump live-leader'
 				}
 			}
 		}
@@ -175,8 +175,73 @@ monogatari.script ({
 				add_sanity(1);
 			},
 		}},
-		'jump live-ending'
+		'jump live-leader'
 	],
 
+	'live-leader':[
+		{
+			'Conditional': {
+				'Condition': function(){
+					const {leader} = monogatari.storage('player');
+					return leader
+				},
+				'False': 'jump live-ending',
+				'True': 'next',
+			}
+		},
+		'p 叮咚！',
+		's 你打开手机发现，今晚的层长会议也将展开对于阳性病例的说明会',
+		'i 作为层长，我肯定得参加一下',
+		'show scence dorm with fadeIn duration 2s',
+		's 你刚进线上会议室，就听见其他层长要求水谷老师说明详细情况。',
+		'show character mizutani serious',
+		'cza 这一次的阳性病例，也是两天前发烧，学校今天才报，我们所有志愿者又在毫不知情的情况下干了两天！',
+		'czb 我们想问问老师：为什么不提前通知？',
+		'show character mizutani normal',
+		'mi 我在这里说明一下啊：该名同学住在4层，自前天晚间起体温偏高，体温自测38.3°C，伴有喉咙痛、全身酸痛等症状；昨晚前的历次核酸检测和自测抗原均为阴性，且发热之前未发现其他症状；',
+		'mi 而我们专班应对情况的第一个“手势”，就是加测抗原。',
+		'mi 昨天深夜，该名学生加测抗原结果显示异常，学校作出了代配药品及将该名学生转出宿舍的安排，于今日0:05转移至隔离点；并要求与该名同学14天内有过接触的师生紧急制动。',
+		'mi 今天上午，该名学生在集中隔离点再次测得抗原结果异常；',
+		'mi 今天下午17:40，发布了该名学生昨日下午核酸检测结果，显示异常，并再次复核核酸结果；',
+		'mi 学校经过流调确定了8名师生为该学生密接，今天晚20:00左右，以上8名师生被转运至隔离点；',
+		'mi 今天晚21:00该名学生被转运至东京方舱医院。',
+		'cza 老师，我们只是想问，发烧了，为什么不早点告诉我们？',
+		'mi 我们是严格按照相关“手势”操作的，为的就是保障同学们的安全……',
+		's 水谷老师又把他的“手势”内容详细地讲了一遍，你实在听不下去了，于是转头去问室友：',
+		'show scene dorm with fadeIn',
+		'i “手势”是个什么东西？',
+		'a 公务员体系里的黑话吧，类似于领导指示的东西？',
+		'i 呵，学到了学到了',
+		{
+			'Conditional': {
+				'Condition': function(){
+					const {school} = monogatari.storage('player');
+					return school<3
+				},
+				'True': 'i 真TM牛逼哦',
+				'False': 'next',
+			}
+		},
+		's 想到志愿者同学们再一次高危工作了两天，你不由得叹了口气（精神-1）',
+		{'Function':{
+			'Apply':function(){
+				add_sanity(-1);
+			},
+			'Reverse':function(){
+				add_sanity(1);
+			},
+		}},
+		{
+			'Conditional': {
+				'Condition': function(){
+					const {school} = monogatari.storage('player');
+					return school<3
+				},
+				'True': 's 当然更深层次的原因是，你觉得在水谷老师心里，“手势”比学生的健康更为重要。',
+				'False': 'next',
+			}
+		},
+		'jump live-ending'
+	]
 
 });
