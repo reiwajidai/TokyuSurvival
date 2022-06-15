@@ -80,7 +80,7 @@ monogatari.settings({
 	// Enables or disables the typing animation for the special centered
 	// character. If the TypeAnimation property was set to false, the centered
 	// character won't shown the animation even if this is set to true.
-	'CenteredTypeAnimation': true,
+	'CenteredTypeAnimation': false,
 
 	// Force some orientation on mobile devices. If this setting is set either
 	// to portrait or landscape, a warning message will be displayed so the
@@ -93,7 +93,7 @@ monogatari.settings({
 	// If this value is set to 0, no skipping will be allowed but if it's set
 	// to a higher number, skipping will be allowed and that value will be taken
 	// as the speed in milliseconds with which the game will skip through the script
-	'Skip': 0,
+	'Skip': 1,
 
 	// Define the directories where the assets are located. The root directory is
 	// the holder for the other asset specific directories, this directories are

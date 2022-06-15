@@ -27,6 +27,49 @@ monogatari.action ('message').messages ({
           <img src='./assets/gallery/virus.png' width="40">
         `
     },
+    'Ending-depressed': {
+        title: '结局：让我自闭',
+        subtitle: '你对这个世界感到失望，决定今后做一个自闭人。',
+        body: `
+          <p>然而，真的能找到可以完全自闭的桃花源吗？覆巢之下，岂有完卵？</p>
+          <p>（何不再玩一遍，尝试更多结局？）</p>
+          
+        `
+    },
+    'Ending-fight': {
+        title: '结局：永远的塔塔开星人',
+        subtitle: '你对这个世界感到失望，决定今后改变世界。',
+        body: `
+          <p>不得不说，这又是个全新的开始。无数的困难险阻正等着你，给予你一次又一次的失败。</p>
+          <p>但正如没有100%的成功，世上又哪有100%的失败呢？</p>
+          
+        `
+    },
+    'Ending-confused': {
+        title: '结局：迷惘',
+        subtitle: '你一方面觉得学校的运行法则没有问题，可另一方面，心中总有说不出的失落。',
+        body: `
+          <p></p>
+          <p>（何不再玩一遍，尝试更多结局？）</p>
+          
+        `
+    },
+    'Ending-reboot': {
+        title: '结局：新的征程',
+        subtitle: '好日子还在后头哩！',
+        body: `
+          <p>（何不再玩一遍，尝试更多结局？）</p>
+          <img src='./assets/gallery/flag.png' width="40">
+        `
+    },
+    'Ending-neutral': {
+        title: '结局：平安回家',
+        subtitle: '过往的三个月仿佛摁下了加速键，恍然若梦，雁过无痕。但这个梦，还会在某个黑夜重临吗？',
+        body: `
+          <p>（何不再玩一遍，尝试更多结局？）</p>
+          <img src='./assets/gallery/door.png' width="40">
+        `
+    },
 });
 
 
@@ -34,6 +77,11 @@ monogatari.action ('message').messages ({
 monogatari.assets ('gallery', {
     'pdf':'pdf.PNG',
     'positive':'positive.png',
+    'safe':'ending-safe.png',
+    'depressed':'ending-depressed.png',
+    'confused':'ending-confused.png',
+    'reboot':'ending-reboot.png',
+    'fight':'ending-fight.png',
 });
 
 
@@ -48,6 +96,74 @@ monogatari.characters ({
 
 
 monogatari.script ({
+    'ending-choose': [
+        {
+			'Conditional': {
+				'Condition': function(){
+					let {school} = monogatari.storage('player');
+                    let {sanity} = monogatari.storage('player');
+					if(sanity < 3 && school < 1) {
+                        return "depressed";
+                    } else if (sanity > 6 && school < 1) {
+                        return "fight";
+                    } else if (sanity < 3 && school > 6) {
+                        return "confused";
+                    } else if (sanity >= 5 && school > 6) {
+                        return "reboot";
+                    }  else {
+                        return 'neutral';
+                    }
+				},
+				'depressed': 'jump ending-depressed',
+                'fight': 'jump ending-fight',
+				'confused': 'jump ending-confused',
+                'reboot': 'jump ending-reboot',
+                'neutral': 'jump ending-neutral',
+			}
+		},
+    ],
+    'ending-story':[
+        'show scene #000000 with fadeIn',
+        'nvl <p></p>话说回故事开头的道人身上：自从道人推出网页游戏后，便有一好奇之人，上来便寻根究底。道人笑答：假语村言而已。酒余饭饱之时，同消寂寞罢了。',
+        'nvl 好奇之人怒道：不但作者不知，抄着不知，并阅者也不知。何其敷衍荒唐！不行，今天一定得找出个罪魁祸首来！',
+        'nvl 说罢便想将道人扭送官府，不料道人掏出通关文牒，原来是西洋的道人，皆大欢喜。',
+        'nvl 后人见了这部游戏，亦曾题过四句：说到心酸动情处，荒唐可悲亦可笑。由来本是虚妄梦，休怪世人瞎胡闹！',
+        'nvl (点击结束游戏)',
+        'end',
+    ],
+    'ending-depressed':[
+        's 你对这个世界感到失望，决定今后做一个自闭人。',
+        'show message Ending-depressed',
+        'gallery unlock depressed',
+        'jump ending-story',
+    ],
+    'ending-fight':[
+        's 你对这个世界感到失望，决定今后改变世界。',
+        'show message Ending-fight',
+        'gallery unlock fight',
+        'jump ending-story',
+    ],
+    'ending-confused':[
+        's 封闭结束了，你依然觉得学校那么好，可眼里为何常含泪水？',
+        'show message Ending-confused',
+        'gallery unlock confused',
+        'jump ending-story',
+    ],
+    'ending-reboot':[
+        's 封闭结束了，你觉得一切都没什么大不了，好日子还在后头哩！',
+        'show message Ending-reboot',
+        'gallery unlock reboot',
+        'jump ending-story',
+    ],
+    'ending-neutral':[
+        'show scene #000000 with fadeIn',
+        's 你平安回家，见到爸妈时，觉得过往的三个月仿佛像是摁下了加速键，雁过无痕。',
+        'show message Ending-neutral',
+        'gallery unlock safe',
+        'jump ending-story',
+    ],
+
+    // 破大防结局
     'ending-pdf': [
         's 你在床上辗转反侧，睡也睡不着，只觉得心里发慌。突然你坐了起来，冲出寝室，在楼道里大喊：',
         'i 我受不了了！我要叫老师！直接打110！打12345！',
@@ -83,8 +199,9 @@ monogatari.script ({
         'show message Ending-pdf',
         'gallery unlock pdf',
 
-        'end',
+        'jump ending-story',
     ],
+    // 阳性结局
     'ending-positive':[
         's 不幸的是，你的核酸结果复核为阳性',
         'show scene #000000 with fadeIn',
@@ -116,6 +233,6 @@ monogatari.script ({
         'show message Ending-positive',
         'gallery unlock positive',
 
-        'end',
+        'jump ending-story',
     ],
 })

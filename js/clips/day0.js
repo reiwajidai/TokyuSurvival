@@ -16,7 +16,7 @@
 
 // Define the images that will be available on your game's image gallery
 monogatari.assets ('gallery', {
-	'badge':'badge.jpg',
+	'badge':'badge.png',
 });
 
 // Define the messages used in the game.
@@ -27,7 +27,7 @@ monogatari.action ('message').messages ({
 		body: `
 			<p>除了可以在主菜单的“画廊”里查看之外，这个玩意儿没有任何功能。</p>
 			<p>但缺少它的话，我想没人会承认我是个东急学子。</p>
-			<img src='./assets/gallery/badge.jpg' width="40">
+			<img src='./assets/gallery/badge.png' width="40">
 		`
 	},
 });

@@ -924,8 +924,7 @@ monogatari.script ({
 	'Day15-ending': [
 		'$ consume_food',
 		'i （今天就到这里吧）',
-		'$ ending_trigger',
-		'end'
+		'jump ending-choose',
 	],
 	'Day15-1': [
 		'jump Day15-2'
