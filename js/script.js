@@ -785,9 +785,9 @@ monogatari.script ({
 		'jump bureau7'
 	],
 	'bureau7-ending': [
-		'jump Day10-5'
+		'jump socialmedia-sasaki',
 	],
-	'Day10-5': [
+	'socialmedia-sasaki-ending': [
 		'jump Day10-ending'
 	],
 
@@ -829,6 +829,9 @@ monogatari.script ({
 		'jump tiny-cat2'
 	],
 	'tiny-cat2-ending': [
+		'jump socialmedia-mizutani'
+	],
+	'socialmedia-mizutani-ending': [
 		'jump Day11-ending'
 	],
 

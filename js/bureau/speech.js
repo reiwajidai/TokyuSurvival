@@ -229,17 +229,15 @@ monogatari.assets ('gallery', {
 		'hide character it',
 		's 你与伊东老师发生了激烈的语言冲突，水谷老师非常生气，命令你退出会议冷静冷静。',
 		'show scene dorm',
-		's 你气冲冲地退出了会议，但你同时觉得好歹出了一口气（精神+1）',
+		's 你气冲冲地退出了会议',
 		{'Function':{
 			'Apply':function(){
 				add_school(-1);
 				add_care(1);
-				add_sanity(1);
 			},
 			'Reverse':function(){
 				add_school(1);
 				add_care(-1);
-				add_sanity(-1);
 			},
 		}},
 		'jump speech-ending'
@@ -334,7 +332,7 @@ monogatari.assets ('gallery', {
 			'Choice': {
 				'Dialog': 's 你觉得你之前的耐心解释似乎都白费了，你真的很想骂人，你要怎么办？？',
 				'yes': {
-					'Text': '管不了了！开骂！（精神+1）',
+					'Text': '管不了了！开骂！',
 					'Do': 'jump speech-conflict2',
 					'Condition': function(){
 						const {school} = monogatari.storage('player');

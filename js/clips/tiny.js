@@ -18,6 +18,26 @@ monogatari.characters ({
 
 });
 
+// Define the messages used in the game.
+monogatari.action ('message').messages ({
+	'socialmedia-sasaki': {
+		title: '推特动态',
+		subtitle: '来自: 佐佐木美智子 凌晨00:30',
+		body: `
+			<p>艰难时期，该如何平心静气？</p>
+			<p>（配图：佐佐木老师手抄的《金刚经》）</p>
+		`
+	},
+	'socialmedia-mizutani': {
+		title: '推特动态',
+		subtitle: '来自: 水谷虎 晚上23:30',
+		body: `
+			<p>封校也不能忘记锻炼身体！</p>
+			<p>（配图：水谷虎老师的哑铃和瑜伽垫）</p>
+		`
+	},
+});
+
 monogatari.script ({
 
 	'tiny-cat': [
@@ -265,6 +285,19 @@ monogatari.script ({
 		's 不幸的是，虽然你一开始抢到了高价值地块，但你中途现金流断裂，在游戏遗憾破产败北。',
 		'i 真不走运，下次有机会再玩吧！',
 		'jump monopoly-ending'
+	],
+
+	'socialmedia-sasaki': [
+		'p 叮咚！',
+		's 你在玩手机时，无意间刷到了佐佐木老师在Twitter上的动态',
+		'show message socialmedia-sasaki',
+		'jump socialmedia-sasaki-ending',
+	],
+	'socialmedia-mizutani': [
+		'p 叮咚！',
+		's 你在玩手机时，凑巧刷到了水谷老师在Twitter上的动态',
+		'show message socialmedia-mizutani',
+		'jump socialmedia-mizutani-ending',
 	],
 
 });

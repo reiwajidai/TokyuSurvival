@@ -61,7 +61,7 @@ monogatari.script ({
 			'Conditional': {
 				'Condition': function(){
 					const {school} = monogatari.storage('player');
-					return school>=5;
+					return school<2;
 				},
 				'True': 'i 还真要跟他们一起“且颂嵩高”？我呸！',
 				'False': 'i 这跟我又有什么关系呢？',
@@ -107,7 +107,7 @@ monogatari.script ({
 	],
     'awarding-leader-school': [
 		'sa 获得优秀层长的同学是：{{player.name}}同学!这位同学将获得薯片一包、可乐一瓶！（物资+2）',
-        's 你的心里感到无比开心与自豪（精神+1）',
+        's 你感到无比开心与自豪（精神+1）',
 		{'Function':{
 			'Apply':function(){
 				add_food(2);
@@ -207,7 +207,7 @@ monogatari.script ({
 		'i 这信根本没几个人认真看……',
 		'show character a normal',
 		'a 当然没几个人认真看，但是她不得不写。',
-		'a 她好像是学校里新来的行政老师，既不像位高权重的水谷那样可以调动各种资源来做决策，又不像以科研为主业的伊东那样可以划水。',
+		'a 她好像是学校里新来的行政老师，既不像位高权重的水谷那样可以调动各种资源，又不像以科研为主业的伊东那样可以划水。',
 		'a 为了能在考核评估中不被垫底，她必须以适合自己的方式做出“成绩”：写信、组织表彰大会、拍宣传视频，都是这样子。',
 		'i 对啊，我这段时间看到社交媒体上好多年轻的行政老师深夜破防了……',
 		'i 为什么基层老师和学生都很累，都做了很多，但大家最后都不满意呢？',

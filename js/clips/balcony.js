@@ -396,10 +396,44 @@ monogatari.script ({
 	],
 	'balcony4-yell': [
 		'i 去tm的，这时候不喊，什么时候喊？',
-		's 到了晚上八点的时候，你走到窗台前，大喊：',
+		'show scene #000000 with fadeIn duration 2s',
+		's 到了晚上八点的时候，你走到窗台前，面对夜空大喊：',
 		'i 东！急！道！歉！',
-		'i 不！要！问！题！肉！',
 		's 空荡荡的夜空，传来几声零星的回应',
+		{
+			'Choice': {
+				'Dialog': 'i 你选择……',
+				'yell': {
+					'Text': '再喊',
+					'Do': 'jump balcony4-yell2',
+				},
+				'noyell': {
+					'Text': '不喊了',
+					'Do': 'next'
+				},
+			}
+		},
+		'a 好像真正喊楼的人也不太多欸……',
+		'i 没关系，也是意料之中吧！',
+		'show scene dorm',
+		'jump balcony4-ending',
+	],
+	'balcony4-yell2': [
+		'i 不！要！问！题！肉！',
+		's 空荡荡的夜空，好像并没有什么反应',
+		{
+			'Choice': {
+				'Dialog': 'i 你选择……',
+				'yell': {
+					'Text': '再喊',
+					'Do': 'jump balcony4-yell3',
+				},
+				'notyell': {
+					'Text': '不喊了，我自己爽了就行',
+					'Do': 'next'
+				},
+			}
+		},
 		'a 好像真正喊楼的人也不太多欸……',
 		'i 没关系，我自己爽了就行',
 		{'Function':{
@@ -412,6 +446,89 @@ monogatari.script ({
 				add_care(-1);
 			},
 		}},
+		'show scene dorm',
+		'jump balcony4-ending',
+	],
+	'balcony4-yell3': [
+		'i 东！急！道！歉！',
+		'i 不！要！问！题！肉！',
+		'a 东！急！道！歉！',
+		'a 不！要！问！题！肉！',
+		's 你的室友跟你一起喊了起来，但空荡荡的夜空，依然是零星的回应',
+		'a:sad 好像真正喊楼的人也不太多欸……',
+		'i 的确，但我依然还是要喊',
+		'i 毕竟，如果多一个人喊楼，喊楼的同学就会少一分被老师批评的风险，法不责众嘛',
+		'a:sad 但我还是觉得很失望……东急好歹也是东京七大高校，学生居然是这么个怂样……',
+		'a:sad 学生时代尚且如此，步入社会之后呢？',
+		'a:sad 唉，没救了……',
+		{
+			'Choice': {
+				'Dialog': 's 你该怎么接你室友的话？',
+				'normal': {
+					'Text': '喊的人少是很正常的……',
+					'Do': 'jump balcony4-positive',
+				},
+				'negative': {
+					'Text': '我也觉得没救了，我们就没必要喊楼',
+					'Do': 'jump balcony4-negative',
+					'Condition': function(){
+						const {sanity} = monogatari.storage('player');
+						return sanity < 5;
+					}
+				},
+				'silence': {
+					'Text': '不说话，与他一起沉默',
+					'Do': 'next'
+				},
+			}
+		},
+		's 你跟室友一同陷入沉默',
+		{'Function':{
+			'Apply':function(){
+				add_care(1);
+			},
+			'Reverse':function(){
+				add_care(-1);
+			},
+		}},
+		'show scene dorm',
+		'jump balcony4-ending',
+	],
+	'balcony4-negative': [
+		'i 对啊，确实没救了……我们就没必要喊楼，反正结局都是这样……',
+		's 你跟室友一同陷入沉默，你感到有一些难过（精神-1）',
+		{'Function':{
+			'Apply':function(){
+				add_sanity(-1);
+				add_care(1);
+			},
+			'Reverse':function(){
+				add_sanity(1);
+				add_care(-1);
+			},
+		}},
+		'show scene dorm',
+		'jump balcony4-ending',
+	],
+	'balcony4-positive': [
+		'i 喊的人少也很正常的。毕竟大家互相都不怎么认识，哪有那么容易说喊就喊？',
+		'i 再说了，平心而论，校园学生还远没有某些东京市民过的惨。真逼急了，敲锣打鼓的事都还是做得出来',
+		'i 你也别丧气，经此一役，说不定有的同学步入社会后，再遇到类似事件时，反而更有心理准备了呢',
+		'i 我们什么大风大浪没见过呢？你说对吧？',
+		'a:happy 哈哈哈，说的也是',
+		'a:happy “西方哪个国家我没去过？见的多啦！”',
+		's 看着室友振作起来，你感觉开心了一些（精神+1）',
+		{'Function':{
+			'Apply':function(){
+				add_sanity(1);
+				add_care(1);
+			},
+			'Reverse':function(){
+				add_sanity(-1);
+				add_care(-1);
+			},
+		}},
+		'show scene dorm',
 		'jump balcony4-ending',
 	],
 });
