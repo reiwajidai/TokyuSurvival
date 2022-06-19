@@ -79,11 +79,11 @@ monogatari.script ({
 					'Text': '就叫我寄寄吧',
 					'Do': 'jump Day0-not-enter-name'
 				},
-				'report': {
-					'Text': '就叫我彩虹糖寄寄吧',
-					'Do': 'jump Day0-not-enter-name',
+				'test': {
+					'Text': '就叫我测试员寄寄吧',
+					'Do': 'jump Day0-tester',
 					'Condition': function(){
-						const r = check_gallery('rainbow');
+						const r = check_gallery('badge');
 						return r;
 					}
 				},
@@ -155,7 +155,223 @@ monogatari.script ({
 		'fdy 好你可以回寝室啦',
 		'i 嗯嗯谢谢老师~',
 		'jump Day0-ending'
-	]
+	],
 
-
+	'Day0-tester':[
+		{'Function':{
+			'Apply':function(){
+				monogatari.storage({
+					player:{
+						name: '测试员寄寄'
+					}
+				});
+				return true;
+			},
+			'Reverse':function(){
+				monogatari.storage({
+					player:{
+						name: ''
+					}
+				});
+			},
+		}},
+		{
+			'Choice': {
+				'Dialog': 'i 测试员可以进入时光机，直达……',
+				'e1': {
+					'Text': '第12天',
+					'Do': 'jump test-day12'
+				},
+				'e2': {
+					'Text': '第9天',
+					'Do': 'jump test-day9',
+				},
+				'e3': {
+					'Text': '第6天',
+					'Do': 'jump test-day6',
+				},
+			}
+		},
+	],
+	'test-day12':[
+		{
+			'Choice': {
+				'Dialog': 'i 测试员可以选择预期结局',
+				'e1': {
+					'Text': '第12天，普通结局',
+					'Do': 'jump test-normal'
+				},
+				'e2': {
+					'Text': '第12天，自闭结局',
+					'Do': 'jump test-depressed'
+				},
+				'e3': {
+					'Text': '第12天，塔塔开结局',
+					'Do': 'jump test-fight',
+				},
+				'e4': {
+					'Text': '第12天，赢麻结局',
+					'Do': 'jump test-reboot',
+				},
+				'e5': {
+					'Text': '第12天，迷惘结局',
+					'Do': 'jump test-confused',
+				},
+			}
+		},
+	],
+	'test-normal':[
+		{'Function':{
+			'Apply':function(){
+				monogatari.storage({
+					player:{
+						name: '测试员寄寄',
+						sanity: 4,
+						school: 2,
+						day: 12,
+						leader: true,
+					}
+				});
+				monogatari._actions[0]._configuration.objects.stats.props.drawText();
+    			monogatari._actions[0]._configuration.objects.greys.props.draw();
+				return true;
+			},
+			'Reverse':function(){
+				return 0;
+			},
+		}},
+		'jump Day12',
+	],
+	'test-depressed':[
+		{'Function':{
+			'Apply':function(){
+				monogatari.storage({
+					player:{
+						name: '测试员寄寄',
+						sanity: 1,
+						school: 0,
+						day: 12,
+						leader: true,
+					}
+				});
+				monogatari._actions[0]._configuration.objects.stats.props.drawText();
+    			monogatari._actions[0]._configuration.objects.greys.props.draw();
+				return true;
+			},
+			'Reverse':function(){
+				return 0;
+			},
+		}},
+		'jump Day12',
+	],
+	'test-confused':[
+		{'Function':{
+			'Apply':function(){
+				monogatari.storage({
+					player:{
+						name: '测试员寄寄',
+						sanity: 1,
+						school: 8,
+						day: 12,
+						leader: true,
+					}
+				});
+				monogatari._actions[0]._configuration.objects.stats.props.drawText();
+    			monogatari._actions[0]._configuration.objects.greys.props.draw();
+				return true;
+			},
+			'Reverse':function(){
+				return 0;
+			},
+		}},
+		'jump Day12',
+	],
+	'test-fight':[
+		{'Function':{
+			'Apply':function(){
+				monogatari.storage({
+					player:{
+						name: '测试员寄寄',
+						sanity: 8,
+						school: 0,
+						day: 12,
+						leader: true,
+					}
+				});
+				monogatari._actions[0]._configuration.objects.stats.props.drawText();
+    			monogatari._actions[0]._configuration.objects.greys.props.draw();
+				return true;
+			},
+			'Reverse':function(){
+				return 0;
+			},
+		}},
+		'jump Day12',
+	],
+	'test-reboot':[
+		{'Function':{
+			'Apply':function(){
+				monogatari.storage({
+					player:{
+						name: '测试员寄寄',
+						sanity: 8,
+						school: 8,
+						day: 12,
+						leader: true,
+					}
+				});
+				monogatari._actions[0]._configuration.objects.stats.props.drawText();
+    			monogatari._actions[0]._configuration.objects.greys.props.draw();
+				return true;
+			},
+			'Reverse':function(){
+				return 0;
+			},
+		}},
+		'jump Day12',
+	],
+	'test-day9':[
+		{'Function':{
+			'Apply':function(){
+				monogatari.storage({
+					player:{
+						name: '测试员寄寄',
+						sanity: 5,
+						school: 3,
+						day: 9,
+						leader: true,
+					}
+				});
+				monogatari._actions[0]._configuration.objects.stats.props.drawText();
+    			monogatari._actions[0]._configuration.objects.greys.props.draw();
+				return true;
+			},
+			'Reverse':function(){
+				return 0;
+			},
+		}},
+		'jump Day9',
+	],
+	'test-day6':[
+		{'Function':{
+			'Apply':function(){
+				monogatari.storage({
+					player:{
+						name: '测试员寄寄',
+						sanity: 5,
+						school: 3,
+						day: 6,
+						leader: true,
+					}
+				});
+				monogatari._actions[0]._configuration.objects.stats.props.drawText();
+    			monogatari._actions[0]._configuration.objects.greys.props.draw();
+				return true;
+			},
+			'Reverse':function(){
+				return 0;
+			},
+		}},
+		'jump Day6',
+	],
 });

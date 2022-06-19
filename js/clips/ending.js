@@ -97,6 +97,9 @@ monogatari.characters ({
 
 monogatari.script ({
     'ending-choose': [
+        's 今天是离校回家的日子，你昨晚收好了行李，今天起了一个大早，踏上了离校的大巴车',
+        'show scene street',
+        's 在大巴车上，你隔着窗玻璃，看着仍处于静态管理之下的东京。东京的街道上空无一人，店铺紧闭，你觉得你仿佛闯入了一个尚未加载完全的电脑游戏。你不禁浮想联翩……',
         {
 			'Conditional': {
 				'Condition': function(){
@@ -157,7 +160,7 @@ monogatari.script ({
     ],
     'ending-neutral':[
         'show scene #000000 with fadeIn',
-        's 你平安回家，见到爸妈时，觉得过往的三个月仿佛像是摁下了加速键，雁过无痕。',
+        's 经过一路颠簸，你平安回家，见到爸妈时，觉得过往的三个月仿佛像是摁下了加速键，雁过无痕。',
         'show message Ending-neutral',
         'gallery unlock safe',
         'jump ending-story',

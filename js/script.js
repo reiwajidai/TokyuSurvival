@@ -20,6 +20,14 @@ monogatari.action ('message').messages ({
 			<p>物资x{{player.food}}</p>
 		`
 	},
+	'Final-Day-start': {
+		title: '第{{player.day}}天',
+		subtitle: '今天是最后一天，看看你的状态和物品如何',
+		body: `
+			<p>健康值={{player.health}} 精神值={{player.sanity}}</p>
+			<p>物资x{{player.food}}</p>
+		`
+	},
 	'Day2-eat': {
 		title: '进食的妙用',
 		subtitle: '每天晚上，玩家可通过消耗“物资”点数来完成进食。',
@@ -455,15 +463,6 @@ monogatari.script ({
 		'i 又是一觉睡到中午了！下午干啥呢？',
 		'jump Day2-1'
 	],
-	'Day2-ending': [
-		'show message Day2-eat',
-		'$ consume_food',
-		'show scene #000000 with fadeIn duration 1s',
-		'i （今天就到这里吧）',
-		'$ ending_trigger',
-		'$ next_day',
-		'jump Day3'
-	],
 	'Day2-1': [
 		'jump starve'
 	],
@@ -473,6 +472,15 @@ monogatari.script ({
 	'rainbow-ending': [
 		'jump Day2-ending'
 	],
+	'Day2-ending': [
+		'show message Day2-eat',
+		'$ consume_food',
+		'show scene #000000 with fadeIn duration 1s',
+		'i （今天就到这里吧）',
+		'$ ending_trigger',
+		'$ next_day',
+		'jump Day3'
+	],
 
 	//==========================Day 3===============================
 	'Day3': [
@@ -480,14 +488,6 @@ monogatari.script ({
 		'show message Day-start',
 		'jump Day3-1'
 	
-	],
-	'Day3-ending': [
-		'$ consume_food',
-		'show scene #000000 with fadeIn duration 1s',
-		'i （今天就到这里吧）',
-		'$ ending_trigger',
-		'$ next_day',
-		'jump Day4'
 	],
 	'Day3-1': [
 		'jump bureau'
@@ -504,25 +504,20 @@ monogatari.script ({
 	'rainbow2-ending': [
 		'jump Day3-ending'
 	],
+	'Day3-ending': [
+		'$ consume_food',
+		'show scene #000000 with fadeIn duration 1s',
+		'i （今天就到这里吧）',
+		'$ ending_trigger',
+		'$ next_day',
+		'jump Day4'
+	],
 
 	//==========================Day 4===============================
 	'Day4': [
 		'show scene dorm with fadeIn',
 		'show message Day-start',
 		'jump Day4-1'
-	],
-	'Day4-ending': [
-		'p 叮咚！',
-		's 在手机群聊里，你收到了一封来自驻楼老师的信',
-		'show message Day4-letter',
-		'a 佐佐木老师……这交流形式还挺有意思的啊',
-		'a 不过这人工叫早服务是什么鬼东西？',
-		'$ consume_food',
-		'show scene #000000 with fadeIn duration 1s',
-		'i （今天就到这里吧）',
-		'$ ending_trigger',
-		'$ next_day',
-		'jump Day5'
 	],
 	'Day4-1': [
 		'jump bureau2'
@@ -542,23 +537,26 @@ monogatari.script ({
 	'rainbow3-ending': [
 		'jump Day4-ending'
 	],
+	'Day4-ending': [
+		'p 叮咚！',
+		's 在手机群聊里，你收到了一封来自驻楼老师的信',
+		'show message Day4-letter',
+		'a 佐佐木老师……这交流形式还挺有意思的啊',
+		'a 不过这人工叫早服务是什么鬼东西？',
+		'$ consume_food',
+		'show scene #000000 with fadeIn duration 1s',
+		'i （今天就到这里吧）',
+		'$ ending_trigger',
+		'$ next_day',
+		'jump Day5'
+	],
+
 
 	//==========================Day 5===============================
 	'Day5': [
 		'show scene dorm with fadeIn',
 		'show message Day-start',
 		'jump Day5-1'
-	],
-	'Day5-ending': [
-		'p 叮咚！',
-		's 你又收到了一封来自佐佐木老师的信',
-		'show message Day5-letter',
-		'a 新来一个水谷，一个伊东……不知道会搞出什么名堂呢',
-		'$ consume_food',
-		'i （今天就到这里吧）',
-		'$ ending_trigger',
-		'$ next_day',
-		'jump Day6'
 	],
 	'Day5-1': [
 		'jump bureau3'
@@ -575,30 +573,24 @@ monogatari.script ({
 	'balcony-ending': [
 		'jump Day5-ending'
 	],
+	'Day5-ending': [
+		'p 叮咚！',
+		's 你又收到了一封来自佐佐木老师的信',
+		'show message Day5-letter',
+		'a 新来一个水谷，一个伊东……不知道会搞出什么名堂呢',
+		'$ consume_food',
+		'show scene #000000 with fadeIn duration 1s',
+		'i （今天就到这里吧）',
+		'$ ending_trigger',
+		'$ next_day',
+		'jump Day6'
+	],
 
 	//==========================Day 6===============================
 	'Day6': [
 		'show scene dorm with fadeIn',
 		'show message Day-start',
 		'jump Day6-1'
-	],
-	'Day6-ending': [
-		'show message Day6-sanity',
-		's 到了晚上，你辗转反侧，为封控的状态而忧愁。（精神-1）',
-		{'Function':{
-			'Apply':function(){
-				add_sanity(-1);
-			},
-			'Reverse':function(){
-				add_sanity(1);
-			},
-		}},
-		'$ consume_food',
-		'i （今天就到这里吧）',
-		'$ ending_trigger',
-		's 这天晚上，你做了一个关于吃布朗尼蛋糕的美梦。',
-		'$ next_day',
-		'jump Day7'
 	],
 	'Day6-1': [
 		'jump bureau4'
@@ -615,6 +607,25 @@ monogatari.script ({
 	'sakura-ending': [
 		'jump Day6-ending'
 	],
+	'Day6-ending': [
+		'show message Day6-sanity',
+		's 到了晚上，你辗转反侧，为封控的状态而忧愁。（精神-1）',
+		{'Function':{
+			'Apply':function(){
+				add_sanity(-1);
+			},
+			'Reverse':function(){
+				add_sanity(1);
+			},
+		}},
+		'$ consume_food',
+		'show scene #000000 with fadeIn duration 1s',
+		'i （今天就到这里吧）',
+		'$ ending_trigger',
+		's 这天晚上，你做了一个关于吃布朗尼蛋糕的美梦。',
+		'$ next_day',
+		'jump Day7'
+	],
 
 
 	// ========================== Day 7 ===============================
@@ -622,6 +633,21 @@ monogatari.script ({
 		'show scene dorm with fadeIn',
 		'show message Day-start',
 		'jump Day7-1'
+	],
+	'Day7-1': [
+		'jump bureau5'
+	],
+	'bureau5-ending': [
+		'jump exodus3'
+	],
+	'exodus3-ending': [
+		'jump unseen5'
+	],
+	'unseen5-ending': [
+		'jump starve4'
+	],
+	'starve4-ending': [
+		'jump Day7-ending'
 	],
 	'Day7-ending': [
 		'p 叮咚！',
@@ -639,25 +665,11 @@ monogatari.script ({
 			},
 		}},
 		'$ consume_food',
+		'show scene #000000 with fadeIn duration 1s',
 		'i （今天就到这里吧）',
 		'$ ending_trigger',
 		'$ next_day',
 		'jump Day8'
-	],
-	'Day7-1': [
-		'jump bureau5'
-	],
-	'bureau5-ending': [
-		'jump exodus3'
-	],
-	'exodus3-ending': [
-		'jump unseen5'
-	],
-	'unseen5-ending': [
-		'jump starve4'
-	],
-	'starve4-ending': [
-		'jump Day7-ending'
 	],
 
 	// ========================== Day 8 ===============================
@@ -665,29 +677,6 @@ monogatari.script ({
 		'show scene dorm with fadeIn',
 		'show message Day-start',
 		'jump Day8-1'
-	],
-	'Day8-ending': [
-		'p 叮咚！',
-		's 佐佐木老师的每日问候又来了',
-		'show message Day8-letter',	
-		'i 这个信里的hxd是个啥？',
-		'a “好兄弟”的拼音首字母',
-		'i 哦哦……哈，哈哈。',
-		'show scene #000000 with fadeIn',
-		's 到了晚上，你辗转反侧，为封控的状态而忧愁。（精神-1）',
-		{'Function':{
-			'Apply':function(){
-				add_sanity(-1);
-			},
-			'Reverse':function(){
-				add_sanity(1);
-			},
-		}},
-		'$ consume_food',
-		'i （今天就到这里吧）',
-		'$ ending_trigger',
-		'$ next_day',
-		'jump Day9'
 	],
 	'Day8-1': [
 		'jump brownie'
@@ -707,15 +696,14 @@ monogatari.script ({
 	'balcony2-ending': [
 		'jump Day8-ending'
 	],
-
-
-    // ========================== Day 9 ===============================
-	'Day9': [
-		'show scene dorm with fadeIn',
-		'show message Day-start',
-		'jump Day9-1'
-	],
-	'Day9-ending': [
+	'Day8-ending': [
+		'p 叮咚！',
+		's 佐佐木老师的每日问候又来了',
+		'show message Day8-letter',	
+		'i 这个信里的hxd是个啥？',
+		'a “好兄弟”的拼音首字母',
+		'i 哦哦……哈，哈哈。',
+		'show scene #000000 with fadeIn',
 		's 到了晚上，你辗转反侧，为封控的状态而忧愁。（精神-1）',
 		{'Function':{
 			'Apply':function(){
@@ -726,10 +714,19 @@ monogatari.script ({
 			},
 		}},
 		'$ consume_food',
+		'show scene #000000 with fadeIn duration 1s',
 		'i （今天就到这里吧）',
 		'$ ending_trigger',
 		'$ next_day',
-		'jump Day10'
+		'jump Day9'
+	],
+
+
+    // ========================== Day 9 ===============================
+	'Day9': [
+		'show scene dorm with fadeIn',
+		'show message Day-start',
+		'jump Day9-1'
 	],
 	'Day9-1': [
 		'jump tiny-cat'
@@ -746,12 +743,45 @@ monogatari.script ({
 	'Day9-4': [
 		'jump Day9-ending'
 	],
+	'Day9-ending': [
+		's 到了晚上，你辗转反侧，为封控的状态而忧愁。（精神-1）',
+		{'Function':{
+			'Apply':function(){
+				add_sanity(-1);
+			},
+			'Reverse':function(){
+				add_sanity(1);
+			},
+		}},
+		'$ consume_food',
+		'show scene #000000 with fadeIn duration 1s',
+		'i （今天就到这里吧）',
+		'$ ending_trigger',
+		'$ next_day',
+		'jump Day10'
+	],
+
 
 	// ========================== Day 10 ===============================
 	'Day10': [
 		'show scene dorm with fadeIn',
 		'show message Day-start',
 		'jump Day10-1'
+	],
+	'Day10-1': [
+		'jump pork'
+	],
+	'pork-ending': [
+		'jump stripe2'
+	],
+	'stripe2-ending': [
+		'jump bureau7'
+	],
+	'bureau7-ending': [
+		'jump socialmedia-sasaki',
+	],
+	'socialmedia-sasaki-ending': [
+		'jump Day10-ending'
 	],
 	'Day10-ending': [
 		'p 叮咚！',
@@ -767,28 +797,11 @@ monogatari.script ({
 			},
 		}},
 		'$ consume_food',
+		'show scene #000000 with fadeIn duration 1s',
 		'i （今天就到这里吧）',
 		'$ ending_trigger',
 		'$ next_day',
 		'jump Day11'
-	],
-	'Day10-1': [
-		'jump Day10-2'
-	],
-	'Day10-2': [
-		'jump pork'
-	],
-	'pork-ending': [
-		'jump stripe2'
-	],
-	'stripe2-ending': [
-		'jump bureau7'
-	],
-	'bureau7-ending': [
-		'jump socialmedia-sasaki',
-	],
-	'socialmedia-sasaki-ending': [
-		'jump Day10-ending'
 	],
 
 	// ========================== Day 11 ===============================
@@ -796,25 +809,6 @@ monogatari.script ({
 		'show scene dorm with fadeIn',
 		'show message Day-start',
 		'jump Day11-1'
-	],
-	'Day11-ending': [
-		'p 叮咚！',
-		's 佐佐木老师的每日问候又来了',
-		'show message Day11-letter',	
-		's 到了晚上，你辗转反侧，为封控的状态而忧愁。（精神-1）',
-		{'Function':{
-			'Apply':function(){
-				add_sanity(-1);
-			},
-			'Reverse':function(){
-				add_sanity(1);
-			},
-		}},
-		'$ consume_food',
-		'i （今天就到这里吧）',
-		'$ ending_trigger',
-		'$ next_day',
-		'jump Day12'
 	],
 	'Day11-1': [
 		'jump pork2'
@@ -834,6 +828,26 @@ monogatari.script ({
 	'socialmedia-mizutani-ending': [
 		'jump Day11-ending'
 	],
+	'Day11-ending': [
+		'p 叮咚！',
+		's 佐佐木老师的每日问候又来了',
+		'show message Day11-letter',	
+		's 到了晚上，你辗转反侧，为封控的状态而忧愁。（精神-1）',
+		{'Function':{
+			'Apply':function(){
+				add_sanity(-1);
+			},
+			'Reverse':function(){
+				add_sanity(1);
+			},
+		}},
+		'$ consume_food',
+		'show scene #000000 with fadeIn duration 1s',
+		'i （今天就到这里吧）',
+		'$ ending_trigger',
+		'$ next_day',
+		'jump Day12'
+	],
 
 
 	// ========================== Day 12 ===============================
@@ -842,27 +856,24 @@ monogatari.script ({
 		'show message Day-start',
 		'jump Day12-1'
 	],
+	'Day12-1': [
+		'jump exodus5'
+	],
+	'exodus5-ending': [
+		'jump Day12-ending'
+	],
 	'Day12-ending': [
 		'p 叮咚！',
 		's 佐佐木老师的每日问候又来了',
 		'show message Day12-letter',	
 		's 到了晚上，你惊喜地发现，楼宇已经解除封控啦！',
 		'$ consume_food',
+		'show scene #000000 with fadeIn duration 1s',
 		'i （今天就到这里吧）',
 		'$ ending_trigger',
 		'$ next_day',
 		'jump Day13'
 	],
-	'Day12-1': [
-		'jump Day12-2'
-	],
-	'Day12-2': [
-		'jump stripe4'
-	],
-	'stripe4-ending': [
-		'jump Day12-ending'
-	],
-
 
 	// ========================== Day 13 ===============================
 	'Day13': [
@@ -870,21 +881,25 @@ monogatari.script ({
 		'show message Day-start',
 		'jump Day13-1'
 	],
+	'Day13-1': [
+		'jump pork3'
+	],
+	'pork3-ending': [
+		'jump exodus6'
+	],
+	'exodus6-ending':[
+		'jump Day13-ending'
+	],
 	'Day13-ending': [
 		'p 叮咚！',
 		's 佐佐木老师的每日问候又来了',
 		'show message Day13-letter',	
 		'$ consume_food',
+		'show scene #000000 with fadeIn duration 1s',
 		'i （今天就到这里吧）',
 		'$ ending_trigger',
 		'$ next_day',
 		'jump Day14'
-	],
-	'Day13-1': [
-		'jump pork3'
-	],
-	'pork3-ending': [
-		'jump Day13-ending'
 	],
 
 
@@ -894,14 +909,7 @@ monogatari.script ({
 		'show message Day-start',
 		'jump Day14-1'
 	],
-	'Day14-ending': [
-		'$ consume_food',
-		'i （今天就到这里吧）',
-		'$ ending_trigger',
-		'$ next_day',
-		'jump Day15'
-	],
-	'Day14-1': [
+	'Day14-1': [	
 		'jump bureau8'
 	],
 	'bureau8-ending': [
@@ -916,6 +924,14 @@ monogatari.script ({
 	'unseen8-ending': [
 		'jump Day14-ending'
 	],
+	'Day14-ending': [
+		'$ consume_food',
+		'show scene #000000 with fadeIn duration 1s',
+		'i （今天就到这里吧）',
+		'$ ending_trigger',
+		'$ next_day',
+		'jump Day15'
+	],
 
 
 	// ========================== Day 15 ===============================
@@ -923,11 +939,6 @@ monogatari.script ({
 		'show scene dorm with fadeIn',
 		'show message Day-start',
 		'jump Day15-1'
-	],
-	'Day15-ending': [
-		'$ consume_food',
-		'i （今天就到这里吧）',
-		'jump ending-choose',
 	],
 	'Day15-1': [
 		'jump Day15-2'
@@ -943,6 +954,15 @@ monogatari.script ({
 	],
 	'Day15-4': [
 		'jump Day15-ending'
+	],
+	'Day15-ending': [
+		'$ consume_food',
+		'show scene #000000 with fadeIn duration 1s',
+		'i （今天就到这里吧）',
+		'$ next_day',
+		'show scene dorm with fadeIn',
+		'show message Final-Day-start',
+		'jump ending-choose',
 	],
 	
 });
