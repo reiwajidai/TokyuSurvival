@@ -13,6 +13,10 @@ monogatari.characters ({
 		name: '保洁阿姨',
 		color: 'rgb(0, 168, 138)',
 	},
+	'hqqz': {
+		name: '后勤群 群主',
+		color: 'rgb(0, 168, 138)',
+	},
 });
 
 
@@ -145,7 +149,7 @@ monogatari.script ({
 				'Dialog': 'i 要参与诉求信的撰写吗？',
 				'broken': {
 					'Text': '参与',
-					'Do': 'unseen4-join',
+					'Do': 'jump unseen4-join',
 				},
                 'partly': {
 					'Text': '不参与',
@@ -198,7 +202,7 @@ monogatari.script ({
 		},
 		'p 叮咚！',
 		's 你打开了之前给后勤人员写诉求信的消息群。',
-		'qz 是在抱歉各位，基于各方面的考虑，我决定还是解散这个群。',
+		'hqqz 是在抱歉各位，基于各方面的考虑，我决定还是解散这个群。',
 		'i 啊……这样……',
 		'jump unseen6-ending',
 	],

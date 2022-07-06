@@ -12,7 +12,7 @@ monogatari.characters ({
         color: '#00cc33',
     },
 	'suz': {
-        name: '铃木 マヨ子（同学）',
+        name: '铃木 未未子（同学）',
         color: '#00cc33',
     },
 

@@ -467,6 +467,9 @@ monogatari.script ({
 		'jump starve'
 	],
 	'starve-ending': [
+		'jump mahjong'
+	],
+	'mahjong-ending':[
 		'jump rainbow'
 	],
 	'rainbow-ending': [
