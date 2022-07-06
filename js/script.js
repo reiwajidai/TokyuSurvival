@@ -944,18 +944,15 @@ monogatari.script ({
 		'jump Day15-1'
 	],
 	'Day15-1': [
-		'jump Day15-2'
+		'jump last-supper'
 	],
-	'Day15-2': [
+	'last-supper-ending': [
 		'jump Day15-3'
 	],
 	'Day15-3': [
 		'p 叮咚！',
 		's 佐佐木老师的每日问候又来了',
 		'show message Day15-letter',
-		'jump Day15-4'
-	],
-	'Day15-4': [
 		'jump Day15-ending'
 	],
 	'Day15-ending': [

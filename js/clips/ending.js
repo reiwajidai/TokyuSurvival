@@ -33,7 +33,6 @@ monogatari.action ('message').messages ({
         body: `
           <p>然而，真的能找到可以完全自闭的桃花源吗？覆巢之下，岂有完卵？</p>
           <p>（何不再玩一遍，尝试更多结局？）</p>
-          
         `
     },
     'Ending-fight': {
@@ -42,7 +41,6 @@ monogatari.action ('message').messages ({
         body: `
           <p>不得不说，这又是个全新的开始。无数的困难险阻正等着你，给予你一次又一次的失败。</p>
           <p>但正如没有100%的成功，世上又哪有100%的失败呢？</p>
-          
         `
     },
     'Ending-confused': {
@@ -51,7 +49,6 @@ monogatari.action ('message').messages ({
         body: `
           <p></p>
           <p>（何不再玩一遍，尝试更多结局？）</p>
-          
         `
     },
     'Ending-reboot': {
@@ -135,19 +132,54 @@ monogatari.script ({
         'end',
     ],
     'ending-depressed':[
-        's 你对这个世界感到失望，决定今后做一个自闭人。',
+        'i 唉，待在宿舍里真的好累啊。',
+        'i 这也不是身体上的劳累，而是精神上的倦怠。简单点说，就是“麻了”',
+        'i 口号上是说‘共克时艰’没错，可绝大多数的艰难，到底是天灾还是人祸？',
+        'i 东急怎么说也是全日本最优秀的学校之一了，竟然也能出现这么多离谱事。',
+        'i 作为普通学生，我只是觉得好无力……',
+        {
+			'Conditional': {
+				'Condition': function(){
+					const {leader} = monogatari.storage('player');
+					return leader
+				},
+				'True': 'i 做层长也只是加深了这种无力感。一团乱麻的指挥与官僚主义，让层长们提的建议没法实行。我们能做的只有为错误买单，用疲劳来粉饰上面的规矩。',
+                'False': 'i 而且什么消息都不知道……或许当时应该选择当层长的，这样也许就能把学生的想法告诉老师，站高一点，更多地发声，让我们的宿舍生活过得好些。',
+			}
+		},
+        'i 但这一切也都无所谓了，毕业混到公务员之后，哪怕是学校倒闭也跟我没关系了。',
+        'i 我甚至感谢学校和疫情：谢谢你们，让我得以更麻木地活在这个世界上。',
+        'i 学校也好，世界也好，与我何干？',
+        'i 各人自扫门前雪吧！哪怕身后，洪水滔天。',
         'show message Ending-depressed',
         'gallery unlock depressed',
         'jump ending-story',
     ],
     'ending-fight':[
-        's 你对这个世界感到失望，决定今后改变世界。',
+        'i 哼，这几个月来东京的离谱事，我算是看透了',
+        'i 什么积极防疫，什么尽力上报，肉食者借着关心别人的名义，不过是想保住自己的饭碗和利益',
+        {
+			'Conditional': {
+				'Condition': function(){
+					const {leader} = monogatari.storage('player');
+					return leader
+				},
+				'True': 'i 就拿当层长的事来说吧：真等着向上汇报的话，是永远等不到结果的。中间经手事务的人，既难有能力也难有动力去真正关心底层。学校如此，东京亦如此。',
+                'False': 'i 中间经手事务的人，既难有能力也难有动力去真正关心底层。学校如此，东京亦如此。',
+			}
+		},
+        'i 我本以为人与人之间可以靠善意活下去，但看来有些居高临下的人不是这么想的。',
+        'i 之前有网友就说日本官府是癞蛤蟆，戳一下，动一下。现在看来真不假。不出点事情，学校的伙食质量又怎能上的去？',
+        'i 所以啊，万事还是得靠我们学生自己去争取。',
+        'i 这样想来，这次疫情也有那么一点点好处：它让我找到了黑暗之中的光明——那就是我们自己',
         'show message Ending-fight',
         'gallery unlock fight',
         'jump ending-story',
     ],
     'ending-confused':[
-        's 封闭结束了，你依然觉得学校那么好，可眼里为何常含泪水？',
+        'i 这几个月来学校里的事，实在是太离谱了……',
+        'i 老师都很认真努力，学生也在尽力配合。大家都想做一个好人，但为什么最后都不满意，都很无奈？',
+        'i 我们应该怪谁？是谁没有做好？',
         'show message Ending-confused',
         'gallery unlock confused',
         'jump ending-story',
@@ -160,6 +192,18 @@ monogatari.script ({
     ],
     'ending-neutral':[
         'show scene #000000 with fadeIn',
+        'i 唉，待在宿舍里真的好累',
+        'i 这也不是身体上的劳累，而是精神上的倦怠。简单点说，就是“麻了”',
+        {
+			'Conditional': {
+				'Condition': function(){
+					const {leader} = monogatari.storage('player');
+					return leader
+				},
+                'False': 'i 而且什么消息都不知道……或许当时应该选择当层长的，这样也许就能把学生的想法告诉老师，站高一点，更多地发声，让我们的宿舍生活过得好些。',
+                'True': 'next',
+			}
+		},
         's 经过一路颠簸，你平安回家，见到爸妈时，觉得过往的三个月仿佛像是摁下了加速键，雁过无痕。',
         'show message Ending-neutral',
         'gallery unlock safe',
@@ -232,7 +276,10 @@ monogatari.script ({
                 'Other': 's 你仔细想了想，并不是很明白',
 			}
 		},
-
+        'i 唉……不应该乱跑出去的……但也实在没有办法，乱七八糟的调度让人完全陷入恐慌，只能屯点物资或者做点什么放松一下',
+        'i 要是能够解决这些问题，待在宿舍里就能精神放松衣食无忧，谁还会冒着风险违反抗疫政策。',
+        'i 不遵循政策固然是错的，但遵循一个让人过不好的政策似乎也不合理。',
+        'i 就是苦了舍友们了，封控依旧还在继续……',
         'show message Ending-positive',
         'gallery unlock positive',
 
