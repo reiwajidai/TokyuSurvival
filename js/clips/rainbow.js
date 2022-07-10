@@ -71,6 +71,7 @@ monogatari.script ({
 		'a 做滴漏',
 		'i 和彩虹有啥关系？',
 		'a 不知道，但这不是很coooooool——吗？',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 要不要帮忙?',
@@ -137,6 +138,7 @@ monogatari.script ({
 		'a 借我502一晚上。',
 		'i 为啥是一晚上？',
 		'a 彩虹装置需要做一夜。',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 要不要借?',
@@ -173,6 +175,7 @@ monogatari.script ({
 				});
 			},
 		}},
+		's 物资-1',
 		'hide character a',
 		'jump rainbow2-ending'
 	],
@@ -201,6 +204,7 @@ monogatari.script ({
 		'show character a happy',
 		'a 彩虹出现啦，一起来看吧。',
 		'i 好耶！',
+		'play sound new_gallery',
 		'show message rainbow-watch',
 		'gallery unlock rainbow',
 		{'Function':{

@@ -60,9 +60,11 @@ monogatari.assets ('gallery', {
 				'True': 'next',
 			}
 		},
+		'play sound new_message',
 		'p （叮咚）',
 		's 你看了看手机，说是楼栋管理老师要召集层长开会，谈一谈物资分发的问题',
 		'a 去听听看呗，看看老师打算怎么解决。',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 你要参加层长会议吗?',
@@ -176,6 +178,7 @@ monogatari.assets ('gallery', {
 		's 伊东老师开启了他关于物资订购的长篇大论。',
 		'a:normal 这老师怎么答非所问呢，他根本没有回应你的提议……',
 		'i 对啊……',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 你要怎么办?',
@@ -195,7 +198,6 @@ monogatari.assets ('gallery', {
 		'i 算了，我已经不想再问了，就随他们去吧。',
 		'a:sad 唉，这算个什么事呢……',
 		'show scene dorm',
-		's 你失望地退出了会议（精神-1）',
 		{'Function':{
 			'Apply':function(){
 				add_school(-1);
@@ -206,6 +208,7 @@ monogatari.assets ('gallery', {
 				add_sanity(1);
 			},
 		}},
+		's 你失望地退出了会议（精神-1）',
 		'jump speech-ending'
 	],
 	'speech-conflict':[
@@ -252,6 +255,7 @@ monogatari.assets ('gallery', {
 		'it 比如每个同学可以拿0~3个物资，这样子按照既满足同学的一个需求，然后又能满足校区的一个要求，但是到最后总数的时候肯定是不一样的……',
 		'it 对于其他楼宇拿到了多少，我认为我不能下决断是吧？但是我认为通过我们楼宇之间的协同的工作，最后一定会大家按人均来分……',
 		'a:angry ？？？他到底有没有听你说话？',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 你要怎么办?',
@@ -272,6 +276,7 @@ monogatari.assets ('gallery', {
 		'i 我觉得这个要求对于您也不算难。如果说您不愿意继续回答我这个问题，我就静音了。',
 		'show character it confused',
 		'it 我不知道我是不是准确理解了你这个问题。你是不是指，我们为什么要定0~3这个数目对吧……',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 's 你不禁觉得血压再次升高，你要怎么办?',
@@ -295,6 +300,7 @@ monogatari.assets ('gallery', {
 		'show character it confused',
 		'it 我不知道你说的意思是不是这样：我们申购了800箱，但是只到了400箱，这400箱的数目是怎么定的？……',
 		'show character it dontcare',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 's 伊东老师真的可以让人急出病来，你要怎么办?',
@@ -328,6 +334,7 @@ monogatari.assets ('gallery', {
 		'show character it happy',
 		'it 好的，我把你这个问题记一下，谢谢你。',
 		'a MD，绕这么半天，他到最后也只是“记一下”。',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 's 你觉得你之前的耐心解释似乎都白费了，你真的很想骂人，你要怎么办？？',
@@ -379,6 +386,7 @@ monogatari.assets ('gallery', {
 		'show character a happy',
 		'a 群众还穷追不舍的话，那就出大招：你说得对，我记下来，回头向上反映。',
 		'i 哈哈哈绝了！我还想到一件事……',
+		'play sound new_gallery',
 		'show message speech-unlocked',
 		'hide character a',
 		'gallery unlock speech',

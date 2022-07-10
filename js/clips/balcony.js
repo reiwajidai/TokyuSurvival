@@ -129,6 +129,7 @@ monogatari.script ({
 		'lg3 我！要！出！去！',
 		'lg4 我想回家！',
 		'i 疯的越来越多了啊',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 你选择……',
@@ -183,11 +184,14 @@ monogatari.script ({
 
 	//day3
 	'balcony3': [
+		'play sound new_message',
 		'p （叮咚！）',
 		'i 咦？群聊邀请？“国际东急”群？点进去看看。',
 		'i 哟呵，这群还有群通告呢。',
+		'play sound notification',
 		'show message balcony-internationale',
 		'i 呵……',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 你选择……',
@@ -239,11 +243,17 @@ monogatari.script ({
 	],
 	'balcony3-watch': [
 		'i 有点意思……',
+		'stop music normal',
+		'play music internationale',
 		's 八点，你来到窗前，只听得熟悉的旋律再次响起……',
 		's ~起来，饥寒交迫的奴隶，起来，全世界受苦的人！满腔的热血已经沸腾，要为真理而斗争~',
+		'stop music internationale',
+		'play music normal loop',
 		'jump balcony3-ending',
 	],
 	'balcony3-join': [
+		'stop music normal',
+		'play music internationale',
 		's 你打开了电脑功放，播放国际歌。熟悉的旋律再次响起……',
 		'i ~起来，饥寒交迫的奴隶，起来，全世界受苦的人！满腔的热血已经沸腾，要为真理而斗争~',
 		{'Function':{
@@ -254,18 +264,23 @@ monogatari.script ({
 				add_school(1);
 			},
 		}},
+		'stop music internationale',
+		'play music normal loop',
 		'jump balcony3-ending',
 	],
 
 	//day4
 	'balcony4': [
+		'play sound new_message',
 		'p （叮咚！）',
 		'show character a normal',
 		'a 你看到群里疯传的这张图没？',
 		'i 啥图啊？我看看',
+		'play sound notification',
 		'show message balcony-apologize',
 		'i 这是要搞波大的啊',
 		'a 学校里各种群都在传，应该是全校都知道了，只是不知道到八点是啥状况呢',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 对于群里这张图，你选择……',
@@ -339,8 +354,10 @@ monogatari.script ({
 		},
 	],
 	'balcony4-leader-msg': [
+		'play sound new_message',
 		'p （叮咚！）',
 		's 你发现层长群也来了一条消息',
+		'play sound notification',
 		'show message balcony-leader',
 		'jump balcony4-continue2',
 	],
@@ -349,9 +366,11 @@ monogatari.script ({
 		'a 突然觉得等不及了呢哈哈哈',
 		'hide character a',
 		's 时间逐渐过去，到了晚上七点半的时候……',
+		'play sound new_message',
 		'p （叮咚！）',
 		'show character a normal',
 		'a 年级群里的新通知？',
+		'play sound notification',
 		'show message balcony-emergency',
 		'i 关键是，我看其他学院统统都要求学生这个点儿开会',
 		'i 有的还要求必须开摄像头参会',
@@ -359,6 +378,7 @@ monogatari.script ({
 		'a 哈哈哈我要笑死了！拖延战术，先下手为强是吧？',
 		'a 不知道为啥，他们越着急，我就越想笑哈哈哈哈哈',
 		'hide character a',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 你选择……',
@@ -400,6 +420,7 @@ monogatari.script ({
 		's 到了晚上八点的时候，你走到窗台前，面对夜空大喊：',
 		'i 东！急！道！歉！',
 		's 空荡荡的夜空，传来几声零星的回应',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 你选择……',
@@ -421,6 +442,7 @@ monogatari.script ({
 	'balcony4-yell2': [
 		'i 不！要！问！题！肉！',
 		's 空荡荡的夜空，好像并没有什么反应',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 你选择……',
@@ -446,6 +468,7 @@ monogatari.script ({
 				add_care(-1);
 			},
 		}},
+		's 精神值+1',
 		'show scene dorm',
 		'jump balcony4-ending',
 	],
@@ -461,6 +484,7 @@ monogatari.script ({
 		'a:sad 但我还是觉得很失望……东急好歹也是东京七大高校，学生居然是这么个怂样……',
 		'a:sad 学生时代尚且如此，步入社会之后呢？',
 		'a:sad 唉，没救了……',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 's 你该怎么接你室友的话？',
@@ -496,7 +520,6 @@ monogatari.script ({
 	],
 	'balcony4-negative': [
 		'i 对啊，确实没救了……我们就没必要喊楼，反正结局都是这样……',
-		's 你跟室友一同陷入沉默，你感到有一些难过（精神-1）',
 		{'Function':{
 			'Apply':function(){
 				add_sanity(-1);
@@ -507,6 +530,7 @@ monogatari.script ({
 				add_care(-1);
 			},
 		}},
+		's 你跟室友一同陷入沉默，你感到有一些难过（精神-1）',
 		'show scene dorm',
 		'jump balcony4-ending',
 	],
@@ -517,7 +541,6 @@ monogatari.script ({
 		'i 我们什么大风大浪没见过呢？你说对吧？',
 		'a:happy 哈哈哈，说的也是',
 		'a:happy “西方哪个国家我没去过？见的多啦！”',
-		's 看着室友振作起来，你感觉开心了一些（精神+1）',
 		{'Function':{
 			'Apply':function(){
 				add_sanity(1);
@@ -528,6 +551,7 @@ monogatari.script ({
 				add_care(-1);
 			},
 		}},
+		's 看着室友振作起来，你感觉开心了一些（精神+1）',
 		'show scene dorm',
 		'jump balcony4-ending',
 	],

@@ -64,7 +64,9 @@ monogatari.script ({
 		's 到了晚上九点钟左右，楼层群里突然来了通知',
 		'a 看看楼层群，群里有通知了',
 		'i 通知？我看看',
+		'play sound notification',
 		'show message live-notice',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 要不要参加楼栋学生会议?',
@@ -100,6 +102,7 @@ monogatari.script ({
 		'pl 学生B：A同学，你的言论针砭时弊、振聋发聩，私聊我姓名学号，给你加创新学分',
 		'pl 学生C：饮食不能和脚痛大学比的话，至少要跟浦淡大学标齐吧？实在不行保证一下食品安全行不行？',
 		'pl 学生D：脚痛大学是你爹吧这么舔？',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 要不要做点啥?',
@@ -166,7 +169,6 @@ monogatari.script ({
 		'show message live-end',
 		'show scene dorm with fadeIn',
 		'a 艹',
-		'i （精神值-1）', 
 		{'Function':{
 			'Apply':function(){
 				add_sanity(-1);
@@ -175,6 +177,7 @@ monogatari.script ({
 				add_sanity(1);
 			},
 		}},
+		'i （精神值-1）', 
 		'jump live-leader'
 	],
 
@@ -189,6 +192,7 @@ monogatari.script ({
 				'True': 'next',
 			}
 		},
+		'play sound new_message',
 		'p 叮咚！',
 		's 你打开手机发现，今晚的层长会议也将展开对于阳性病例的说明会',
 		'i 作为层长，我肯定得参加一下',
@@ -197,7 +201,7 @@ monogatari.script ({
 		'show character mi serious',
 		'cza 这一次的阳性病例，也是两天前发烧，学校今天才报，我们所有志愿者又在毫不知情的情况下干了两天！',
 		'czb 我们想问问老师：为什么不提前通知？',
-		'show character mi normal',
+		'show character mi angry',
 		'mi 我在这里说明一下啊：该名同学住在4层，自前天晚间起体温偏高，体温自测38.3°C，伴有喉咙痛、全身酸痛等症状；昨晚前的历次核酸检测和自测抗原均为阴性，且发热之前未发现其他症状；',
 		'mi 而我们专班应对情况的第一个“手势”，就是加测抗原。',
 		'mi 昨天深夜，该名学生加测抗原结果显示异常，学校作出了代配药品及将该名学生转出宿舍的安排，于今日0:05转移至隔离点；并要求与该名同学14天内有过接触的师生紧急制动。',
@@ -224,7 +228,6 @@ monogatari.script ({
 				'False': 'next',
 			}
 		},
-		's 想到志愿者同学们再一次高危工作了两天，你不由得叹了口气（精神-1）',
 		{'Function':{
 			'Apply':function(){
 				add_sanity(-1);
@@ -233,6 +236,7 @@ monogatari.script ({
 				add_sanity(1);
 			},
 		}},
+		's 想到志愿者同学们再一次高危工作了两天，你不由得叹了口气（精神-1）',
 		{
 			'Conditional': {
 				'Condition': function(){

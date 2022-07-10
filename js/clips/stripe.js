@@ -157,6 +157,7 @@ monogatari.action ('message').messages ({
 monogatari.script ({
 
 	'stripe': [
+        'play sound new_message',
         's 你收到一条图片信息',
         'show image p1.jpg',
         'qya 卧槽……这哥们儿真是个勇士……',
@@ -174,6 +175,7 @@ monogatari.script ({
         'qya 要是学校下处分，我第一个上书讨说法',
         'qyc 对，我们联名上书！',
         'hide image p1.jpg',
+        'play sound choices',
         {
             'Choice': {
                 'Dialog': 'i 是否参与跟帖?',
@@ -205,7 +207,6 @@ monogatari.script ({
         'jump stripe-ending'
     ],
     'stripe-write': [
-        's 你觉得和同学们达成了统一战线，你们从来没这么团结过。（精神+1）',
         {'Function':{
 			'Apply':function(){
 				add_sanity(1);
@@ -216,6 +217,7 @@ monogatari.script ({
                 add_care(-1);
 			},
 		}},
+        's 你觉得和同学们达成了统一战线，你们从来没这么团结过。（精神+1）',
         'qyc （截图：我现在很好，没有被处分）',
         'qya 看来没事',
         'qyc 保护我方队友',
@@ -225,6 +227,7 @@ monogatari.script ({
 
     'stripe2': [
         's 你今天刷Facebook的时候，发现65472已经变成了一种接头暗号。其中最火的一篇文章，是“65472”格式的网友诗歌大赛。',
+        'play sound choices',
         {
             'Choice': {
                 'Dialog': 'i 你要欣赏一下网友的诗集吗？',
@@ -238,8 +241,10 @@ monogatari.script ({
                 },
             }
         },
+        'play sound notification',
         'show message stripe-poem1',
         'i 有点意思啊……要再看一篇吗？',
+        'play sound choices',
         {
             'Choice': {
                 'Dialog': 'i 你要再看一篇吗？',
@@ -253,8 +258,10 @@ monogatari.script ({
                 },
             }
         },
+        'play sound notification',
         'show message stripe-poem2',
         'i 哈哈哈！',
+        'play sound choices',
         {
             'Choice': {
                 'Dialog': 'i 你要再看一篇吗？',
@@ -268,8 +275,10 @@ monogatari.script ({
                 },
             }
         },
+        'play sound notification',
         'show message stripe-poem3',
         'i 哈哈哈！',
+        'play sound choices',
         {
             'Choice': {
                 'Dialog': 'i 你要再看一篇吗？',
@@ -283,6 +292,7 @@ monogatari.script ({
                 },
             }
         },
+        'play sound notification',
         'show message stripe-poem4',
         'i 哈哈哈！',
         'jump stripe2-poem-or-not'
@@ -291,6 +301,7 @@ monogatari.script ({
 
     'stripe2-poem-or-not': [
         's 你看了这么多诗以后，仿佛自己也获得了灵感，但你在犹豫该不该跟风创作',
+        'play sound choices',
         {
             'Choice': {
                 'Dialog': 'i 你要参与短诗创作吗？',
@@ -321,9 +332,6 @@ monogatari.script ({
     ],
     'stripe2-poem': [
         's 昨天的一张ppt竟然引发了此等创作热潮，你从来没有如此密集地感受过东急整出这么多好活儿。大概同学和老师们都没有想过，平日中学习到的创作理论和方法，会在此时此地，以一种如此戏谑的方式变成一种艺术狂欢。',
-        's 你文思如泉涌，于是提笔作诗一首（精神+1）',
-        'show message stripe-unlock',
-        'gallery unlock poet',
         {'Function':{
 			'Apply':function(){
 				add_sanity(1);
@@ -334,11 +342,16 @@ monogatari.script ({
                 add_school(1);
 			},
 		}},
+        's 你文思如泉涌，于是提笔作诗一首（精神+1）',
+        'play sound new_gallery',
+        'show message stripe-unlock',
+        'gallery unlock poet',
         'jump stripe2-ending'
     ],
 
 
     'stripe3': [
+        'play sound new_message',
         'p 叮咚！',
         's 你打开手机，发现一篇转载火热的推文，文章标题是“第二届65472艺术创作大赛”',
         'i 有意思，我点进去看看！',
@@ -397,7 +410,6 @@ monogatari.script ({
     ],
     'stripe3-unlock-gallery':[
         's 不知为何，你仿佛在前世早已经历过无数次封控，对于这样的艺术创作，你早已稔熟于心。',
-        's 你灵光一闪，于是提笔作画一幅（精神+1）',
         {'Function':{
 			'Apply':function(){
 				add_sanity(1);
@@ -406,10 +418,12 @@ monogatari.script ({
 				add_sanity(-1);
 			},
 		}},
+        's 你灵光一闪，于是提笔作画一幅（精神+1）',
         'show image artist_img',
         'i 嗯……感觉不错呢！',
         's 从画面风格上，你似乎也受到马列维奇的作品的影响',
         'hide image artist_img',
+        'play sound new_gallery',
         'show message stripe-unlock2',
         'gallery unlock artist',
         'jump stripe3-ending'

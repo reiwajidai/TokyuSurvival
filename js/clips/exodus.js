@@ -73,6 +73,7 @@ monogatari.script ({
 				'False': 'next',
 			}
 		},
+		'play sound new_message',
 		'p （叮咚）',
 		'i 欸，这是啥？',
 		'p <朋友圈：扫描二维码加入xx省老乡群.jpg>',
@@ -84,6 +85,7 @@ monogatari.script ({
 		'qy 是这样的，他们派了车送走人',
 		'qy 狗币东急还不放！',
 		'i 我好像有个脚痛的朋友……',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 你回忆一下，究竟有没有这个朋友？',
@@ -122,6 +124,7 @@ monogatari.script ({
 		'qy {{player.name}}！',
 		'qz 那我们开始第一步工作吧，先收集一下信息',
 		'qz 谁建个表？',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 要不要参与表格收集工作？',
@@ -182,6 +185,7 @@ monogatari.script ({
 			}
 		},
 		//第二天或者后几天：
+		'play sound new_message',
 		'p （叮咚）',
 		'i 欸，老乡群的消息',
 		'qy 朋友们，我刚问到，脚痛人已经落地了',
@@ -201,6 +205,7 @@ monogatari.script ({
 		},
 		'qy rnm他们都落地了',
 		'qz 我们再完善一下之前的人员表格吧',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 要不要参与统计返乡表格？',
@@ -261,9 +266,11 @@ monogatari.script ({
 			}
 		},
 		//第二天或几天后：
+		'play sound new_message',
 		'p （叮咚）',
 		'i 欸，老乡群的消息',
 		'qz 接下来就剩下向学校请愿了……我放个表格，大家一起梳理一下我们的措辞',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 要不要参与梳理措辞？',
@@ -283,7 +290,6 @@ monogatari.script ({
 		//选择：
 		//帮助
 		'i 基于以上数点，我认为回家是非常合理的请求……',
-		's 你很快写好了措辞，你觉得回家有望了，心里不禁一阵高兴（精神+1）',
 		{'Function':{
 			'Apply':function(){
 				add_care(1);
@@ -306,6 +312,7 @@ monogatari.script ({
 				});
 			},
 		}},
+		's 你很快写好了措辞，你觉得回家有望了，心里不禁一阵高兴（精神+1）',
 		'jump exodus3-ending',
 	],
 	'exodus3-nothelp': [
@@ -329,6 +336,7 @@ monogatari.script ({
 			}
 		},
 		//第二天或几天后：
+		'play sound new_message',
 		'p （叮咚）',
 		'qz 各位，有个坏消息，学校不同意，也不肯帮我们找车',
 		{
@@ -350,7 +358,6 @@ monogatari.script ({
 		'a 可恶……还以为能回家了……怎么会是骗人的……',
 		'qz 害，虽然的确很气人，但学校不放人，咱也没办法啊',
 		'qz 以后咱这群就继续用来扯淡吧',
-		'i （精神-1）',
 		{'Function':{
 			'Apply':function(){
 				add_sanity(-1);
@@ -359,6 +366,7 @@ monogatari.script ({
 				add_sanity(1);
 			},
 		}},
+		's （精神-1）',
 		'jump exodus4-ending',
 	],
 
@@ -373,8 +381,10 @@ monogatari.script ({
         'jump exodus5-ending'
     ],
     'exodus6':[
+		'play sound new_message',
         'p 叮咚！',
         's 你看了一下手机',
+		'play sound notification',
         'show message exodus-gohome',
         'i 啊……可以回家了？',
         's 虽然在封校期间，回家是你朝思暮想的事情。但它真的来临时，你却似乎没有那么兴奋。',

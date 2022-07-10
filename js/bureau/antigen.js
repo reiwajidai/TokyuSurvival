@@ -26,6 +26,7 @@ monogatari.script ({
 
 	// The game starts here.
 	'antigen': [
+		'play sound knocking_door',
 		's 早上，睡梦中的你被一阵敲门声吵醒',
 		'zyz {{player.name}}同学，请记得提交你的抗原检测结果',
 		'zyz {{player.name}}同学！！',
@@ -34,6 +35,7 @@ monogatari.script ({
 		'a 其实你也可以今天零点提交，零点提交的结果也算作早上的',
 		'a 但是的确，八点半这个提交时间实在是太早了。我听着走廊上一直都是志愿者同学的敲门声。',
 		'i 要不要跟老师反映一下这个问题？',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 要不要跟老师反映一下这个问题?',
@@ -54,6 +56,7 @@ monogatari.script ({
 		'jump antigen-ending'
 	],
 	'antigen-call': [
+		'play sound ringtones',
 		's 你拨通了佐佐木老师的电话',
 		'sa 哈啰！同学你好，我是佐佐木老师~',
 		'i 老师你好，我想反映一个问题：我们楼每天早上要求八点半提交抗原结果，但这个时间太早了。八点半大多数同学都还没有起床，来不及完成核酸测试。',
@@ -115,6 +118,7 @@ monogatari.script ({
 		'i 她为什么要这么定？',
 		'a 卷KPI呗！她定得早一些，结果就早收齐一些。',
 		'a 说不定是这样：东京的疾控中心要求是每天中午十二点提交结果，学校于是就要求每天十一点，有的楼栋要求每天十点，而我们的佐佐木老师呢？只有定成八点，她的业绩才能最好看咯！',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 's 室友说的有道理吗？',
@@ -132,7 +136,6 @@ monogatari.script ({
 	'antigen2-yes':[
 		'i 呵呵，层层加码是吧？',
 		'a 对啊，那不然呢？',
-		's （精神-1）',
 		{'Function':{
 			'Apply':function(){
 				add_school(-1);
@@ -143,6 +146,7 @@ monogatari.script ({
 				add_sanity(1);
 			},
 		}},
+		's （精神-1）',
 		'jump antigen2-ending'
 	],
 	'antigen2-no':[

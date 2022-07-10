@@ -58,6 +58,7 @@ monogatari.script ({
 		'i 寒假过的好快啊！只能不情愿地开学回校咯',
 		'i 开学后，该毕设毕设，该答辩答辩，该实习实习',
 		'i 今天嘛，又是一觉睡到中午的一天！和平时没什么两样',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 好无聊啊，下午干啥呢?',
@@ -83,6 +84,7 @@ monogatari.script ({
         'wait 1000',
         'show scene dorm with fadeIn',
 		'i 回过神来，我竟然玩了三个小时……',
+		'play sound new_message',
         'p （叮咚，未读消息99+）',
         'i 年级群？说啥啊？',
         'njq 由于疫情情况持续加剧，经学校研判，从今天下午三点开始，全体学生不准出校门，后续管理安排稍后公布',
@@ -98,6 +100,7 @@ monogatari.script ({
 		'i 好!艾尔花园我来啦！',
         'show scene street with fadeIn',
 		'i 逛了一圈，白天的艾尔还是冷清了些……',
+		'play sound new_message',
         'p （叮咚）',
         'i 年级群？说啥啊？',
         'njq 由于疫情情况持续加剧，经学校研判，从今天下午三点开始，全体学生不准出校门，后续管理安排稍后公布',
@@ -105,6 +108,7 @@ monogatari.script ({
         'i 艹？',
         'i 封校了？',
         'i 我现在咋整？',
+		'play sound choices',
         {
 			'Choice': {
 				'Dialog': 'i 要不要立刻回学校呢?',
@@ -124,6 +128,7 @@ monogatari.script ({
 		'i 好!去尝尝南校区的饭菜吧',
         'show scene street with fadeIn',
 		'i 南校区的饭菜，果然一如既往啊',
+		'play sound new_message',
         'p （叮咚，未读消息99+）',
         'i 年级群？说啥啊？',
         'njq 由于疫情情况持续加剧，经学校研判，从今天下午三点开始，全体学生不准出校门，后续管理安排稍后公布',
@@ -155,10 +160,12 @@ monogatari.script ({
     'Day1-Hanging': [
         'i 管他呢，先浪再说',
 		'i 感觉气氛凝重起来了呢',
+		'play sound new_message',
         'p （叮咚）',
         'i 室友发消息了',
         'a {{player.name}}在外面吗？你要不买一点泡面吧，感觉要封好多天了呢',
         'i 纳尼，有那么夸张吗？',
+		'play sound choices',
         {
 			'Choice': {
 				'Dialog': 'i 要不要买点泡面?',
@@ -177,6 +184,7 @@ monogatari.script ({
     'Day1-Buy': [
         'i 买买买！',
         'show scene dorm with fadeIn',
+		'play sound notification',
 		'show message Noodles',
 		{'Function':{
 			'Apply': function(){
@@ -202,14 +210,15 @@ monogatari.script ({
 
 	'Day1-lockdown':[
 		'show scene dorm with fadeIn',
+		'play sound new_message',
 		'p （叮咚，未读消息99+）',
         'i 年级群？又说啥啊？',
+		'play sound notification',
 		'show message Day1-lockdown',
 		'i 艹？',
 		'show character a normal',
 		'a 我回来啦！',
 		'i 欸你怎么手上拎着这么多东西？',
-		'a 封校啦！那还不先去教超屯点货？虽然最后也没抢到什么东西（物资+1）',
 		{'Function':{
 			'Apply': function(){
 				add_food(1);
@@ -218,7 +227,9 @@ monogatari.script ({
 				add_food(-1);
 			},
 		}},
+		'a 封校啦！那还不先去教超屯点货？虽然最后也没抢到什么东西（物资+1）',
 		'a 哦对了，我们宿舍楼组建了一个楼层群，现在正在招募楼层长，就是楼层志愿者。你要去吗？',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 要不要志愿去做宿舍楼的楼层长?',

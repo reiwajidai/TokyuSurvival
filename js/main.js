@@ -58,5 +58,6 @@ $_ready (() => {
 	
 	monogatari.on ('didLoadGame', () => {
 		set_bar_zoom()
+		monogatari.run("play music normal loop")
 	});
 });

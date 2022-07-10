@@ -96,7 +96,6 @@ monogatari.script ({
     'ending-choose': [
         's 今天是离校回家的日子，你昨晚收好了行李，今天起了一个大早，踏上了离校的大巴车',
         'show scene street',
-        's 在大巴车上，你隔着窗玻璃，看着仍处于静态管理之下的东京。东京的街道上空无一人，店铺紧闭，你觉得你仿佛闯入了一个尚未加载完全的电脑游戏。你不禁浮想联翩……',
         {
 			'Conditional': {
 				'Condition': function(){
@@ -124,14 +123,20 @@ monogatari.script ({
     ],
     'ending-story':[
         'show scene #000000 with fadeIn',
+        'play sound typing',
         'nvl <p></p>话说回故事开头的道人身上：自从道人推出网页游戏后，便有一好奇之人，上来便寻根究底。道人笑答：假语村言而已。酒余饭饱之时，同消寂寞罢了。',
+        'play sound typing',
         'nvl 好奇之人怒道：不但作者不知，抄着不知，并阅者也不知。何其敷衍荒唐！不行，今天一定得找出个罪魁祸首来！',
+        'play sound typing',
         'nvl 说罢便想将道人扭送官府，不料道人掏出通关文牒，原来是西洋的道人，皆大欢喜。',
+        'play sound typing',
         'nvl 后人见了这部游戏，亦曾题过四句：说到心酸动情处，荒唐可悲亦可笑。由来本是虚妄梦，休怪世人瞎胡闹！',
         'nvl (点击结束游戏)',
         'end',
     ],
     'ending-depressed':[
+        'play music normal_ending',
+        's 在大巴车上，你隔着窗玻璃，看着仍处于静态管理之下的东京。东京的街道上空无一人，店铺紧闭，你觉得你仿佛闯入了一个尚未加载完全的电脑游戏。你不禁浮想联翩……',
         'i 唉，待在宿舍里真的好累啊。',
         'i 这也不是身体上的劳累，而是精神上的倦怠。简单点说，就是“麻了”',
         'i 口号上是说‘共克时艰’没错，可绝大多数的艰难，到底是天灾还是人祸？',
@@ -156,6 +161,8 @@ monogatari.script ({
         'jump ending-story',
     ],
     'ending-fight':[
+        'play music good_ending',
+        's 在大巴车上，你隔着窗玻璃，看着仍处于静态管理之下的东京。东京的街道上空无一人，店铺紧闭，你觉得你仿佛闯入了一个尚未加载完全的电脑游戏。你不禁浮想联翩……',
         'i 哼，这几个月来东京的离谱事，我算是看透了',
         'i 什么积极防疫，什么尽力上报，肉食者借着关心别人的名义，不过是想保住自己的饭碗和利益',
         {
@@ -177,6 +184,8 @@ monogatari.script ({
         'jump ending-story',
     ],
     'ending-confused':[
+        'play music normal_ending',
+        's 在大巴车上，你隔着窗玻璃，看着仍处于静态管理之下的东京。东京的街道上空无一人，店铺紧闭，你觉得你仿佛闯入了一个尚未加载完全的电脑游戏。你不禁浮想联翩……',
         'i 这几个月来学校里的事，实在是太离谱了……',
         'i 老师都很认真努力，学生也在尽力配合。大家都想做一个好人，但为什么最后都不满意，都很无奈？',
         'i 我们应该怪谁？是谁没有做好？',
@@ -185,13 +194,16 @@ monogatari.script ({
         'jump ending-story',
     ],
     'ending-reboot':[
+        'play music good_ending',
+        's 在大巴车上，你隔着窗玻璃，看着仍处于静态管理之下的东京。东京的街道上空无一人，店铺紧闭，你觉得你仿佛闯入了一个尚未加载完全的电脑游戏。你不禁浮想联翩……',
         's 封闭结束了，你觉得一切都没什么大不了，好日子还在后头哩！',
         'show message Ending-reboot',
         'gallery unlock reboot',
         'jump ending-story',
     ],
     'ending-neutral':[
-        'show scene #000000 with fadeIn',
+        'play music normal_ending',
+        's 在大巴车上，你隔着窗玻璃，看着仍处于静态管理之下的东京。东京的街道上空无一人，店铺紧闭，你觉得你仿佛闯入了一个尚未加载完全的电脑游戏。你不禁浮想联翩……',
         'i 唉，待在宿舍里真的好累',
         'i 这也不是身体上的劳累，而是精神上的倦怠。简单点说，就是“麻了”',
         {
@@ -204,6 +216,7 @@ monogatari.script ({
                 'True': 'next',
 			}
 		},
+        'show scene #000000 with fadeIn',
         's 经过一路颠簸，你平安回家，见到爸妈时，觉得过往的三个月仿佛像是摁下了加速键，雁过无痕。',
         'show message Ending-neutral',
         'gallery unlock safe',
@@ -243,6 +256,8 @@ monogatari.script ({
         's （通话结束）',
         'i （保重吗……这日子还有什么盼头……）',
 
+        'stop music normal',
+        'play music bad_ending',
         'show message Ending-pdf',
         'gallery unlock pdf',
 
@@ -280,6 +295,8 @@ monogatari.script ({
         'i 要是能够解决这些问题，待在宿舍里就能精神放松衣食无忧，谁还会冒着风险违反抗疫政策。',
         'i 不遵循政策固然是错的，但遵循一个让人过不好的政策似乎也不合理。',
         'i 就是苦了舍友们了，封控依旧还在继续……',
+        'stop music normal',
+        'play music bad_ending',
         'show message Ending-positive',
         'gallery unlock positive',
 

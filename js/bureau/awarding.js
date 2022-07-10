@@ -25,6 +25,7 @@ monogatari.script ({
         'i 啊，表彰大会？这猪肉事件才过去几天，就等不及歌功颂德了？',
         'a 你看看你这觉悟还是不行，过几天可是国际青年节，你忘了？',
         'a 这时候不冲一下行政KPI，什么时候冲？你看看手机，宣传咱们楼防控事迹的官方文章已经发在网上了。',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 要不要参加这个表彰大会呢?',
@@ -94,7 +95,6 @@ monogatari.script ({
 		},
 	],
     'awarding-leader': [
-		'sa 获得优秀层长的同学是：{{player.name}}同学！这位同学将获得薯片一包、可乐一瓶！（物资+2）',
 		{'Function':{
 			'Apply':function(){
 				add_food(2);
@@ -103,11 +103,10 @@ monogatari.script ({
 				add_food(-2);
 			},
 		}},
+		'sa 获得优秀层长的同学是：{{player.name}}同学！这位同学将获得薯片一包、可乐一瓶！（物资+2）',
         'jump awarding-ask-performance'
 	],
     'awarding-leader-school': [
-		'sa 获得优秀层长的同学是：{{player.name}}同学!这位同学将获得薯片一包、可乐一瓶！（物资+2）',
-        's 你感到无比开心与自豪（精神+1）',
 		{'Function':{
 			'Apply':function(){
 				add_food(2);
@@ -118,6 +117,8 @@ monogatari.script ({
                 add_sanity(-1);
 			},
 		}},
+		'sa 获得优秀层长的同学是：{{player.name}}同学!这位同学将获得薯片一包、可乐一瓶！（物资+2）',
+        's 你感到无比开心与自豪（精神+1）',
         'jump awarding-ask-performance'
 	],
 
@@ -127,6 +128,7 @@ monogatari.script ({
         'sa 再次感谢各位志愿者同学！同时我也想问问大家，我们楼宇最近在拍摄防疫相关的宣传视频，想邀请大家一同参与。',
         'sa 如果大家有什么才艺的话，我们可以在宿舍楼下拍一段小视频，剪辑成小短片宣传出去。大家要来吗？',
         'i 欸？才艺表演？',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 要不要参加才艺表演呢?',
@@ -146,7 +148,6 @@ monogatari.script ({
 		},
 	],
     'awarding-join-performance': [
-        's 你高兴地答应了宣传视频的录制，你计划在宿舍楼下拍一段弹吉他的视频（精神+1）',
 		{'Function':{
 			'Apply':function(){
                 add_sanity(1);
@@ -155,11 +156,13 @@ monogatari.script ({
                 add_sanity(-1);
 			},
 		}},
+        's 你高兴地答应了宣传视频的录制，你计划在宿舍楼下拍一段弹吉他的视频（精神+1）',
         'jump awarding-dialogue-ask'
 	],
     'awarding-dialogue-ask': [
         'mi 接下来，我们也邀请到了几位志愿者同学代表来谈谈他们的感想……',
         'a:normal 哇，这个表彰大会还挺长的欸',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 要不要继续听吗?',

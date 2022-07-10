@@ -53,6 +53,7 @@ monogatari.script ({
         's 打开饭盒，里面照旧是压紧的米饭，两格绿油油的青菜，以及中间的一大块带皮猪肉……',
         'i 带皮猪肉？',
         's 餐盒里的那团可憎的生物质呈现出红与白交织的状态，红色与白色的部分以一种太阳系中不存在的混乱秩序交织在一起，而在那白色的组织层表面，隆起了一个令人作呕的凸起。',
+        'play sound choices',
         {
             'Choice': {
                 'Dialog': 'i 对于这样的猪肉，你选择……',
@@ -73,7 +74,6 @@ monogatari.script ({
         's 午睡起来，你发现群里的消息99+，点开后，发现群里这样说道：',
         'qya 我看了看这玩意好像是绦虫！',
         'qyb 不管是不是绦虫，我这必然是豪猪肉',
-        'i 我去……（精神-1）',
         {'Function':{
 			'Apply':function(){
 				add_sanity(-1);
@@ -82,10 +82,10 @@ monogatari.script ({
 				add_sanity(1);
 			},
 		}},
+        'i 我去……（精神-1）',
         'jump pork-write-or-not'
     ],
     'pork-noteat': [
-        's 你将它丢进了垃圾桶，选择挨饿（健康-1）',
         {'Function':{
 			'Apply':function(){
 				add_health(-1);
@@ -94,6 +94,7 @@ monogatari.script ({
 				add_health(1);
 			},
 		}},
+        's 你将它丢进了垃圾桶，选择挨饿（健康-1）',
         's 午睡起来，你发现群里的消息99+，点开后，发现群里这样说道：',
         'qya 我看了看这玩意好像是绦虫！',
         'qyb 不管是不是绦虫，我这必然是豪猪肉',
@@ -106,6 +107,7 @@ monogatari.script ({
         'qyc 还不如不辟谣！',
         'qyd 学校不管这事，我们自己想办法，可以织围脖，我已经看到话题了',
         's 链接：东急给学生发放传统刺身美食',
+        'play sound choices',
         {
             'Choice': {
                 'Dialog': 'i 是否参与织围脖?',
@@ -126,7 +128,6 @@ monogatari.script ({
         'jump pork-ending'
     ],
     'pork-write': [
-        's 你写了一个帖子，大大出了一口恶气（精神+1）',
         {'Function':{
 			'Apply':function(){
 				add_sanity(1);
@@ -135,6 +136,7 @@ monogatari.script ({
 				add_sanity(-1);
 			},
 		}},
+        's 你写了一个帖子，大大出了一口恶气（精神+1）',
         'jump pork-ending'
     ],
 
@@ -153,6 +155,7 @@ monogatari.script ({
 
     'pork3': [
         's 几天后，学校发布了关于猪肉事件的通知',
+        'play sound notification',
         'show message pork-investigation',
         'qya 草！',
         'qyb 保存的样本能检出个der！',

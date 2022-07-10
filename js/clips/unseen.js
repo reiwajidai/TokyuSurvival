@@ -54,8 +54,10 @@ monogatari.script ({
 	'unseen': [
         's 封校之后，你听说学校后勤的叔叔阿姨们陷入了生活物资短缺的状态',
 		'i 也是啊，毕竟大多数叔叔阿姨平日都住在校外，这一封校，家里的东西根本拿不着了',
+		'play sound new_message',
 		'p 叮咚！',
 		's 你发现你某个群聊里的同学正想各种方法给后勤人员一些生活用品。一个后勤大叔在群里说，自己缺一份草纸。',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 要不要捐一份草纸给大叔？',
@@ -87,23 +89,18 @@ monogatari.script ({
 		},
 	],
 	'unseen-donate':[
+		'play sound stats_up',
 		{'Function':{
 			'Apply':function(){
 				add_food(-1);
-			},
-			'Reverse':function(){
-				add_food(1);
-			},
-		}},
-		's 你将你的草纸转交给了后勤大叔，大叔表示感谢。（精神+1）',
-		{'Function':{
-			'Apply':function(){
 				add_sanity(1);
 			},
 			'Reverse':function(){
+				add_food(1);
 				add_sanity(-1);
 			},
 		}},
+		's 你将你的草纸转交给了后勤大叔，大叔表示感谢。（精神+1）',
 		'jump unseen-ending',
 	],
 
@@ -114,8 +111,10 @@ monogatari.script ({
 	],
 
 	'unseen3':[
+		'play sound new_message',
 		'p 叮咚！',
 		's 你发现群里出现了这样一条消息',
+		'play sound notification',
 		'show message unseen-sale',
 		'i 这是什么促销，竟然有劳保用品，挺有意思的……',
 		'jump unseen3-ending',
@@ -132,9 +131,11 @@ monogatari.script ({
 				'False': 'next',
 			}
 		},
+		'play sound new_message',
 		'p 叮咚！',
 		's 你点开了你手机里的一个群',
 		'qya 群友们你们看看这条新闻',
+		'play sound notification',
 		'show message unseen-news',
 		'qya 就是这些保障学校平稳运转、每天工作时间近15小时的后勤叔叔阿姨们，现在基本生活物资都还没人解决。',
 		'qya 由于封校突然，有很多校工没来得及带上换洗衣服。现在天气都变热了，我们楼里的一个阿姨还在穿毛衣，一个是捡了同学扔掉的衣服穿。',
@@ -144,6 +145,7 @@ monogatari.script ({
 		'qya 嗯嗯同意！',
 		'qyb 同意！',
 		'qyc 要不大家一同起草一封诉求信吧！',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 要参与诉求信的撰写吗？',
@@ -161,7 +163,6 @@ monogatari.script ({
 	],
 
 	'unseen4-join':[
-		's 你参与到诉求信的撰写当中，感觉自己为后勤校工也回馈了一些微小的力量。（精神+1）',
 		{'Function':{
 			'Apply':function(){
 				add_sanity(1);
@@ -170,6 +171,7 @@ monogatari.script ({
 				add_sanity(-1);
 			},
 		}},
+		's 你参与到诉求信的撰写当中，感觉自己为后勤校工也回馈了一些微小的力量。（精神+1）',
 		'jump unseen4-ending',
 	],
 
@@ -184,6 +186,7 @@ monogatari.script ({
 				'False': 'next',
 			}
 		},
+		'play sound new_message',
 		'p 叮咚！',
 		's 你看群消息说，有关部门已经收到了群友撰写的关于后勤人员保障措施的诉求信。',
 		'jump unseen5-ending',
@@ -200,6 +203,7 @@ monogatari.script ({
 				'False': 'next',
 			}
 		},
+		'play sound new_message',
 		'p 叮咚！',
 		's 你打开了之前给后勤人员写诉求信的消息群。',
 		'hqqz 是在抱歉各位，基于各方面的考虑，我决定还是解散这个群。',
@@ -210,6 +214,8 @@ monogatari.script ({
     'unseen7': [
         's 今天晚上正好碰上楼层放风的时间，于是你开始下楼活动',
         'show scene #000000 with fadeIn',
+		'stop music normal',
+		'play music sad loop',
         's 活动结束刚准备回寝室，你便在楼下碰见了负责楼栋保洁的阿姨。但今天的阿姨，眼泪在眼眶里打转。',
         'i 阿姨你怎么了？有什么事吗？',
         'ay 怎么摊上这种事，走也走不掉……',
@@ -227,6 +233,7 @@ monogatari.script ({
         'a 阿姨疫情前还能出去做兼职，现在兼职也没有，一个月三千的工资，买学校的盒饭都舍不得',
         's 你与室友相顾无言',
         'hide character a',
+		'stop music sad',
 		'jump unseen7-ending',
 	],
 
@@ -237,6 +244,7 @@ monogatari.script ({
 		'a 翻篇之后，所有人都可以卸下这几个月的负担，以一种从未经历这一切的心态，重新拥抱曾经伤害了自己的世界。',
 		'a 翻篇之后，过去的历史虽然还铭刻在某处的档案里，但它在大家心中，已经彻底死了！',
 		'a 永远沉睡吧！啊哈哈哈哈！啊哈哈哈哈……',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 听着室友的言辞，你觉得……',

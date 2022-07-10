@@ -44,13 +44,19 @@ monogatari.characters ({
 monogatari.script ({
 	// The game starts here.
 	'Day0-begin': [
+		'play sound typing',
 		'nvl <p></p>列位看官：你道此书从何而来？说来荒唐，细按则深有趣味。点击屏幕，待在下说来……',
+		'play sound typing',
 		'nvl 原是女娲氏炼石补天之时，单剩一块弃于青埂峰之下。谁知此石通了灵性，日夜嗟悼无缘世间繁华。一日，灵石见一仙人远远而来，便求着要去凡间受享。于是那仙人将其化为宝玉，投向凡间。',
+		'play sound typing',
 		'nvl 殊不知刚过数月，一个道人便在山下遇见一块刻字大石：字迹分明，编述历历，然而尽是痴言妄语，满篇荒唐。',
+		'play sound typing',
 		'nvl 道人向石头问起故事的来历，石头只说：来自诅咒之地，源于外部势力，邪魔秽语罢了，何必相信？若是气急败坏，只怕做贼心虚。',
+		'play sound typing',
 		'nvl 道人听如此说，思忖半响，将故事改编为网页游戏，以飨万千网友。',
 		'show scene #000000',
 		'centered  点击屏幕开始',
+		'play music normal loop',
 		's 我是谁？',
 		's 我在哪儿？',
 		's 我仿佛做了一个梦……',
@@ -68,6 +74,7 @@ monogatari.script ({
 		'show canvas greys',
 		'fdy 同学，同学，别走神了！',
 		'fdy 欢迎回到东急大学，首先，同学你叫什么名字呢？',
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 同学你叫什么名字呢？',
@@ -150,6 +157,7 @@ monogatari.script ({
 		'fdy 物资则是游戏里的消耗品，可以用来推进剧情或者恢复个人属性~',
 		'fdy 最后，你可以在游戏过程中解锁各种“画廊”，解锁后的画廊不仅可以在主菜单中查看，还可以在二刷、三刷游戏的时候带来意想不到的效果哦！',
 		'fdy 我先送你第一个画廊吧',
+		'play sound new_gallery',
 		'show message Day0-badge',
 		'gallery unlock badge',
 		'fdy 好你可以回寝室啦',
@@ -175,6 +183,7 @@ monogatari.script ({
 				});
 			},
 		}},
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 测试员可以进入时光机，直达……',
@@ -194,6 +203,7 @@ monogatari.script ({
 		},
 	],
 	'test-day12':[
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'i 测试员可以选择预期结局',

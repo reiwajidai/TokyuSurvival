@@ -43,9 +43,11 @@ monogatari.script ({
 	'tiny-cat': [
 		'show scene #000000 with fadeIn',
         's 今天楼层放风的时候，你在楼下偶遇了一只可爱的小猫咪',
+		'play sound meow',
         'xmm 喵~',
         'i 哇，可爱，想撸一撸猫~',
         'a 不过这是野猫哦。',
+		'play sound choices',
         {
 			'Choice': {
 				'Dialog': 'i 要不要撸猫？',
@@ -69,7 +71,7 @@ monogatari.script ({
 	'tiny-cat-play': [
 		'i 猫者，不rua不行！',
 		'show scene dorm with fadeIn',
-        's 你跟小猫咪玩耍了很久，感觉心情好多了。结束放风后，你回到了寝室。（精神+1）',
+		'play sound meow',
 		{'Function':{
 			'Apply':function(){
 				add_sanity(1);
@@ -78,6 +80,7 @@ monogatari.script ({
 				add_sanity(-1);
 			},
 		}},
+		's 你跟小猫咪玩耍了很久，感觉心情好多了。结束放风后，你回到了寝室。（精神+1）',
 		{
 			'Conditional': {
 				'Condition': function(){
@@ -156,10 +159,13 @@ monogatari.script ({
 
 	'mahjong': [
 		'show scene #000000 with fadeIn',
+		'stop music normal',
+		'play music crowd loop',
         's 今天晚上，平日冷清的校园草坪上突然变得无比热闹，你从来没有见过这么多人充分地利用所有的公共空间',
 		's 那种景观设计效果图上才有的氛围，突然就在现实世界实现了',
 		's 人们凑在一起搓麻将，在草坪上野餐，打羽毛球，滑滑板。这时，你看到你的同学在向你招手——',
         'suz {{player.name}}来吗？一起来搓麻将呀！',
+		'play sound choices',
         {
 			'Choice': {
 				'Dialog': 'i 要不要搓麻将？',
@@ -175,12 +181,13 @@ monogatari.script ({
 		},
 		'show scene dorm with fadeIn',
 		's 你婉言谢绝了同学的邀请，在楼下漫步一会儿后，你回到了寝室。',
+		'stop music crowd',
+		'play music normal loop',
 		'jump mahjong-ending'
     ],
 	'mahjong-play': [
 		'i 来来来！',
-        's 你坐下之后才意识到，大家来自五湖四海，麻将的规则根本不一样。不过没关系，大家打得都很开心，直到老师开始赶学生回寝室。（精神+1）',
-        {'Function':{
+		{'Function':{
 			'Apply':function(){
 				add_sanity(1);
 			},
@@ -188,7 +195,10 @@ monogatari.script ({
 				add_sanity(-1);
 			},
 		}},
+        's 你坐下之后才意识到，大家来自五湖四海，麻将的规则根本不一样。不过没关系，大家打得都很开心，直到老师开始赶学生回寝室。（精神+1）',
 		'show scene dorm with fadeIn',
+		'stop music crowd',
+		'play music normal loop',
 		's 你开心地回到了寝室。',
 		'jump mahjong-ending'
     ],
@@ -206,7 +216,6 @@ monogatari.script ({
 		},
 		's 一大早，你的室友因为急性肠胃炎，破例离开寝室，去校医院看病了。回来的时候，带回来一块学校面包房的巧克力蛋糕。',
 		's 你和室友不禁将蛋糕奉为稀世珍宝，一番拍照之后，才小心翼翼、依依不舍地分三次吃完。',
-		's 尽管如此，糖的魔力依然让你激动万分（精神+1）',
 		{'Function':{
 			'Apply':function(){
 				add_sanity(1);
@@ -215,6 +224,7 @@ monogatari.script ({
 				add_sanity(-1);
 			},
 		}},
+		's 尽管如此，糖的魔力依然让你激动万分（精神+1）',
 		'jump brownie-ending'
 	],
 
@@ -229,6 +239,7 @@ monogatari.script ({
 
 	'monopoly': [
 		'a {{player.name}}，你看我翻到了什么？大富翁！要不要把隔壁寝室的同学一起叫来玩？',
+		'play sound choices',
         {
 			'Choice': {
 				'Dialog': 'i 要不要玩大富翁？',
@@ -264,7 +275,6 @@ monogatari.script ({
 		},
     ],
 	'monopoly-win': [
-		's 幸运的是，由于你一开始抢到了高价值地块，你最终不断积累财富，成为了游戏的赢家！（精神+1）',
 		{'Function':{
 			'Apply':function(){
 				monogatari.storage({
@@ -279,6 +289,7 @@ monogatari.script ({
 				add_sanity(-1);
 			},
 		}},
+		's 幸运的是，由于你一开始抢到了高价值地块，你最终不断积累财富，成为了游戏的赢家！（精神+1）',
 		'jump monopoly-ending'
 	],
 	'monopoly-lose': [
@@ -288,14 +299,18 @@ monogatari.script ({
 	],
 
 	'socialmedia-sasaki': [
+		'play sound new_message',
 		'p 叮咚！',
 		's 你在玩手机时，无意间刷到了佐佐木老师在Twitter上的动态',
+		'play sound notification',
 		'show message socialmedia-sasaki',
 		'jump socialmedia-sasaki-ending',
 	],
 	'socialmedia-mizutani': [
+		'play sound new_message',
 		'p 叮咚！',
 		's 你在玩手机时，凑巧刷到了水谷老师在Twitter上的动态',
+		'play sound notification',
 		'show message socialmedia-mizutani',
 		'jump socialmedia-mizutani-ending',
 	],
@@ -305,7 +320,7 @@ monogatari.script ({
 		's 看着生活了数月的宿舍一瞬间空旷了许多，你们发出了一声慨叹。',
 		'i 要走了啊',
 		'a 怎么啦，想作诗一首吗？',
-
+		'play sound choices',
 		{
 			'Choice': {
 				'Dialog': 'a 怎么啦，想作诗一首吗？',
