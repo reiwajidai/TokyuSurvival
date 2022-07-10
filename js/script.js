@@ -901,6 +901,9 @@ monogatari.script ({
 		'jump exodus5'
 	],
 	'exodus5-ending': [
+		'jump tea'
+	],
+	'tea-ending': [
 		'jump Day12-ending'
 	],
 	'Day12-ending': [

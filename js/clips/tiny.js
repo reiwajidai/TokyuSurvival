@@ -377,4 +377,111 @@ monogatari.script ({
 		'jump last-supper-ending'
 	],
 
+	// 喝茶
+    'tea':[
+		{
+			'Conditional': {
+				'Condition': function(){
+					const {balcony_forward} = monogatari.storage('story');
+					const {care} = monogatari.storage('player');
+					return balcony_forward & (care >= 3)
+				},
+				'0': 'jump tea-ending',
+				'1': 'next',
+			}
+		},
+
+        'stop music normal',
+        'play sound new_message',
+        'p （好友添加申请：辅导员）',
+        'i 啊？辅导员找我？',
+		'play sound choices',
+        {
+			'Choice': {
+				'Dialog': 'i 是否添加辅导员为好友？',
+				'yes': {
+					'Text': '没得选，肯定得加',
+					'Do': 'next'
+				},
+			}
+		},
+		's 你打开了与辅导员的聊天窗口',
+        'fdy {{player.name}}啊，我听说前几天的喊楼事件，你在学生群里转发了相关消息，是这样吗？',
+        's 你心里不禁开始打鼓。',
+		'play sound choices',
+        {
+			'Choice': {
+				'Dialog': 'fdy 你在学生群里转发了喊楼相关消息，是这样吗？',
+				'yes': {
+					'Text': '没错，我参加了',
+					'Do': 'jump tea-admit'
+				},
+				'no': {
+					'Text': '什么事件？我没听说啊？',
+					'Do': 'next'
+				},
+                'evidence': {
+					'Text': '请拿出证据',
+					'Do': 'next'
+				},
+			}
+		},
+        's 辅导员向你出示了社交软件里的聊天截图，你意识到群里的某个人把你给上报了。',
+        'jump tea-admit',
+    ],
+	'tea-admit':[
+		'play music sad loop',
+		's 辅导员要求你承认错误。',
+		'play sound choices',
+        {
+			'Choice': {
+				'Dialog': 's 辅导员要求你承认错误',
+				'yes': {
+					'Text': '知错了，以后不会再犯',
+					'Do': 'jump tea-report-or-not'
+				},
+				'no': {
+					'Text': '我只是提出我的合理诉求',
+					'Do': 'next'
+				},
+			}
+		},
+		'i 我的确参加了，因为实在受不了啊，我们都经历了些什么啊？',
+		'i 十几天出不了门',
+		'i 十几天不洗澡不刷牙',
+		'i 上厕所要预约',
+		'i 盒饭还老吃到奇怪的东西',
+		'i 志愿者强行轮班',
+		'i 有困难我们都理解，可是这种违反常理的管理手段真的有利于防疫吗？',
+		'fdy 我们老师也是一样的啊，大家都很不容易。但是也希望同学们理解，我们只能在防疫手势允许的范围内动作。',
+		'fdy 就比如说这几天食品安全的问题吧。食品安全是头等大事，但是同学们也要理解。',
+		'fdy 后勤叔叔阿姨每餐要做三万多份便当，还要进行打包和搬运。现在人手不足的情况下，食品处理肯定不能像以前一样精细……',
+		'fdy 希望同学们可以体谅一下后勤校工的辛苦',
+		'i 这明明就是管理的问题，为什么要用基层人员挡枪？',
+		's 辅导员没有直接回应你的质问。',
+		'jump tea-report-or-not'
+	],
+	'tea-report-or-not':[
+		'fdy 学校都是为了学生好，学生应该和学校共同维护校园秩序，你目前的行为完全不顾防疫大局。',
+		'fdy 目前学校正在彻查这个事件，始作俑者必须接受处罚，希望你可以配合学校的工作',
+		's 辅导员给你一个戴罪立功的机会，让你检举身边的同学',
+		'fdy 就我们目前掌握的信息，你是最早转发消息的人。如果你说不出这条消息是谁发给你的，那我们只能认为你就是第一个发的',
+        's 你不禁感到后脊发凉，你意识到，这个消息就是你的室友冈田发给你的',
+		'fdy 要是学校发现你有隐瞒的行为，处罚就会更加严重。',
+		'play sound choices',
+		{
+			'Choice': {
+				'Dialog': 's 要不要举报你的室友冈田？',
+				'yes': {
+					'Text': '举报',
+					'Do': 'jump ending-tea-report'
+				},
+				'no': {
+					'Text': '不举报',
+					'Do': 'jump ending-tea-not-report'
+				},
+			}
+		},
+	],
+
 });

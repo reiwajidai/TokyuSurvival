@@ -224,8 +224,8 @@ monogatari.script ({
 					'Do': 'jump test-reboot',
 				},
 				'e5': {
-					'Text': '第12天，迷惘结局',
-					'Do': 'jump test-confused',
+					'Text': '第12天，喝茶结局',
+					'Do': 'jump test-tea',
 				},
 			}
 		},
@@ -284,6 +284,32 @@ monogatari.script ({
 						school: 8,
 						day: 12,
 						leader: true,
+					}
+				});
+				monogatari._actions[0]._configuration.objects.stats.props.drawText();
+    			monogatari._actions[0]._configuration.objects.greys.props.draw();
+				return true;
+			},
+			'Reverse':function(){
+				return 0;
+			},
+		}},
+		'jump Day12',
+	],
+	'test-tea':[
+		{'Function':{
+			'Apply':function(){
+				monogatari.storage({
+					player:{
+						name: '测试员寄寄',
+						sanity: 1,
+						school: 8,
+						day: 12,
+						care:4,
+						leader: true,
+					},
+					story:{
+						balcony_forward: true,
 					}
 				});
 				monogatari._actions[0]._configuration.objects.stats.props.drawText();

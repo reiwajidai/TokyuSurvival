@@ -378,6 +378,7 @@ monogatari.script ({
         'a 我估计啊，一旦形势好转，我们学校也会马上催着我们走。',
         'a 我们这群小祖宗，每天吃喝拉撒可老费钱了。',
         'i 可不是嘛……',
+		'hide character a',
         'jump exodus5-ending'
     ],
     'exodus6':[

@@ -276,6 +276,7 @@ monogatari.script ({
 		'show character a normal',
 		'a 你看到群里疯传的这张图没？',
 		'i 啥图啊？我看看',
+		's 你的室友将图转发给了你',
 		'play sound notification',
 		'show message balcony-apologize',
 		'i 这是要搞波大的啊',
