@@ -200,7 +200,7 @@ monogatari.script ({
 					'Do': 'jump balcony3-report',
 					'Condition': function(){
 						const {school} = monogatari.storage('player');
-						return school >= 4;
+						return school > 3;
 					}
 				},
 				'exit': {
@@ -216,7 +216,7 @@ monogatari.script ({
 					'Do': 'jump balcony3-join',
 					'Condition': function(){
 						const {school} = monogatari.storage('player');
-						return school <= 2;
+						return school < 3;
 					}
 				}
 			}
@@ -285,8 +285,8 @@ monogatari.script ({
 		{
 			'Choice': {
 				'Dialog': 'i 对于群里这张图，你选择……',
-				'listen': {
-					'Text': '反手举报给辅导员',
+				'report': {
+					'Text': '反手举报，人人有责（精神+2）',
 					'Do': 'jump balcony4-report',
 					'Condition': function(){
 						const {school} = monogatari.storage('player');
@@ -298,7 +298,7 @@ monogatari.script ({
 					'Do': 'jump balcony4-continue'
 				},
 				'shutup': {
-					'Text': '转发！',
+					'Text': '转发！（精神+1）',
 					'Do': 'jump balcony4-forward',
 					'Condition': function(){
 						const {school} = monogatari.storage('player');
@@ -309,24 +309,26 @@ monogatari.script ({
 		},
 	],
 	'balcony4-report': [
-		's 你默默地举报了这条消息',
-		'i （怎么这么多校外势力？）',
 		{'Function':{
 			'Apply':function(){
 				add_school(1);
+				add_sanity(2);
 			},
 			'Reverse':function(){
 				add_school(-1);
+				add_sanity(-2);
 			},
 		}},
+		's 你默默地举报了这条消息，为学校管理的稳定有序贡献了自己的力量（精神+2）',
+		'i （怎么这么多校外势力？）',
 		'jump balcony4-continue',
 	],
 	'balcony4-forward': [
 		's 你默默地转发了这条消息',
-		'i 就是要让更多的人看到这些！',
 		{'Function':{
 			'Apply':function(){
 				add_school(-1);
+				add_sanity(1);
 				add_care(1);
 				monogatari.storage({
 					story:{ balcony_forward: true }
@@ -334,12 +336,14 @@ monogatari.script ({
 			},
 			'Reverse':function(){
 				add_school(1);
+				add_sanity(-1);
 				add_care(-1);
 				monogatari.storage({
 					story:{ balcony_forward: false }
 				});
 			},
 		}},
+		'i 就是要让更多的人看到这些！（精神+1）',
 		'jump balcony4-continue',
 	],
 	'balcony4-continue': [

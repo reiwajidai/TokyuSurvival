@@ -15,7 +15,7 @@ monogatari.action ('message').messages ({
 		subtitle: '',
 		body: `
 			<p>你和室友就“官僚主义”话题畅谈到深夜</p>
-			<p>精神值+1</p>
+			<p>精神值+2</p>
 		`
 	},
 });
@@ -44,7 +44,16 @@ monogatari.action ('message').messages ({
 		'i 不知道欸，什么事啊？',
 		'a 之前我们楼订购物资的时候，每件商品是3件封顶对吧？然而二号楼是20件……',
 		'i 啊？为什么他们可以拿那么多？',
-		'a 反正现在学生群里意见很大呢，也不知道学校怎么解释呢。',
+		'a 反正现在学生群里意见很大呢，到现在学校也没解释呢。',
+		{'Function':{
+			'Apply':function(){
+				add_sanity(-1);
+			},
+			'Reverse':function(){
+				add_sanity(1);
+			},
+		}},
+		's 你觉得分配物资时出现分配不均的问题尚且可以忍受，但学校对这个问题的处理态度让你很生气（精神-1）',
 		{
 			'Conditional': {
 				'Condition': function(){
@@ -413,10 +422,10 @@ monogatari.action ('message').messages ({
 		'gallery unlock speech',
 		{'Function':{
 			'Apply':function(){
-				add_sanity(1);
+				add_sanity(2);
 			},
 			'Reverse':function(){
-				add_sanity(-1);
+				add_sanity(-2);
 			},
 		}},
 		'jump speech-ending'

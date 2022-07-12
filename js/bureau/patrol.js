@@ -17,6 +17,10 @@
 		name: '层长B',
 		color: 'rgb(0, 168, 138)',
 	},
+	'cz': {
+		name: '层长',
+		color: 'rgb(0, 168, 138)',
+	},
 });
 
  monogatari.script ({
@@ -39,7 +43,7 @@
 					const {leader} = monogatari.storage('player');
 					return leader
 				},
-				'False': 'jump patrol-ending',
+				'False': 'jump patrol-non-leader',
 				'True': 'next',
 			}
 		},
@@ -231,6 +235,23 @@
 		'a 有那么一点公务员的经验了啊（笑）',
 		'jump patrol-ending'
 	],
+	'patrol-non-leader': [
+		'play sound new_message',
+		'p 叮咚！',
+		's 你发现你所在的楼层学生群里，层长同学发了一条消息。',
+		'cz 各位同学，有个坏消息……',
+		'cz 刚刚书记来视察了，书记觉得有同学在寝室楼道里随意走动不安全，怕有相互感染的风险',
+		'cz 为了防止同学在楼道内聚集，领导制定了“楼层监督员”政策：',
+		'cz 各层推出自己的志愿者，在楼道里坐着，监督其余同学不要在楼道里走动。早7：30-晚11：30这16个小时期间，每两小时轮一班，领导会看监控检查。',
+		'qya ……',
+		'qya 我tm……',
+		'qyb 我们楼层一共大概40个人，他这么一搞，每天反而多了8个人在外面接触。',
+		'qyb 这个点子，要不是脑袋被门夹过，还真想不出来',
+		'cz 唉，毕竟是领导的决定，咱们楼层就轮班做志愿者吧',
+		's 你不幸地成为了明天最早的值班志愿者。',
+		'i 啊这……',
+		'jump patrol-ending'
+	],
 
 
 	'patrol2': [
@@ -240,7 +261,7 @@
 					const {leader} = monogatari.storage('player');
 					return leader
 				},
-				'False': 'jump patrol2-ending',
+				'False': 'jump patrol2-work',
 				'True': 'next',
 			}
 		},
@@ -266,7 +287,7 @@
 				add_sanity(1);
 			},
 		}},
-		's 今天的你起了个大早，在黑漆漆、凉飕飕、空无一人的楼道里坐了两个小时，你感到身心俱疲。（健康-1，精神-1）',
+		's 为了响应书记的政策，今天的你起了个大早，在黑漆漆、凉飕飕、空无一人的楼道里坐了两个小时，你感到身心俱疲。（健康-1，精神-1）',
 		's 同时，你听说今天有的楼层出了志愿者，有的没有。',
 		'jump patrol2-ending'
 	],
@@ -285,11 +306,10 @@
 					const {leader} = monogatari.storage('player');
 					return leader
 				},
-				'False': 'jump patrol3-ending',
-				'True': 'next',
+				'False': 's 对了，令你高兴（或是沮丧？）的是，当你今天打开楼层群的时候，层长说学校取消了楼层监督员的政策。',
+				'True': 's 对了，令你高兴（或是沮丧？）的是，当你今天打开层长群的时候，发现再也没有老师提起楼层监督员的事情了。',
 			}
 		},
-		's 对了，令你高兴（或是沮丧？）的是，当你今天打开层长群的时候，发现再也没有老师提起楼层监督员的事情了。',
 		{
 			'Conditional': {
 				'Condition': function(){
@@ -298,6 +318,16 @@
 				},
 				'True': 'i 唉，感觉自己就是白干一场啊。',
 				'False': 'next',
+			}
+		},
+		{
+			'Conditional': {
+				'Condition': function(){
+					const {leader} = monogatari.storage('player');
+					return leader
+				},
+				'False': 'i 我去，这不就是瞎折腾吗……',
+				'True': 'next',
 			}
 		},
 		'jump patrol3-ending'

@@ -110,7 +110,6 @@ monogatari.script ({
 		},
 	],
 	'unseen-donate':[
-		'play sound stats_up',
 		{'Function':{
 			'Apply':function(){
 				add_food(-1);
@@ -176,11 +175,11 @@ monogatari.script ({
 		{
 			'Choice': {
 				'Dialog': 'i 要参与诉求信的撰写吗？',
-				'broken': {
+				'join': {
 					'Text': '参与',
 					'Do': 'jump unseen4-join',
 				},
-                'partly': {
+                'not-join': {
 					'Text': '不参与',
 					'Do': 'next',
 				},
@@ -270,7 +269,15 @@ monogatari.script ({
         'show character a sad',
         'a 这些阿姨都是学校外包的，工资很低，特别累',
         'a 阿姨疫情前还能出去做兼职，现在兼职也没有，一个月三千的工资，买学校的盒饭都舍不得',
-        's 你与室友相顾无言',
+		{'Function':{
+			'Apply':function(){
+				add_sanity(-1);
+			},
+			'Reverse':function(){
+				add_sanity(1);
+			},
+		}},
+        's 你与室友相顾无言（精神-1）',
         'hide character a',
 		'stop music sad',
 		'jump unseen7-ending',

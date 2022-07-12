@@ -54,7 +54,7 @@ monogatari.script ({
 		'play sound meow',
         'xmm 喵~',
         'i 哇，可爱，想撸一撸猫~',
-        'a 不过这是野猫哦。',
+        'a 不过这是野猫，小心过两天感染病毒哦。',
 		'play sound choices',
         {
 			'Choice': {
@@ -237,8 +237,8 @@ monogatari.script ({
 					const {leader} = monogatari.storage('player');
 					return leader
 				},
-				'True': 'jump brownie-ending',
-				'False': 'next',
+				'False': 'jump brownie-ending',
+				'True': 'next',
 			},
 		},
 		's 一大早，你的室友因为急性肠胃炎，破例离开寝室，去校医院看病了。回来的时候，带回来一块学校面包房的巧克力蛋糕。',
@@ -320,7 +320,15 @@ monogatari.script ({
 		'jump monopoly-ending'
 	],
 	'monopoly-lose': [
-		's 不幸的是，虽然你一开始抢到了高价值地块，但你中途现金流断裂，在游戏遗憾破产败北。',
+		{'Function':{
+			'Apply':function(){
+				add_sanity(-1);
+			},
+			'Reverse':function(){
+				add_sanity(1);
+			},
+		}},
+		's 不幸的是，虽然你一开始抢到了高价值地块，但你中途现金流断裂，在游戏遗憾破产败北。你有些沮丧。（精神-1）',
 		'i 真不走运，下次有机会再玩吧！',
 		'jump monopoly-ending'
 	],

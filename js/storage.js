@@ -82,7 +82,7 @@ function add_sanity(value){
     });
     monogatari._actions[0]._configuration.objects.stats.props.drawText();
     monogatari._actions[0]._configuration.objects.greys.props.draw();
-    if (value>0){
+    if (value>=0){
         audio_stats_up.play()
     }else{
         audio_stats_down.play()
@@ -97,7 +97,7 @@ function add_food(value){
         }
     });
     monogatari._actions[0]._configuration.objects.stats.props.drawText();
-    if (value>0){
+    if (value>=0){
         audio_stats_up.play()
     }else{
         audio_stats_down.play()
@@ -132,7 +132,7 @@ function add_health(value){
         }
     });
     monogatari._actions[0]._configuration.objects.stats.props.drawText();
-    if (value>0){
+    if (value>=0){
         audio_stats_up.play()
     }else{
         audio_stats_down.play()

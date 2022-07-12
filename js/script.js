@@ -225,7 +225,35 @@ monogatari.action ('canvas').objects ({
 
 // Credits of the people involved in the creation of this awesome game
 monogatari.configuration ('credits', {
-
+	'Content': `
+		<h5>Contact</h5>
+		<p>The developers are welcoming similar stories from game players to further enrich
+		the game experience. If you are willing to provide these, feel free to contact us by following email:</p>
+		<p><u>reiwajidai@protonmail.com</u></p>
+		<p>You can also visit our github page to follow or join the game development</p>
+		<a href='https://github.com/reiwajidai/TokyuSurvival'><u>Click to visit Github page</u></a>
+		<p>-</p>
+		<h5>Producer</h5>
+		<p>Mizutani Ko</p>
+		<p>-</p>
+		<h5>Story</h5>
+		<p>Ito Yoichi</p>
+		<p>-</p>
+		<h5>Programming</h5>
+		<p>Hirata Ichiro</p>
+		<p>-</p>
+		<h5>Graphics</h5>
+		<p>Sasaki Michiko</p>
+		<p>-</p>
+		<h5>Music & SFX</h5>
+		<p>Suzuki Keiko</p>
+		<p>-</p>
+		<h5>Testing</h5>
+		<p>Suzuki Michiko</p>
+		<p>-</p>
+		<h5>Special Thanks</h5>
+		<p>Suzuki Michiko</p>
+	`,
 });
 
 // Define the images that will be available on your game's image gallery

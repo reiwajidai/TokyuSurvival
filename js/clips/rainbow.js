@@ -134,7 +134,11 @@ monogatari.script ({
 				'Dialog': 'i 要不要借?',
 				'help': {
 					'Text': '借502胶（物资-1）',
-					'Do': 'jump rainbow-glue'
+					'Do': 'jump rainbow-glue',
+					'Condition': function(){
+						const {food} = monogatari.storage('player');
+						return (food >= 1);
+					}
 				},
 				'Nohelp': {
 					'Text': '我没有',

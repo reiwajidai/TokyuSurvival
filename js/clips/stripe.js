@@ -230,6 +230,22 @@ monogatari.script ({
                     'Text': '算了',
                     'Do': 'jump stripe2-ending'
                 }, 
+                'report': {
+                    'Text': '举报！',
+                    'Do': 'jump stripe2-report',
+                    'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return 6 > school > 4;
+					}
+                }, 
+                'report2': {
+                    'Text': '举报！(精神+1)',
+                    'Do': 'jump stripe2-report2',
+                    'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return school >= 6;
+					}
+                }, 
                 'listen': {
                     'Text': '看看！',
                     'Do': 'next',
@@ -246,6 +262,22 @@ monogatari.script ({
                 'ignore': {
                     'Text': '算了',
                     'Do': 'jump stripe2-ending'
+                }, 
+                'report': {
+                    'Text': '举报！',
+                    'Do': 'jump stripe2-report',
+                    'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return 6 > school > 4;
+					}
+                }, 
+                'report2': {
+                    'Text': '举报！(精神+1)',
+                    'Do': 'jump stripe2-report2',
+                    'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return school >= 6;
+					}
                 }, 
                 'listen': {
                     'Text': '再看看！',
@@ -264,6 +296,22 @@ monogatari.script ({
                     'Text': '算了',
                     'Do': 'jump stripe2-ending'
                 }, 
+                'report': {
+                    'Text': '举报！',
+                    'Do': 'jump stripe2-report',
+                    'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return 6 > school > 4;
+					}
+                }, 
+                'report2': {
+                    'Text': '举报！(精神+1)',
+                    'Do': 'jump stripe2-report2',
+                    'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return school >= 6;
+					}
+                }, 
                 'listen': {
                     'Text': '再看看！',
                     'Do': 'next',
@@ -280,6 +328,22 @@ monogatari.script ({
                 'ignore': {
                     'Text': '算了',
                     'Do': 'jump stripe2-ending'
+                }, 
+                'report': {
+                    'Text': '举报！',
+                    'Do': 'jump stripe2-report',
+                    'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return 6 > school > 4;
+					}
+                }, 
+                'report2': {
+                    'Text': '举报！(精神+1)',
+                    'Do': 'jump stripe2-report2',
+                    'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return school >= 6;
+					}
                 }, 
                 'listen': {
                     'Text': '再看看！',
@@ -304,6 +368,22 @@ monogatari.script ({
                     'Text': '参与',
                     'Do': 'jump stripe2-poem'
                 },
+                'report': {
+                    'Text': '写什么写，举报！',
+                    'Do': 'jump stripe2-report',
+                    'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return 6 > school > 4;
+					}
+                }, 
+                'report2': {
+                    'Text': '写什么写，举报！(精神+1)',
+                    'Do': 'jump stripe2-report2',
+                    'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return school >= 6;
+					}
+                }, 
                 'ignore': {
                     'Text': '算了',
                     'Do': 'jump stripe2-notpoem'
@@ -343,6 +423,38 @@ monogatari.script ({
         'gallery unlock poet',
         'jump stripe2-ending'
     ],
+    'stripe2-report': [
+        's 你虽然理解大家在封校期间对学校管理方法的不满，但你觉得参与狂欢的人对抗的方式过于偏激。',
+        'i 只要持续地向学校反馈，总会有解决方法的不是吗？学校并不是学生的敌人，领导和老师都只是想要更有效地进行疾病防控。',
+        'i 而作为学生，这种宣泄会让外人看不到校方所做的种种努力，只看到管理混乱的一面。其实学校的状况远没有网上说的那么糟糕。',
+        {'Function':{
+			'Apply':function(){
+                add_school(1);
+			},
+			'Reverse':function(){
+                add_school(-1);
+			},
+		}},
+        's 你反手点了一个举报',
+        'jump stripe2-ending'
+    ],
+    'stripe2-report2': [
+        's 你觉得参与狂欢的人对抗的方式过于偏激。',
+        'i 只要持续地向学校反馈，总会有解决方法的不是吗？学校并不是学生的敌人，领导和老师都只是想要更有效地进行疾病防控。',
+        'i 而作为学生，这种宣泄会让外人看不到校方所做的种种努力，只会抹黑学校。',
+        {'Function':{
+			'Apply':function(){
+				add_sanity(1);
+                add_school(1);
+			},
+			'Reverse':function(){
+				add_sanity(-1);
+                add_school(-1);
+			},
+		}},
+        's 你反手点了一个举报，维护了学校的良好形象（精神+1）',
+        'jump stripe2-ending'
+    ],
 
 
     'stripe3': [
@@ -376,7 +488,38 @@ monogatari.script ({
 
         'hide image p5',
 
-        'i 校友个个都是人才……',
+        'play sound choices',
+        {
+            'Choice': {
+                'Dialog': 's 看了这么多艺术创作，你的想法是……',
+                'listen': {
+                    'Text': '校友个个都是人才……',
+                    'Do': 'jump stripe3-if-unlock',
+                    'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return school <= 4;
+					}
+                },
+                'report': {
+                    'Text': '举报！',
+                    'Do': 'jump stripe3-report',
+                    'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return 6 > school > 4;
+					}
+                }, 
+                'report2': {
+                    'Text': '举报！(精神+2)',
+                    'Do': 'jump stripe3-report2',
+                    'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return school >= 6;
+					}
+                }, 
+            }
+        },
+    ],
+    'stripe3-if-unlock': [
         {
 			'Conditional': {
 				'Condition': function(){
@@ -421,6 +564,32 @@ monogatari.script ({
         'play sound new_gallery',
         'show message stripe-unlock2',
         'gallery unlock artist',
+        'jump stripe3-ending'
+    ],
+    'stripe3-report': [
+        {'Function':{
+			'Apply':function(){
+                add_school(1);
+			},
+			'Reverse':function(){
+                add_school(-1);
+			},
+		}},
+        's 你反手点了一个举报',
+        'jump stripe3-ending'
+    ],
+    'stripe3-report2': [
+        {'Function':{
+			'Apply':function(){
+				add_sanity(2);
+                add_school(1);
+			},
+			'Reverse':function(){
+				add_sanity(-2);
+                add_school(-1);
+			},
+		}},
+        's 你反手点了一个举报，再次维护了学校的良好形象（精神+2）',
         'jump stripe3-ending'
     ],
 

@@ -61,7 +61,7 @@ monogatari.action ('message').messages ({
         `
     },
     'Ending-reboot': {
-        title: '结局：新的征程',
+        title: '结局：赢了',
         subtitle: '好日子还在后头哩！',
         body: `
           <p>（何不再玩一遍，尝试更多结局？）</p>
@@ -71,6 +71,14 @@ monogatari.action ('message').messages ({
     'Ending-neutral': {
         title: '结局：平安回家',
         subtitle: '过往的三个月仿佛摁下了加速键，恍然若梦，雁过无痕。但这个梦，还会在某个黑夜重临吗？',
+        body: `
+          <p>（何不再玩一遍，尝试更多结局？）</p>
+          <img src='./assets/gallery/door.png' width="40">
+        `
+    },
+    'Ending-fast': {
+        title: '结局：提前回家',
+        subtitle: '赶在游戏正式开始之前，你就通关了……',
         body: `
           <p>（何不再玩一遍，尝试更多结局？）</p>
           <img src='./assets/gallery/door.png' width="40">
@@ -100,11 +108,11 @@ monogatari.script ({
                     let {sanity} = monogatari.storage('player');
 					if(sanity < 3 && school < 1) {
                         return "depressed";
-                    } else if (sanity > 6 && school < 1) {
+                    } else if (sanity >= 5 && school < 0) {
                         return "fight";
-                    } else if (sanity < 3 && school > 6) {
+                    } else if (sanity <= 3 && school >= 6) {
                         return "confused";
-                    } else if (sanity >= 5 && school > 6) {
+                    } else if (sanity > 3 && school >= 6) {
                         return "reboot";
                     }  else {
                         return 'neutral';
@@ -123,7 +131,7 @@ monogatari.script ({
         'play sound typing',
         'nvl <p></p>话说回故事开头的道人身上：自从道人推出网页游戏后，便有一好奇之人，上来便寻根究底。道人笑答：假语村言而已。酒余饭饱之时，同消寂寞罢了。',
         'play sound typing',
-        'nvl 好奇之人怒道：不但作者不知，抄着不知，并阅者也不知。何其敷衍荒唐！不行，今天一定得找出个罪魁祸首来！',
+        'nvl 好奇之人怒道：不但作者不知，抄者不知，并阅者也不知。何其敷衍荒唐！不行，今天一定得找出个罪魁祸首来！',
         'play sound typing',
         'nvl 说罢便想将道人扭送官府，不料道人掏出通关文牒，原来是西洋的道人，皆大欢喜。',
         'play sound typing',
@@ -192,8 +200,14 @@ monogatari.script ({
     ],
     'ending-reboot':[
         'play music good_ending',
-        's 在大巴车上，你隔着窗玻璃，看着仍处于静态管理之下的东京。东京的街道上空无一人，店铺紧闭，你觉得你仿佛闯入了一个尚未加载完全的电脑游戏。你不禁浮想联翩……',
-        's 封闭结束了，你觉得一切都没什么大不了，好日子还在后头哩！',
+        's 你知道身边有很多同学在这段时间怨声载道，只有你知道东急做得真的很不错。临行前你和室友道别。',
+        'a 如果能再考一次，我一定不会选东急。我去隔壁脚痛不香吗？',
+        'i 你也跟风黑东急？疫情这种事情谁都不想碰上，很多老师也是第一次参加疫情防控工作，难免有很多状况一时之间没能处理好',
+        'i 但是学校也在根据学生反馈改进工作不是吗？现在疫情之能成功控制住，已经是大胜利了，而且我们也能回去了，就不要太对学校求全责备了吧。',
+        'a 我倒是觉得你现在还能替学校说话真的很神奇……要是你封校时不是恰好在校外囤了货，而是被关在南校区睡地铺，物资告急溜出去买时恰好被感染，还能觉得东急做的不错吗？',
+        'a 你可能是运气好了一些，但是对大多数人来说，没赶上买物资，封禁期间连吃点小零食都没得就破大防了，也有可能不巧出门就阳了，这不都反映出东急在整个疫情期间物资保障情况和管理方式都出大问题了吗？',
+        'i 没什么大不了，咱们学校疫情防控战已经取得阶段性胜利了，好日子还在后头哩！',
+        'a 哼哼，是啊，那你可偷着乐吧！',
         'show message Ending-reboot',
         'gallery unlock reboot',
         'jump ending-story',
@@ -327,5 +341,15 @@ monogatari.script ({
         'show message Ending-tea',
         'gallery unlock tea',
         'jump ending-story',
+    ],
+    'ending-fast':[
+        'stop music normal',
+        'play music good_ending',
+        's 尽管你也没完全想清楚怎么回事，你还是火速买了今晚的机票，连夜回到了外地的家中。',
+        'show scene #000000 with fadeIn',
+        's 经过一路颠簸，你平安回家，见到爸妈时，爸妈觉得你反应过度了。',
+        'i 不不不，我的直觉告诉我，这绝对是明智的决定。',
+        'show message Ending-fast',
+        'end',
     ],
 })

@@ -59,10 +59,10 @@ monogatari.script ({
 		'$ set_stats_size',
 		{'Function':{
 			'Apply': function(){
-				add_food(1);
+				add_food(0);
 			},
 			'Reverse': function(){
-				add_food(-1);
+				add_food(0);
 			},
 		}},
 		'show canvas greys',
@@ -83,6 +83,14 @@ monogatari.script ({
 				'test': {
 					'Text': '就叫我测试员寄寄吧',
 					'Do': 'jump Day0-tester',
+					'Condition': function(){
+						const r = check_gallery('badge');
+						return r;
+					}
+				},
+				'silence': {
+					'Text': '保持沉默',
+					'Do': 'jump Day0-silence',
 					'Condition': function(){
 						const r = check_gallery('badge');
 						return r;
@@ -113,12 +121,38 @@ monogatari.script ({
 						}
 					});
 				},
-				'Warning': '不说？不说你就别想玩!'
+				'Warning': '不说？不说你怎么报到？'
 			}
 		},
 		'jump Day0-instruction'
 	],
-
+	'Day0-silence':[
+		'fdy 同学，同学，你咋不说话啊，怎么了？',
+		'play sound choices',
+		{
+			'Choice': {
+				'Dialog': 'fdy 同学，同学，你咋不说话啊，怎么了？',
+				'give-name': {
+					'Text': '哦哦不好意思，我叫……',
+					'Do': 'jump Day0-enter-name'
+				},
+				'out': {
+					'Text': '不好意思，就叫我寄寄吧',
+					'Do': 'jump Day0-not-enter-name'
+				},
+				'weird': {
+					'Text': '我觉得不太对劲……我要回家',
+					'Do': 'jump Day0-weird',
+				},
+			}
+		},
+	],
+	'Day0-weird':[
+        'i 老师不好意思，我觉得有点不舒服，我要回家。',
+		's 说罢你头也不回地转身就走',
+		'fdy 欸欸欸？同学，你怎么回事？同学！',
+        'jump ending-fast',
+    ],
 	'Day0-not-enter-name':[
 		{'Function':{
 			'Apply':function(){

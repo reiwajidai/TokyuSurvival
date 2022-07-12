@@ -112,14 +112,21 @@ monogatari.script ({
             'Choice': {
                 'Dialog': 'i 是否参与织围脖?',
                 'listen': {
-                    'Text': '是',
+                    'Text': '我可是织围脖的熟手',
                     'Do': 'jump pork-write'
                 },
                 'ignore': {
                     'Text': '算了',
                     'Do': 'jump pork-notwrite'
                 },
-                
+                'report': {
+                    'Text': '怎么能散布这种非官方传言？',
+                    'Do': 'jump pork-report',
+                    'Condition': function(){
+						const {school} = monogatari.storage('player');
+						return school >= 3;
+					}
+                }, 
             }
         },
     ],
@@ -137,6 +144,21 @@ monogatari.script ({
 			},
 		}},
         's 你写了一个帖子，大大出了一口恶气（精神+1）',
+        'jump pork-ending'
+    ],
+    'pork-report': [
+        'i 让子弹飞一会儿，坐等官方消息。在此之前，都是谣言。',
+        {'Function':{
+			'Apply':function(){
+                add_school(1);
+                add_sanity(-1);
+			},
+			'Reverse':function(){
+                add_school(-1);
+                add_sanity(1);
+			},
+		}},
+        's 你被群友怼了，你忿忿不平地关闭了群聊（精神-1）',
         'jump pork-ending'
     ],
 
@@ -169,7 +191,22 @@ monogatari.script ({
         'i 就好比说：当你在客厅餐桌上发现一只蟑螂时，屋里可能已经有十几只了？',
         'show character a normal',
         'a 对！我们这种全日本有名的理工职校，就是那张公共舆论里的“餐桌”。你想想，要是在平日，这些不达标的食物最终又会流向何方呢？',
-        'i 你说得对……',
+        'play sound choices',
+        {
+            'Choice': {
+                'Dialog': 's 你如何回答冈田?',
+                'agree': {
+                    'Text': '你说得对',
+                    'Do': 'jump pork3-agree'
+                },
+                'disagree': {
+                    'Text': '这次只是个偶然事件',
+                    'Do': 'jump pork3-disagree'
+                },
+            }
+        },
+    ],
+    'pork3-agree': [
         'hide character a',
         's 大家都陷入了沉思。',
         {'Function':{
@@ -182,7 +219,12 @@ monogatari.script ({
 		}},
         'jump pork3-ending'
     ],
-
+    'pork3-disagree': [
+        'a 哦，是吗？我不太相信。',
+        'hide character a',
+        's 大家都陷入了沉思。',
+        'jump pork3-ending'
+    ],
 
 
 

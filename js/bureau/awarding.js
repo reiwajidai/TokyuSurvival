@@ -22,7 +22,16 @@ monogatari.script ({
 	'awarding': [
         's 你的室友拍了拍你',
         'a 群里发消息了，咱们楼今天晚上要召开志愿者表彰大会。',
-        'i 啊，表彰大会？这猪肉事件才过去几天，就等不及歌功颂德了？',
+		{
+			'Conditional': {
+				'Condition': function(){
+					const {school} = monogatari.storage('player');
+					return school<2;
+				},
+				'True': 'i 啊，表彰大会？这猪肉事件才过去几天，就等不及歌功颂德了？',
+				'False': 'i 哦？怎么这个表彰会开得这么早？',
+			}
+		},
         'a 你看看你这觉悟还是不行，过几天可是国际青年节，你忘了？',
         'a 这时候不冲一下行政KPI，什么时候冲？你看看手机，宣传咱们楼防控事迹的官方文章已经发在网上了。',
 		'play sound choices',
