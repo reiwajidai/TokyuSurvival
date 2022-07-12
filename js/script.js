@@ -230,7 +230,22 @@ monogatari.configuration ('credits', {
 
 // Define the images that will be available on your game's image gallery
 monogatari.assets ('gallery', {
-
+	// story gallery
+	'badge':'badge.png',
+	'rainbow':'rainbow.jpg',
+	'poet':'poet.png',
+	'speech':'speech.png',
+	// ending gallery
+	'pdf':'pdf.PNG',
+    'positive':'positive.png',
+	'tea': 'tea.png',
+    'safe':'ending-safe.png',
+    'depressed':'ending-depressed.png',
+    'confused':'ending-confused.png',
+    'reboot':'ending-reboot.png',
+    'fight':'ending-fight.png',
+	// rare gallery
+    'artist': 'artist.png',
 });
 
 // Define the music used in the game.

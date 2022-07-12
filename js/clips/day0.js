@@ -13,12 +13,6 @@
  * =======================================
  **/
 
-
-// Define the images that will be available on your game's image gallery
-monogatari.assets ('gallery', {
-	'badge':'badge.png',
-});
-
 // Define the messages used in the game.
 monogatari.action ('message').messages ({
 	'Day0-badge': {

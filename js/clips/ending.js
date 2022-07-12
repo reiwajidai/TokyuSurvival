@@ -79,19 +79,6 @@ monogatari.action ('message').messages ({
 });
 
 
-// Define the images that will be available on your game's image gallery
-monogatari.assets ('gallery', {
-    'pdf':'pdf.PNG',
-    'positive':'positive.png',
-    'safe':'ending-safe.png',
-    'depressed':'ending-depressed.png',
-    'confused':'ending-confused.png',
-    'reboot':'ending-reboot.png',
-    'fight':'ending-fight.png',
-    'tea': 'tea.png',
-});
-
-
 // Define the Characters
 monogatari.characters ({
     'lsx': {

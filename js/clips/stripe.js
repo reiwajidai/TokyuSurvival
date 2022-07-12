@@ -53,11 +53,6 @@ function get_img_link() {
     return 'p' + b + '.jpg'
 }
 
-monogatari.assets ('gallery', {
-	'poet':'poet.png',
-    'artist': 'artist.png',
-});
-
 monogatari.assets ('images', {
     'artist_img': '../gallery/artist.png',
 });

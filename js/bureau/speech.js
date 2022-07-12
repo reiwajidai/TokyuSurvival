@@ -20,11 +20,6 @@ monogatari.action ('message').messages ({
 	},
 });
 
-// Define the images that will be available on your game's image gallery
-monogatari.assets ('gallery', {
-	'speech':'speech.png',
-});
-
  monogatari.characters ({
 	'yam':{
 		name: '山口 雄（层长）',

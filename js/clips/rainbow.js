@@ -26,16 +26,6 @@
 
 /* global monogatari */
 
-// Define the backgrounds for each scene.
-monogatari.assets ('scenes', {
-
-});
-
-// Define the images that will be available on your game's image gallery
-monogatari.assets ('gallery', {
-	'rainbow':'rainbow.jpg',
-});
-
 // Define the messages used in the game.
 monogatari.action ('message').messages ({
 	'rainbow-watch': {
