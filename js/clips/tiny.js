@@ -36,6 +36,14 @@ monogatari.action ('message').messages ({
 			<p>（配图：水谷虎老师的哑铃和瑜伽垫）</p>
 		`
 	},
+	'gallery-dice': {
+		title: '解锁稀有画廊：运气王',
+		subtitle: '',
+		body: `
+			<p>你竟然在游戏的所有随机事件中，都抽到了好结果！</p>
+			<p>你太强了。</p>
+		`
+	},
 });
 
 monogatari.script ({
@@ -136,10 +144,29 @@ monogatari.script ({
 					const {cat_positive} = monogatari.storage('story');
 					return cat_positive
 				},
-				'False': 'jump tiny-cat2-ending',
+				'False': 'jump test-dice-gallery',
 				'True': 'jump tiny-cat2-positive',
 			},
 		},
+	],
+	'test-dice-gallery': [
+		{
+			'Conditional': {
+				'Condition': function(){
+					const {monopoly_bankrupt_escape} = monogatari.storage('story');
+					const {starve_escape} = monogatari.storage('story');
+					const {patrol_blame_escape} = monogatari.storage('story');
+					const {cat_escape} = monogatari.storage('story');
+					return patrol_blame_escape & starve_escape & monopoly_bankrupt_escape & cat_escape
+				},
+				'0': 'jump tiny-cat2-ending',
+				'1': 'next',
+			},
+		},
+		's 距离你撸猫过去了两天，你似乎并没有被病毒感染，你的运气实在是太好了',
+		'show message gallery-dice',
+		'gallery unlock dice',
+		'jump tiny-cat2-ending',
 	],
 	'tiny-cat2-positive': [
 		's 不知道为什么，今天晚上的你突然开始发烧、冒冷汗。你赶紧测了测抗原，突然发现结果是两条杠。',

@@ -246,6 +246,7 @@ monogatari.assets ('gallery', {
     'fight':'ending-fight.png',
 	// rare gallery
     'artist': 'artist.png',
+	'dice': 'dice.png',
 });
 
 // Define the music used in the game.
