@@ -80,14 +80,6 @@ monogatari.script ({
 					'Text': '就叫我寄寄吧',
 					'Do': 'jump Day0-not-enter-name'
 				},
-				'test': {
-					'Text': '就叫我测试员寄寄吧',
-					'Do': 'jump Day0-tester',
-					'Condition': function(){
-						const r = check_gallery('badge');
-						return r;
-					}
-				},
 				'silence': {
 					'Text': '保持沉默',
 					'Do': 'jump Day0-silence',
@@ -136,9 +128,13 @@ monogatari.script ({
 					'Text': '哦哦不好意思，我叫……',
 					'Do': 'jump Day0-enter-name'
 				},
-				'out': {
-					'Text': '不好意思，就叫我寄寄吧',
-					'Do': 'jump Day0-not-enter-name'
+				'test': {
+					'Text': '我是测试员',
+					'Do': 'jump Day0-tester',
+					'Condition': function(){
+						const r = check_gallery('badge');
+						return r;
+					}
 				},
 				'weird': {
 					'Text': '我觉得不太对劲……我要回家',
@@ -194,27 +190,10 @@ monogatari.script ({
 	],
 
 	'Day0-tester':[
-		{'Function':{
-			'Apply':function(){
-				monogatari.storage({
-					player:{
-						name: '测试员寄寄'
-					}
-				});
-				return true;
-			},
-			'Reverse':function(){
-				monogatari.storage({
-					player:{
-						name: ''
-					}
-				});
-			},
-		}},
 		'play sound choices',
 		{
 			'Choice': {
-				'Dialog': 'i 测试员可以进入时光机，直达……',
+				'Dialog': 's 测试员可以进入时光机，直达……',
 				'e1': {
 					'Text': '第12天',
 					'Do': 'jump test-day12'
@@ -244,7 +223,7 @@ monogatari.script ({
 					'Do': 'jump test-depressed'
 				},
 				'e3': {
-					'Text': '第12天，塔塔开结局',
+					'Text': '第15天，塔塔开结局',
 					'Do': 'jump test-fight',
 				},
 				'e4': {
@@ -356,9 +335,9 @@ monogatari.script ({
 				monogatari.storage({
 					player:{
 						name: '测试员寄寄',
-						sanity: 8,
-						school: 0,
-						day: 12,
+						sanity: 10,
+						school: -2,
+						day: 15,
 						leader: true,
 					}
 				});
@@ -370,7 +349,7 @@ monogatari.script ({
 				return 0;
 			},
 		}},
-		'jump Day12',
+		'jump Day15',
 	],
 	'test-reboot':[
 		{'Function':{

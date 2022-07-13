@@ -1,8 +1,8 @@
 {
 	"short_name": "東急求生記",
 	"name": "ドンジ サバイバル 東急求生記",
-	"background_color": "#F7F7F7",
-	"theme_color": "#F7F7F7",
+	"background_color": "#202020",
+	"theme_color": "#202020",
 	"orientation": "portrait",
 	"display": "fullscreen",
 	"start_url": "index.html",

@@ -254,6 +254,10 @@ input[type=range]::-ms-fill-upper {
 	/* Quick Menu Style */
 	[data-component="quick-menu"] {
 		background:#202020;
+		top:0;
+	}
+	text-box, text-box::after {
+		bottom: 0rem;
 	}
 
 	/* Quick Menu Buttons Style */

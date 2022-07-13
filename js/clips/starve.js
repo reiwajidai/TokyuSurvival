@@ -245,10 +245,10 @@
 		's 不知道为什么，今天晚上的你突然开始发烧、冒冷汗。你赶紧测了测抗原，突然发现结果是两条杠。',
 		{'Function':{
 			'Apply':function(){
-				add_health(-5);
+				add_health(-8);
 			},
 			'Reverse':function(){
-				add_health(5);
+				add_health(8);
 			},
 		}},
 		'i 啊这？！',
