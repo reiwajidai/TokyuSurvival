@@ -8,21 +8,6 @@
  * =======================================
  **/
 
- monogatari.characters ({
-	'cza': {
-		name: '层长A',
-		color: 'rgb(0, 168, 138)',
-	},
-	'czb': {
-		name: '层长B',
-		color: 'rgb(0, 168, 138)',
-	},
-	'cz': {
-		name: '层长',
-		color: 'rgb(0, 168, 138)',
-	},
-});
-
  monogatari.script ({
 	// Important: the destination must be correctly defined
 	'patrol-ending': [

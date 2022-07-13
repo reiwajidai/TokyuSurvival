@@ -369,6 +369,30 @@ monogatari.characters ({
 		name: '手机',
 		color: '#66ccff',
 	},
+	'qz': {
+		name: '群主',
+		color: 'rgb(0, 168, 138)',
+	},
+	'qya': {
+		name: '群友A',
+		color: 'rgb(0, 168, 138)',
+	},
+    'qyb': {
+		name: '群友B',
+		color: 'rgb(0, 168, 138)',
+	},
+    'qyc': {
+		name: '群友C',
+		color: 'rgb(0, 168, 138)',
+	},
+    'qyd': {
+		name: '群友D',
+		color: 'rgb(0, 168, 138)',
+	},
+	'fdy': {
+		name: '辅导员',
+		color: '#00cc33',
+	},
 });
 
 

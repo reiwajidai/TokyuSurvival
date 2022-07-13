@@ -58,22 +58,6 @@ monogatari.assets ('images', {
 });
 
 monogatari.characters ({
-	'qya': {
-		name: '群友A',
-		color: 'rgb(0, 168, 138)',
-	},
-    'qyb': {
-		name: '群友B',
-		color: 'rgb(0, 168, 138)',
-	},
-    'qyc': {
-		name: '群友C',
-		color: 'rgb(0, 168, 138)',
-	},
-    'qyd': {
-		name: '群友D',
-		color: 'rgb(0, 168, 138)',
-	},
     'zzwz': {
 		name: '文章：第二届65472艺术创作大赛',
 		color: 'rgb(0, 168, 138)',

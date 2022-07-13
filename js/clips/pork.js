@@ -13,25 +13,6 @@
  * =======================================
  **/
 
-monogatari.characters ({
-	'qya': {
-		name: '群友A',
-		color: 'rgb(0, 168, 138)',
-	},
-    'qyb': {
-		name: '群友B',
-		color: 'rgb(0, 168, 138)',
-	},
-    'qyc': {
-		name: '群友C',
-		color: 'rgb(0, 168, 138)',
-	},
-    'qyd': {
-		name: '群友D',
-		color: 'rgb(0, 168, 138)',
-	},
-});
-
 monogatari.action ('message').messages ({
 	'pork-investigation': {
 		title: '学校公报',

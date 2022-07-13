@@ -26,15 +26,6 @@ monogatari.action ('message').messages ({
 	},
 });
 
-// Define the Characters
-monogatari.characters ({
-    'fdy': {
-		name: '辅导员',
-		color: '#00cc33',
-	},
-
-});
-
 monogatari.script ({
 	// The game starts here.
 	'Day0-begin': [

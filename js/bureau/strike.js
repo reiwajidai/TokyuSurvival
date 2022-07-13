@@ -7,16 +7,6 @@
  * 建议本文件内所有剧情block的名字都带上strike-前缀
  * =======================================
  **/
- monogatari.characters ({
-	'cza': {
-		name: '层长A',
-		color: 'rgb(0, 168, 138)',
-	},
-	'czb': {
-		name: '层长B',
-		color: 'rgb(0, 168, 138)',
-	},
-});
 
  monogatari.script ({
 	// Important: the destination must be correctly defined

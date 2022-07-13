@@ -134,6 +134,18 @@ monogatari.characters ({
 		name: '楼长',
 		color: 'rgb(0, 168, 138)',
 	},
+	'cza': {
+		name: '层长A',
+		color: 'rgb(0, 168, 138)',
+	},
+	'czb': {
+		name: '层长B',
+		color: 'rgb(0, 168, 138)',
+	},
+	'cz': {
+		name: '层长',
+		color: 'rgb(0, 168, 138)',
+	},
 	'mi': {
 		name: '水谷 虎（楼栋老师）',
 		color: '#AA7DFF',

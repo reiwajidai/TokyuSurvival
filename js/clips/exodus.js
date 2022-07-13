@@ -37,7 +37,7 @@ monogatari.action ('message').messages ({
 // Define the Characters
 monogatari.characters ({
 	//群主
-	'qz': {
+	'gxqz': {
 		name: '老乡群 群主',
 		color: 'rgb(0, 168, 138)',
 	},
@@ -79,7 +79,7 @@ monogatari.script ({
 		'p <朋友圈：扫描二维码加入xx省老乡群.jpg>',
 		'i 早就听说有老乡群了，我加入群聊看看去',
 		's 你加入了老乡群，正好发现群主在讲话',
-		'qz 各位新来的成员记得改群昵称哦',
+		'gxqz 各位新来的成员记得改群昵称哦',
 		's 接着，你发现群里在聊隔壁学校已经允许学生离校返乡的事情',
 		'qy 所以说现在脚痛大学已经放人了对吧',
 		'qy 是这样的，他们派了车送走人',
@@ -122,8 +122,8 @@ monogatari.script ({
 		//收束：
 		'qy {{player.name}}！',
 		'qy {{player.name}}！',
-		'qz 那我们开始第一步工作吧，先收集一下信息',
-		'qz 谁建个表？',
+		'gxqz 那我们开始第一步工作吧，先收集一下信息',
+		'gxqz 谁建个表？',
 		'play sound choices',
 		{
 			'Choice': {
@@ -192,7 +192,7 @@ monogatari.script ({
 		'qy 草，然后呢',
 		'qy 我朋友已经坐上了家里来接他的轮椅',
 		'qy 大家看看啊！别人都已经落地了！',
-		'qz 上次说的人员表格基本收集好了，我们现在得接洽一下航空公司，搞清楚情况',
+		'gxqz 上次说的人员表格基本收集好了，我们现在得接洽一下航空公司，搞清楚情况',
 		{
 			'Conditional': {
 				'Condition': function(){
@@ -204,7 +204,7 @@ monogatari.script ({
 			}
 		},
 		'qy rnm他们都落地了',
-		'qz 我们再完善一下之前的人员表格吧',
+		'gxqz 我们再完善一下之前的人员表格吧',
 		'play sound choices',
 		{
 			'Choice': {
@@ -269,7 +269,7 @@ monogatari.script ({
 		'play sound new_message',
 		'p （叮咚）',
 		'i 欸，老乡群的消息',
-		'qz 接下来就剩下向学校请愿了……我放个表格，大家一起梳理一下我们的措辞',
+		'gxqz 接下来就剩下向学校请愿了……我放个表格，大家一起梳理一下我们的措辞',
 		'play sound choices',
 		{
 			'Choice': {
@@ -338,7 +338,7 @@ monogatari.script ({
 		//第二天或几天后：
 		'play sound new_message',
 		'p （叮咚）',
-		'qz 各位，有个坏消息，学校不同意，也不肯帮我们找车',
+		'gxqz 各位，有个坏消息，学校不同意，也不肯帮我们找车',
 		{
 			'Conditional': {
 				'Condition': function(){
@@ -351,13 +351,13 @@ monogatari.script ({
 		},
 		'qy 我要回家！',
 		'qy 草！什么鬼啊！',
-		'qz 我转载一下学校通知吧：',
+		'gxqz 我转载一下学校通知吧：',
 		'xx ……前日的暴动事件造成了极端恶劣的影响，学生无组织无纪律，以冲击学校的方式表达自己的诉求……',
 		'xx 经确认，这是境外势力的阴谋，很多人根本不是学生，他们渗透进入每一个群聊，鼓动学生回家，妄图将流毒散播到全世界',
 		'xx 说句阴谋论的话，疫情起始于脚痛，现在又是脚痛首先传出放人回家的谣言……',
 		'a 可恶……还以为能回家了……怎么会是骗人的……',
-		'qz 害，虽然的确很气人，但学校不放人，咱也没办法啊',
-		'qz 以后咱这群就继续用来扯淡吧',
+		'gxqz 害，虽然的确很气人，但学校不放人，咱也没办法啊',
+		'gxqz 以后咱这群就继续用来扯淡吧',
 		{'Function':{
 			'Apply':function(){
 				add_sanity(-1);
