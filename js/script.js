@@ -1000,6 +1000,9 @@ monogatari.script ({
 		'jump pork3'
 	],
 	'pork3-ending': [
+		'jump tea2'
+	],
+	'tea2-ending':[
 		'jump exodus6'
 	],
 	'exodus6-ending':[

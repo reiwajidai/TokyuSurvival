@@ -163,6 +163,16 @@ monogatari.script ({
         'qya 草！',
         'qyb 保存的样本能检出个der！',
         'qyc 你怎么不从垃圾桶捡出我们吃的东西去检验',
+        {
+			'Conditional': {
+				'Condition': function(){
+					const {informant} = monogatari.storage('story');
+					return informant
+				},
+				'True': 'jump pork3-ending',
+				'False': 'next',
+			}
+		},
         'show character a normal',
         'a 话说我看了网上同学的一些分析，他们追查了这家猪肉供应商。',
         'a 他们发现这家供应商进口冻肉虽然被海关因为新冠病毒拦下来过，但并无直接证据说明我们吃的这批肉有任何寄生虫这类的严重问题',

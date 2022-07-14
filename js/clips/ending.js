@@ -314,28 +314,7 @@ monogatari.script ({
         'jump ending-story',
     ],
     // 喝茶结局
-    'ending-tea-report':[
-        's 你抵御不住辅导员的压力，向上举报了冈田',
-		's 当你挂断电话的时候，你只是觉得天旋地转。你跟冈田还要做这么多年的同学，你已经完全不知道怎么面对他了',
-		's 就在这时，你的室友拍了拍你的后背，你两腿一软，直接坐在了地上。',
-		'a {{player.name}}怎么了呀？谁给你打电话了？怎么脸色这么差？',
-		'a 欸？怎么不说话啊，兄弟？',
-		'a 是不是哪里不舒服，我给你叫校医……',
-		's 室友的喊声淹没在你大脑的一片噪音之中，你觉得你做出了你这辈子最后悔的决定。',
-
-        'stop music sad',
-        'play music bad_ending',
-        'show message Ending-tea',
-        'gallery unlock tea',
-        'jump ending-story',
-    ],
-    'ending-tea-not-report':[
-        's 你选择沉默不语。',
-        'show scene #000000 with fadeIn',
-		's 之后的事情也不消多说，学院领导的批评、联系家长、接受处分……所有的压力都来了。',
-        'a 兄弟，别太往心里去，事情做得对不对，咱心里自己清楚。',
-        's 你自然没有将检举相关的事情告诉你的室友，你看了看窗外，百感交集。',
-
+    'ending-tea':[
         'stop music sad',
         'play music bad_ending',
         'show message Ending-tea',

@@ -43,6 +43,7 @@ monogatari.storage ({
 		day:1,
 	},
 	story:{
+        informant:false,
 		rainbow_help: false,
 		rainbow_glue: false,
 		exodus_help: 0,
