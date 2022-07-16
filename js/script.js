@@ -174,27 +174,6 @@ monogatari.action ('message').messages ({
 			<p>（本信策划、文案、图片制作等由小泽金太郎、山本大雄、羽生大作等同学联合完成）</p>
 		`
 	},
-	'Day15-letter': {
-		title: '致东急X楼所有学生的一封信',
-		subtitle: '',
-		body: `
-			<p>
-			今天这封信是我给X楼所有hxd的第10封信，不出意外也将是最后一封信了，这一系列的上万字的信件要截稿了。
-			因为我们楼内好消息不断、越来越人丁兴旺，同学们也有越来越多的时间在楼外活动，
-			所以根据安排，我将暂时不再负责X楼的相关工作，而转向在学校层面开展工作。</p>
-			<p>
-			这的确是一个难忘又难过的春天。那一天我正在“大操场”牵头开展核酸检测，接到了我们X楼有核酸异常的通报，于是穿上大白来到楼内紧急处置。
-			那个时候，我也着实没想到会有近一个月的连续封控。那一天，确实没有让大家吃到热乎的晚饭；那一天的信息通报（也就是给大家写的第一封信）也确实很晚；
-			那一天的每一个hxd都给了我足够的温暖和鼓励。不过，我们挺过来了！</p>
-			<p>
-			我们时刻铭记着一个个X楼的“大日子”。“X楼导航站”横空出世、“东急码”人手一图、“运转力提升计划”持续推进、
-			“向楼宇报到”如火如荼、核酸检测一次比一次快、三餐发放一次比一次高效、从“小卖部”到“仓储式超市”再到“网络连锁店”的持续进化、
-			“hxd的争霸赛和巅峰赛”风靡一时、“理发盒子”持续开张……我们真的有让X楼变得更好！</p>
-			<p>
-			Hxd们！总有千万般不舍，到了说再见的时候了！让我最后一次和大家说一句，晚安，hxd！</p>
-			<p>永远永远永远爱着大家的 佐佐木老师</p>
-		`
-	},
 	'Day6-sanity': {
 		title: '“足不出户”政策开始',
 		subtitle: '作为出现过阳性病例的楼宇，现进入更严格的封控状态。',
@@ -1163,6 +1142,9 @@ monogatari.script ({
 		'jump unseen8'
 	],
 	'unseen8-ending': [
+		'jump last-supper'
+	],
+	'last-supper-ending': [
 		'jump Day14-ending'
 	],
 	'Day14-ending': [
@@ -1171,39 +1153,7 @@ monogatari.script ({
 		'i （今天就到这里吧）',
 		'$ ending_trigger',
 		'$ next_day',
-		'jump Day15'
-	],
-
-
-	// ========================== Day 15 ===============================
-	'Day15': [
-		'show scene dorm with fadeIn',
-		'play sound new_day',
-		'play music normal loop',
-		'show message Day-start',
-		's 今日份的早饭是一个菜包，一个粉丝包，一袋豆浆。',
-		'jump Day15-1'
-	],
-	'Day15-1': [
-		'jump last-supper'
-	],
-	'last-supper-ending': [
-		'jump Day15-3'
-	],
-	'Day15-3': [
-		'play sound new_message',
-		'p 叮咚！',
-		's 佐佐木老师的每日问候又来了',
-		'play sound envelope_unfold',
-		'show message Day15-letter',
-		'jump Day15-ending'
-	],
-	'Day15-ending': [
-		'$ consume_food',
 		'stop music normal',
-		'show scene #000000 with fadeIn duration 1s',
-		'i （今天就到这里吧）',
-		'$ next_day',
 		'show scene dorm with fadeIn',
 		'show message Final-Day-start',
 		'jump ending-choose',

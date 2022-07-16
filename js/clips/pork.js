@@ -145,13 +145,8 @@ monogatari.script ({
 
 
     'pork2': [
-        's 你打开手机，发现猪肉话题已经在网络上火起来了',
-        'qya 地区话题热搜第二了！',
-        'qyb 好耶！',
-        'qyc 好耶！',
-        's 过了一会后',
-        'qya 草，东急删评了',
-        'qyb 公关果然是东急王牌专业',
+        's 你打开手机，发现猪肉话题已经在网络上火起来了。但过了一会，相关话题在围脖上的热度突然就没了',
+        'i 草，东急删评了，公关果然是东急王牌专业',
         'jump pork2-ending'
     ],
 
@@ -167,7 +162,9 @@ monogatari.script ({
 			'Conditional': {
 				'Condition': function(){
 					const {informant} = monogatari.storage('story');
-					return informant
+                    const {tea_tatakai} = monogatari.storage('story');
+					const {tea_opinion} = monogatari.storage('story');
+					return informant || tea_tatakai || tea_opinion
 				},
 				'True': 'jump pork3-ending',
 				'False': 'next',

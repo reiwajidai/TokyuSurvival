@@ -45,6 +45,8 @@ monogatari.storage ({
 	},
 	story:{
         informant:false,
+        tea_tatakai:false,
+        tea_opinion:false,
 		rainbow_help: false,
 		rainbow_glue: false,
 		exodus_help: 0,
