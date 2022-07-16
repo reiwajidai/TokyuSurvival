@@ -16,8 +16,9 @@ monogatari.action ('message').messages ({
 		title: '第{{player.day}}天',
 		subtitle: '看看你的状态和物品如何',
 		body: `
-			<p>健康值={{player.health}} 精神值={{player.sanity}}</p>
+			<p>健康={{player.health}} 精神={{player.sanity}} 学业={{player.study}}</p>
 			<p>物资x{{player.food}}</p>
+			<p>记得第11天要考试哦~</p>
 		`
 	},
 	'Final-Day-start': {
@@ -263,9 +264,11 @@ monogatari.assets ('gallery', {
 	'rainbow':'rainbow.jpg',
 	'poet':'poet.png',
 	'speech':'speech.png',
+	'crown':'king.png',
 	// ending gallery
 	'pdf':'pdf.PNG',
     'positive':'positive.png',
+	'fish':'fish.png',
 	'tea': 'tea.png',
     'safe':'ending-safe.png',
     'depressed':'ending-depressed.png',
@@ -324,6 +327,7 @@ monogatari.assets ('scenes', {
 	'street': 'street.png',
 	'dorm': 'dorm.png',
 	'laptop': 'laptop.png',
+	'balcony': 'balcony.png',
 });
 
 
@@ -479,6 +483,21 @@ monogatari.$('ending_trigger', {
         'Other': 'next',
     }
 });
+monogatari.$('sleep_condition', {
+    'Conditional': {
+        'Condition': function(){
+            const {sanity} = monogatari.storage('player');
+            const {health} = monogatari.storage('player');
+            if(sanity < 2) {
+                return "depressed";
+            } else {
+                return 'Other';
+            }
+        },
+        'depressed': 's 在凌晨你失眠醒来，很想家，只好在被窝里小声哭着再睡去',
+        'Other': 'next',
+    }
+});
 
 // 进入下一天
 monogatari.$('next_day', {
@@ -552,6 +571,9 @@ monogatari.script ({
 		'jump starve'
 	],
 	'starve-ending': [
+		'jump study'
+	],
+	'study-ending':[
 		'jump mahjong'
 	],
 	'mahjong-ending':[
@@ -578,6 +600,9 @@ monogatari.script ({
 		'jump Day3-1'
 	],
 	'Day3-1': [
+		'jump study2'
+	],
+	'study2-ending':[
 		'jump bureau'
 	],
 	'bureau-ending': [
@@ -612,6 +637,9 @@ monogatari.script ({
 		'jump bureau2'
 	],
 	'bureau2-ending': [
+		'jump study3'
+	],
+	'study3-ending':[
 		'jump monopoly'
 	],
 	'monopoly-ending': [
@@ -657,12 +685,18 @@ monogatari.script ({
 		'jump exodus'
 	],
 	'exodus-ending': [
+		'jump swap'
+	],
+	'swap-ending':[
 		'jump unseen3'
 	],
 	'unseen3-ending':[
 		'jump balcony',
 	],
 	'balcony-ending': [
+		'jump study4'
+	],
+	'study4-ending':[
 		'jump Day5-ending'
 	],
 	'Day5-ending': [
@@ -685,12 +719,25 @@ monogatari.script ({
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
+		'play sound knocking_door',
+		's 早上，睡梦中的你被一阵敲门声吵醒',
+		'zyz {{player.name}}同学，请记得提交你的抗原检测结果',
+		'zyz {{player.name}}同学！！',
+		'i 欸欸欸，好的好的（你躺在床上应着）',
+		'a {{player.name}}，你也在床上呢？',
+		'i 嗯呐',
+		'a 我刚看了一下新闻，昨日东京新增病例一万一',
+		'i 前几天不也八九千了嘛',
+		'a 对啊，不知道啥时候是个头阿……',
 		'jump Day6-1'
 	],
 	'Day6-1': [
 		'jump bureau4'
 	],
 	'bureau4-ending': [
+		'jump study5'
+	],
+	'study5-ending':[
 		'jump exodus2'
 	],
 	'exodus2-ending': [
@@ -728,6 +775,18 @@ monogatari.script ({
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
+		'play sound knocking_door',
+		's 早上，睡梦中的你被一阵敲门声吵醒',
+		'zyz {{player.name}}同学，请记得提交你的抗原检测结果',
+		'zyz {{player.name}}同学！！',
+		'i 欸欸欸，好的好的（你躺在床上应着）',
+		's 今天是进入封控状态的第一个早上，早餐是由楼层志愿者统一配送的。',
+		's 今日份的早饭是：一个菜包，一个粉丝包，一袋豆浆。你默默地将早饭吃完了。',
+		's 今天因为志愿者同学敲门的缘故，你再一次被迫早起。但早起就意味着清醒了吗，好像并不是，你只觉得全身无力，又爬回床上躺着',
+		's 但躺着又睡不着了，你只得又忿忿地下床',
+		'a {{player.name}}，昨天东京新增多少病例啊？',
+		'i 一万三',
+		'a 哎哟呦，这日子，长着呐！',
 		'jump Day7-1'
 	],
 	'Day7-1': [
@@ -740,6 +799,9 @@ monogatari.script ({
 		'jump unseen5'
 	],
 	'unseen5-ending': [
+		'jump study6'
+	],
+	'study6-ending':[
 		'jump starve4'
 	],
 	'starve4-ending': [
@@ -751,7 +813,7 @@ monogatari.script ({
 		's 佐佐木老师的每日问候又来了',
 		'play sound envelope_unfold',
 		'show message Day7-letter',	
-		'a 话说你知道吗，今天东急大学的官方媒体还发送了一篇推文，名字叫做《爸、妈请放心，我在东急挺好的！》',
+		'i 今天东急大学的官方媒体还发送了一篇推文，名字叫做《爸、妈请放心，我在东急挺好的！》',
 		'i 学校是唯恐家长不知道事实的真相吗哈哈哈？',
 		{'Function':{
 			'Apply':function(){
@@ -766,6 +828,7 @@ monogatari.script ({
 		'show scene #000000 with fadeIn duration 1s',
 		'i （今天就到这里吧）',
 		'$ ending_trigger',
+		'$ sleep_condition',
 		'$ next_day',
 		'jump Day8'
 	],
@@ -775,12 +838,24 @@ monogatari.script ({
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
+		'play sound knocking_door',
+		's 早上，睡梦中的你被一阵敲门声吵醒',
+		'zyz {{player.name}}同学，请记得提交你的抗原检测结果',
+		'zyz {{player.name}}同学！！',
+		'i 欸欸欸，好的好的（你躺在床上应着）',
+		'i 冈田，今天的新增数字是一万一',
+		'a 欸？好像比昨天少了一些，不是吗？',
+		'i 嗯嗯对的。',
+		's 今日份的早饭是：一个肉包，一个馒头，一袋豆浆。你默默地将早饭吃完了。',
 		'jump Day8-1'
 	],
 	'Day8-1': [
 		'jump brownie'
 	],
 	'brownie-ending': [
+		'jump study7'
+	],
+	'study7-ending':[
 		'jump exodus4'
 	],
 	'exodus4-ending': [
@@ -815,9 +890,12 @@ monogatari.script ({
 		}},
 		's 到了晚上，你辗转反侧，为封控的状态而忧愁。（精神-1）',
 		'$ consume_food',
+		's 你看了看宿舍里空荡荡的食物架子，数数自己十几天没有吃水果了，甚至担心明天能不能拉出屎',
+		'i 唉，睡吧睡吧',
 		'show scene #000000 with fadeIn duration 1s',
 		'i （今天就到这里吧）',
 		'$ ending_trigger',
+		'$ sleep_condition',
 		'$ next_day',
 		'jump Day9'
 	],
@@ -828,6 +906,14 @@ monogatari.script ({
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
+		'play sound knocking_door',
+		's 早上，你听见一阵敲门声',
+		'zyz {{player.name}}同学，请记得提交你的抗原检测结果',
+		'i 欸，好的',
+		's 平时死活起不来的你，现在可以自然醒了。大概是生物钟告诉你，现在不起，迟早也会有人叫醒你做抗原，做核酸，登记问卷。',
+		'a {{player.name}}，东京新增病例又回到一万三了……',
+		'i 唉，反反复复……',
+		's 今日份的早饭是：一个花卷，一个馒头，一袋豆浆。你把早饭塞进了自己的嘴里。',
 		'jump Day9-1'
 	],
 	'Day9-1': [
@@ -837,6 +923,9 @@ monogatari.script ({
 		'jump stripe'
 	],
 	'stripe-ending': [
+		'jump study8'
+	],
+	'study8-ending':[
 		'jump balcony3'
 	],
 	'balcony3-ending': [
@@ -859,6 +948,7 @@ monogatari.script ({
 		'show scene #000000 with fadeIn duration 1s',
 		'i （今天就到这里吧）',
 		'$ ending_trigger',
+		'$ sleep_condition',
 		'$ next_day',
 		'jump Day10'
 	],
@@ -869,6 +959,11 @@ monogatari.script ({
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
+		's 你很早就醒来了，于是只得下床做核酸，登记问卷。',
+		'a {{player.name}}，今天新增多少啊？',
+		'i 一万两千五',
+		'a 比昨天又下去了一点，不过总的来说还是高位运行',
+		's 今日份的早饭是什么你没有在意，你只是机械地把它们塞进了嘴里。',
 		'jump Day10-1'
 	],
 	'Day10-1': [
@@ -878,6 +973,9 @@ monogatari.script ({
 		'jump stripe2'
 	],
 	'stripe2-ending': [
+		'jump study9'
+	],
+	'study9-ending':[
 		'jump bureau7'
 	],
 	'bureau7-ending': [
@@ -891,7 +989,9 @@ monogatari.script ({
 		'p 叮咚！',
 		's 佐佐木老师的每日问候又来了',
 		'play sound envelope_unfold',
-		'show message Day10-letter',	
+		'show message Day10-letter',
+		'i 感觉字里行间，佐佐木老师也快破防了',
+		'a 可不是嘛？这些老师每天千头万绪地，上有领导，下有学生，不破防就怪了。',
 		{'Function':{
 			'Apply':function(){
 				add_sanity(-1);
@@ -905,6 +1005,7 @@ monogatari.script ({
 		'show scene #000000 with fadeIn duration 1s',
 		'i （今天就到这里吧）',
 		'$ ending_trigger',
+		'$ sleep_condition',
 		'$ next_day',
 		'jump Day11'
 	],
@@ -914,6 +1015,13 @@ monogatari.script ({
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
+		'a {{player.name}}，今天是一万两千',
+		'i 又少了五百，是吗？',
+		'a 对，按这个减弱速度推算的话……约莫二十天之后东京可以社会面清零',
+		'i 你说巧不巧，跟东京都知事的承诺日期差不多一样？',
+		'a 那可不，到时候，不能清零也得清零咯。',
+		's 今日份的早饭是一个肉包，一个馒头，一袋豆浆。你小心地咬开肉包的皮，仔细嗅了嗅馅儿的味道。',
+		's 似乎没有什么大问题，但你依旧把肉包丢掉了。',
 		'jump Day11-1'
 	],
 	'Day11-1': [
@@ -923,6 +1031,9 @@ monogatari.script ({
 		'jump stripe3'
 	],
 	'stripe3-ending': [
+		'jump study10'
+	],
+	'study10-ending':[
 		'jump balcony4'
 	],
 	'balcony4-ending': [
@@ -953,6 +1064,7 @@ monogatari.script ({
 		'show scene #000000 with fadeIn duration 1s',
 		'i （今天就到这里吧）',
 		'$ ending_trigger',
+		'$ sleep_condition',
 		'$ next_day',
 		'jump Day12'
 	],
@@ -963,6 +1075,9 @@ monogatari.script ({
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
+		'i 冈田，今天是一万一千四',
+		'a 嗯……',
+		's 今日份的早饭是一个菜包，一个花卷，一袋豆浆。你把它们塞进了嘴里。',
 		'jump Day12-1'
 	],
 	'Day12-1': [
@@ -994,6 +1109,8 @@ monogatari.script ({
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
+		's 你躺着床上看了看手机，今天东京播报的新增病例数是一万零五百，你没再跟冈田聊起这事',
+		's 今日份的早饭是一个菜包，一个粉丝包，一袋豆浆。',
 		'jump Day13-1'
 	],
 	'Day13-1': [
@@ -1028,6 +1145,7 @@ monogatari.script ({
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
+		's 今早你起的很晚，于是把早饭与午饭合着吃了',
 		'jump Day14-1'
 	],
 	'Day14-1': [	
@@ -1063,6 +1181,7 @@ monogatari.script ({
 		'play sound new_day',
 		'play music normal loop',
 		'show message Day-start',
+		's 今日份的早饭是一个菜包，一个粉丝包，一袋豆浆。',
 		'jump Day15-1'
 	],
 	'Day15-1': [

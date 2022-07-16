@@ -27,7 +27,7 @@ monogatari.action ('message').messages ({
 monogatari.script ({
 
 	'pork': [
-        's 某日中午吃饭',
+        's 来到了中午吃饭的时间，冈田拿着盒饭来到你的面前',
         'i 饿死了，你可算回来了',
         'a 快吃吧',
         's 舍友把买回的盒饭放在桌上',
@@ -145,7 +145,7 @@ monogatari.script ({
 
 
     'pork2': [
-        's 第二天，你打开手机，发现猪肉话题已经在网络上火起来了',
+        's 你打开手机，发现猪肉话题已经在网络上火起来了',
         'qya 地区话题热搜第二了！',
         'qyb 好耶！',
         'qyc 好耶！',
@@ -157,7 +157,7 @@ monogatari.script ({
 
 
     'pork3': [
-        's 几天后，学校发布了关于猪肉事件的通知',
+        's 学校发布了关于猪肉事件的通知',
         'play sound notification',
         'show message pork-investigation',
         'qya 草！',

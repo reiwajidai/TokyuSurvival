@@ -165,10 +165,10 @@ monogatari.script ({
 		'fdy 好的{{player.name}}同学，报到工作已经完成',
 		'fdy 我先提醒一下这学期的注意事项哦：',
 		'fdy 右上角有一个存档按钮，可以对这学期的生活进行存档',
-		'fdy 但由于剧情一直会变动，测试玩家要做好存档混乱的准备',
 		'fdy 另外，你有一些个人属性和物品数量，你看一下',
 		'show message Day-start',
-		'fdy 健康值归零之后可解锁“凉了”结局；精神值归零之后可解锁“破大防”结局；还有很多结局可以探索哦~',
+		'fdy 健康值归零之后可解锁“凉了”结局，精神值归零之后可解锁“破大防”结局……',
+		'fdy 在第11天会有考试，当天学业值小于1会解锁“挂科”结局。此外还有很多其他结局可以探索哦~',
 		'fdy 物资则是游戏里的消耗品，可以用来推进剧情或者恢复个人属性~',
 		'fdy 最后，你可以在游戏过程中解锁各种“画廊”，解锁后的画廊不仅可以在主菜单中查看，还可以在二刷、三刷游戏的时候带来意想不到的效果哦！',
 		'fdy 我先送你第一个画廊吧',
@@ -186,7 +186,7 @@ monogatari.script ({
 			'Choice': {
 				'Dialog': 's 测试员可以进入时光机，直达……',
 				'e1': {
-					'Text': '第12天',
+					'Text': '第12天及其后',
 					'Do': 'jump test-day12'
 				},
 				'e2': {
@@ -206,11 +206,11 @@ monogatari.script ({
 			'Choice': {
 				'Dialog': 'i 测试员可以选择预期结局',
 				'e1': {
-					'Text': '第12天，普通结局',
+					'Text': '第12天，普通倾向',
 					'Do': 'jump test-normal'
 				},
 				'e2': {
-					'Text': '第12天，自闭结局',
+					'Text': '第12天，自闭倾向',
 					'Do': 'jump test-depressed'
 				},
 				'e3': {
@@ -218,11 +218,11 @@ monogatari.script ({
 					'Do': 'jump test-fight',
 				},
 				'e4': {
-					'Text': '第12天，赢麻结局',
+					'Text': '第12天，赢麻倾向',
 					'Do': 'jump test-reboot',
 				},
 				'e5': {
-					'Text': '第12天，喝茶结局',
+					'Text': '第12天，喝茶',
 					'Do': 'jump test-tea',
 				},
 			}
@@ -300,8 +300,8 @@ monogatari.script ({
 				monogatari.storage({
 					player:{
 						name: '测试员寄寄',
-						sanity: 1,
-						school: 8,
+						sanity: 3,
+						school: 3,
 						day: 12,
 						care:4,
 						leader: true,

@@ -169,7 +169,6 @@ monogatari.script ({
 		'jump tiny-cat2-ending',
 	],
 	'tiny-cat2-positive': [
-		's 不知道为什么，今天晚上的你突然开始发烧、冒冷汗。你赶紧测了测抗原，突然发现结果是两条杠。',
 		{'Function':{
 			'Apply':function(){
 				add_health(-8);
@@ -178,10 +177,7 @@ monogatari.script ({
 				add_health(8);
 			},
 		}},
-		'i 啊这？！',
-		'a 啊你…………怎么回事！',
-		's 向学校报告后，你马上被重新测试了核酸结果，核酸结果很快就会出。',
-		'jump tiny-cat2-ending'
+		'jump ending-positive'
 	],
 
 	'mahjong': [
@@ -349,6 +345,46 @@ monogatari.script ({
 		'show message socialmedia-mizutani',
 		'jump socialmedia-mizutani-ending',
 	],
+
+
+	'swap':[
+		's 你听说最近由于物资缺乏，同学们之间在进行以物易物的原始活动。',
+		's 你觉得这是一个换到自己想要物资的好机会，只是说讨价还价、寻找交易的过程非常费心费力。',
+		{
+			'Choice': {
+				'Dialog': 's 你愿意参与以物易物活动吗？',
+				'e1': {
+					'Text': '参加（精神-2，物资+2）',
+					'Do': 'jump swap-join'
+				},
+				'e2': {
+					'Text': '算了',
+					'Do': 'jump swap-ending',
+				},
+			}
+		},
+	],
+	'swap-join':[
+		{'Function':{
+			'Apply':function(){
+				add_food(2);
+			},
+			'Reverse':function(){
+				add_food(-2);
+			},
+		}},
+		's 经过漫长的交易，你用一块橡皮换到了一袋橘子！（物资+2）',
+        {'Function':{
+			'Apply':function(){
+				add_sanity(-2);
+			},
+			'Reverse':function(){
+				add_sanity(2);
+			},
+		}},
+        's 但是你也砍价砍到崩溃（健康-2）',
+        'jump swap-ending'
+    ],
 
 	'last-supper': [
 		's 明天早上就要走了，你和舍友早早地收拾好东西，把桌上的杂物塞进了柜子里。',

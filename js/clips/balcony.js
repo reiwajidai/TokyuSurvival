@@ -113,17 +113,20 @@ monogatari.script ({
 		's 夜幕降临，你正在百无聊赖之时，忽然听见宿舍阳台外面，仿佛响起了人的呼喊声',
 		'i 是有人在喊什么东西吗？',
 		'a 去听听呗',
+		'show scene balcony',
 		's 你和室友走到阳台上听了起来，只听得楼上一声————',
 		'lg 我！要！出！去！',
 		'lg 我！要！出！去！',
 		'a 完了，又疯一个',
 		's 你和室友相视一笑',
+		'show scene dorm',
 		'jump balcony-ending',
 	],
 
 	// day2
 	'balcony2': [
 		's 夜幕降临，你又听见宿舍阳台外面响起了呼喊声，你走到了阳台前',
+		'show scene balcony',
 		'lg 我！要！出！去！',
 		'lg2 我想回家！',
 		'lg3 我！要！出！去！',
@@ -159,12 +162,14 @@ monogatari.script ({
 				add_school(1);
 			},
 		}},
+		'show scene dorm',
 		'jump balcony2-ending',
 	],
 
 	'balcony2-ignore': [
 		'i 两手一摊，两腿一翻，凡尘俗世，与我无关',
 		'i 还是再打一把游戏吧',
+		'show scene dorm',
 		'jump balcony2-ending',
 	],
 
@@ -179,6 +184,7 @@ monogatari.script ({
 				add_school(-1);
 			},
 		}},
+		'show scene dorm',
 		'jump balcony2-ending',
 	],
 
@@ -245,15 +251,18 @@ monogatari.script ({
 		'i 有点意思……',
 		'stop music normal',
 		'play music internationale',
+		'show scene balcony',
 		's 八点，你来到窗前，只听得熟悉的旋律再次响起……',
 		's ~起来，饥寒交迫的奴隶，起来，全世界受苦的人！满腔的热血已经沸腾，要为真理而斗争~',
 		'stop music internationale',
 		'play music normal loop',
+		'show scene dorm',
 		'jump balcony3-ending',
 	],
 	'balcony3-join': [
 		'stop music normal',
 		'play music internationale',
+		'show scene balcony',
 		's 你打开了电脑功放，播放国际歌。熟悉的旋律再次响起……',
 		'i ~起来，饥寒交迫的奴隶，起来，全世界受苦的人！满腔的热血已经沸腾，要为真理而斗争~',
 		{'Function':{
@@ -266,6 +275,7 @@ monogatari.script ({
 		}},
 		'stop music internationale',
 		'play music normal loop',
+		'show scene dorm',
 		'jump balcony3-ending',
 	],
 
@@ -421,7 +431,7 @@ monogatari.script ({
 	],
 	'balcony4-yell': [
 		'i 去tm的，这时候不喊，什么时候喊？',
-		'show scene #000000 with fadeIn duration 2s',
+		'show scene balcony with fadeIn duration 2s',
 		's 到了晚上八点的时候，你走到窗台前，面对夜空大喊：',
 		'i 东！急！道！歉！',
 		's 空荡荡的夜空，传来几声零星的回应',

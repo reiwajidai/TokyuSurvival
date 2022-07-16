@@ -35,11 +35,16 @@ monogatari.action ('Canvas').objects ({
                 const {sanity} = monogatari.storage('player');
 				const {school} = monogatari.storage('player');
 				const {care} = monogatari.storage('player');
+				const {study} = monogatari.storage('player');
+
+                ctx.fillText("第"+day+"天 健康="+health+"，精神="+sanity+"，物资="+food+"，学业="+ study,10* p_ratio,60* p_ratio);
 
 				// For debug and Testing
-                ctx.fillText("第"+day+"天 健康值="+health+"，精神值="+sanity+"，物资="+food+" h"+school+" g"+care,10* p_ratio,60* p_ratio);
-				// For publish
-				// ctx.fillText("第"+day+"天 健康值="+health+"，精神值="+sanity+"，物资="+food, 10* p_ratio, 60* p_ratio);
+				ctx.fillStyle="#333333";
+                ctx.fillRect(0, 70 * p_ratio, bar.width*0.25, 30 * p_ratio);
+				ctx.fillStyle="#FFFFFF";
+				ctx.font= 1*p_ratio + "rem Arial";
+				ctx.fillText('s=' + school+" c="+care,10* p_ratio,90* p_ratio);
 
 			},
 		},

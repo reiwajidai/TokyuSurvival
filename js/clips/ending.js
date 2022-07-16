@@ -84,6 +84,15 @@ monogatari.action ('message').messages ({
           <img src='./assets/gallery/door.png' width="40">
         `
     },
+    'Ending-exam': {
+        title: '结局：咸鱼挂科',
+        subtitle: '学个屁，摆了。',
+        body: `
+          <p>今后愿做一条咸鱼</p>
+          <p>（何不再玩一遍，尝试更多结局？）</p>
+          <img src='./assets/gallery/fish.png' width="40">
+        `
+    },
 });
 
 
@@ -276,6 +285,10 @@ monogatari.script ({
     ],
     // 阳性结局
     'ending-positive':[
+        's 不知道为什么，今天晚上的你突然开始发烧、冒冷汗。你赶紧测了测抗原，突然发现结果是两条杠。',
+        'i 啊这？！',
+		'a 啊你…………怎么回事！',
+		's 向学校报告后，你马上被重新测试了核酸结果，核酸结果很快就会出。',
         's 不幸的是，你的核酸结果复核为阳性',
         'show scene #000000 with fadeIn',
         's 由于你的情况实属令大家担忧，你被迅速地转移到附近的隔离医院。在医院，你得到了妥善的治疗，但同时很明显，你这学期的学校生活画上了句号。',
@@ -296,21 +309,28 @@ monogatari.script ({
                         return 'Other';
                     }
 				},
-				'starve_positive': 's 你仔细想了想，莫非是因为自己某天晚上偷偷溜到小卖部买东西的缘故？虽然溜出去不会百分百中招，但现在说什么都晚了。',
+				'starve_positive': 'jump ending-positive-starve',
                 'cat': 's 你仔细想了想，莫非是因为自己某天撸了野猫的缘故？虽然撸猫不会百分百中招，但现在说什么都晚了。',
 				'leader': 's 你仔细想了想，也许是因为自己担任层长期间，太听老师的话，操劳过度。但现在说什么都晚了。',
-                'Other': 's 你仔细想了想，并不是很明白',
+                'Other': 's 你仔细想了想，并不是很明白，也许是学习过度？',
 			}
 		},
-        'i 唉……不应该乱跑出去的……但也实在没有办法，乱七八糟的调度让人完全陷入恐慌，只能屯点物资或者做点什么放松一下',
-        'i 要是能够解决这些问题，待在宿舍里就能精神放松衣食无忧，谁还会冒着风险违反抗疫政策。',
-        'i 不遵循政策固然是错的，但遵循一个让人过不好的政策似乎也不合理。',
         'i 就是苦了舍友们了，封控依旧还在继续……',
         'stop music normal',
         'play music bad_ending',
         'show message Ending-positive',
         'gallery unlock positive',
-
+        'jump ending-story',
+    ],
+    'ending-positive-starve':[
+        's 你仔细想了想，莫非是因为自己某天晚上偷偷溜到小卖部买东西的缘故？虽然溜出去不会百分百中招，但现在说什么都晚了。',
+        'i 唉……不应该乱跑出去的……但也实在没有办法，乱七八糟的调度让人完全陷入恐慌，只能屯点物资或者做点什么放松一下',
+        'i 要是能够解决这些问题，待在宿舍里就能精神放松衣食无忧，谁还会冒着风险违反抗疫政策。',
+        'i 不遵循政策固然是错的，但遵循一个让人过不好的政策似乎也不合理。',
+        'stop music normal',
+        'play music bad_ending',
+        'show message Ending-positive',
+        'gallery unlock positive',
         'jump ending-story',
     ],
     // 喝茶结局
@@ -319,6 +339,15 @@ monogatari.script ({
         'play music bad_ending',
         'show message Ending-tea',
         'gallery unlock tea',
+        'jump ending-story',
+    ],
+    'ending-fish':[
+        's 不出意外地，你考试挂科了',
+        'i 唉，疫情真的是完全破坏了我的学习环境。在这种充满焦虑的心态下，我怎么学的进去？',
+        'i 不如躺平做条咸鱼',
+        'play music bad_ending',
+        'show message Ending-exam',
+        'gallery unlock fish',
         'jump ending-story',
     ],
     'ending-fast':[

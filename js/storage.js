@@ -41,6 +41,7 @@ monogatari.storage ({
 		food:1,
 		leader:false,
 		day:1,
+        study:3,
 	},
 	story:{
         informant:false,
@@ -95,6 +96,21 @@ function add_food(value){
     monogatari.storage({
         player:{
             food: food + value
+        }
+    });
+    monogatari._actions[0]._configuration.objects.stats.props.drawText();
+    if (value>=0){
+        audio_stats_up.play()
+    }else{
+        audio_stats_down.play()
+    }
+}
+
+function add_study(value){
+    const {study} = monogatari.storage('player');
+    monogatari.storage({
+        player:{
+            study: study + value
         }
     });
     monogatari._actions[0]._configuration.objects.stats.props.drawText();
