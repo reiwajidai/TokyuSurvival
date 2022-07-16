@@ -214,7 +214,7 @@ monogatari.script ({
 					'Do': 'jump test-depressed'
 				},
 				'e3': {
-					'Text': '第15天，塔塔开结局',
+					'Text': '第14天，塔塔开结局',
 					'Do': 'jump test-fight',
 				},
 				'e4': {
@@ -328,7 +328,7 @@ monogatari.script ({
 						name: '测试员寄寄',
 						sanity: 10,
 						school: -2,
-						day: 15,
+						day: 14,
 						leader: true,
 					}
 				});
@@ -340,7 +340,7 @@ monogatari.script ({
 				return 0;
 			},
 		}},
-		'jump Day15',
+		'jump Day14',
 	],
 	'test-reboot':[
 		{'Function':{

@@ -96,6 +96,14 @@ monogatari.script ({
 
 
     'study3':[
+		{'Function':{
+			'Apply':function(){
+				add_study(-1);
+			},
+			'Reverse':function(){
+				add_study(1);
+			},
+		}},
 		's 今天的你打算好好地完成老师布置的作业，但正要查资料的时候，你发现你想查的书都躺在图书馆里，而封校之后的你自然是借不到书的（学业-1）',
         'jump study3-ending'
     ],
@@ -471,7 +479,7 @@ monogatari.script ({
 			}
 		},
     ],
-    'study10-success':[
+    'study10-good':[
         {'Function':{
 			'Apply':function(){
 				add_sanity(2);

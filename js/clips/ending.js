@@ -61,7 +61,7 @@ monogatari.action ('message').messages ({
         `
     },
     'Ending-reboot': {
-        title: '结局：赢了',
+        title: '结局：赢麻了',
         subtitle: '好日子还在后头哩！',
         body: `
           <p>（何不再玩一遍，尝试更多结局？）</p>
