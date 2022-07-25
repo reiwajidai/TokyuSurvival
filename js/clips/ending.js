@@ -277,6 +277,7 @@ monogatari.script ({
         'i （保重吗……这日子还有什么盼头……）',
 
         'stop music normal',
+        'stop music normal2',
         'play music bad_ending',
         'show message Ending-pdf',
         'gallery unlock pdf',
@@ -317,6 +318,7 @@ monogatari.script ({
 		},
         'i 就是苦了舍友们了，封控依旧还在继续……',
         'stop music normal',
+        'stop music normal2',
         'play music bad_ending',
         'show message Ending-positive',
         'gallery unlock positive',
@@ -328,6 +330,7 @@ monogatari.script ({
         'i 要是能够解决这些问题，待在宿舍里就能精神放松衣食无忧，谁还会冒着风险违反抗疫政策。',
         'i 不遵循政策固然是错的，但遵循一个让人过不好的政策似乎也不合理。',
         'stop music normal',
+        'stop music normal2',
         'play music bad_ending',
         'show message Ending-positive',
         'gallery unlock positive',
@@ -352,6 +355,7 @@ monogatari.script ({
     ],
     'ending-fast':[
         'stop music normal',
+        'stop music normal2',
         'play music good_ending',
         's 尽管你也没完全想清楚怎么回事，你还是火速买了今晚的机票，连夜回到了外地的家中。',
         'show scene #000000 with fadeIn',

@@ -54,10 +54,31 @@ $_ready (() => {
 			'p4': get_img_link(),
 			'p5': get_img_link(),
 		});
+
+		// 增加UI界面的中文翻译
+		monogatari.translation ('简体中文', {
+			'Gallery': '画廊',
+			'Settings': '游戏设置',
+			'Credits': '制作名单',
+		});
+		
+		// 在主界面加入新的页面元素
+		monogatari.component ('main-screen').template (() => {
+			return `
+				<game-title>東急求生記</game-title>
+				<main-menu></main-menu>
+			`;
+		});
+
+		// 修复credits界面标题不是中文的问题
+		const credit_title = document.querySelector ('credits-screen [data-content="title"]');
+		credit_title.innerHTML = '<h2 data-string="Credits" data-content="title">制作名单</h2>'
+
 	});
 	
+	// 加载游戏存档之后
 	monogatari.on ('didLoadGame', () => {
+		// 调整数值条的缩放
 		set_bar_zoom()
-		monogatari.run("play music normal loop")
 	});
 });

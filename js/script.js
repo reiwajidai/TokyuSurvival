@@ -205,35 +205,29 @@ monogatari.action ('canvas').objects ({
 
 // Credits of the people involved in the creation of this awesome game
 monogatari.configuration ('credits', {
-	'Content': `
-		<h5>Contact</h5>
-		<p>The developers are welcoming similar stories from game players to further enrich
-		the game experience. If you are willing to provide these, feel free to contact us by following email:</p>
+	'联系方式': 
+		`
+		<h3>联系方式</h3>
+		<p>如果大家遭遇过类似的故事，欢迎向开发者团队投稿，一经采用，您的故事将成为游戏剧情的一部分！</p>
+		<p>感兴趣的网友可直接将您或周边朋友的亲身经历发送邮件到邮箱:</p>
 		<p><u>reiwajidai@protonmail.com</u></p>
-		<p>You can also visit our github page to follow or join the game development</p>
+		<p>您也可以通过Github关注或加入游戏的开发</p>
 		<a href='https://github.com/reiwajidai/TokyuSurvival'><u>Click to visit Github page</u></a>
 		<p>-</p>
-		<h5>Producer</h5>
-		<p>Mizutani Ko</p>
-		<p>-</p>
-		<h5>Story</h5>
-		<p>Ito Yoichi</p>
-		<p>-</p>
-		<h5>Programming</h5>
-		<p>Hirata Ichiro</p>
-		<p>-</p>
-		<h5>Graphics</h5>
-		<p>Sasaki Michiko</p>
-		<p>-</p>
-		<h5>Music & SFX</h5>
-		<p>Suzuki Keiko</p>
-		<p>-</p>
-		<h5>Testing</h5>
-		<p>Suzuki Michiko</p>
-		<p>-</p>
-		<h5>Special Thanks</h5>
-		<p>Suzuki Michiko</p>
-	`,
+		`
+	,
+	'制作名单':{
+		'PRODUCER': ['Ichiro Hirata'],
+		'STORY': ['伊東 陽一', '虚渊 流子', 'Michiko Sasaki', '<br>津門 尤二', '藤本 啓介'],
+		'GAME ENGINE': ['Monogatari', 'Apache Cordova'],
+		'PROGRAM': ['Takayoshi Reiwa'],
+		'GRAPHICS': ['岡田 茂', 'Yoko Yamada', '虚渊 流子'],
+		'MUSIC & SFX': ['渡辺徹', 'ガレージバンド'],
+		'TESTING': ['虚渊 流子', 'Koji Saito', '伊東 陽一', '<br>Louis Brandon', 'Mayo Nagashima'],
+		'PROMOTION': ['Bandaimi Takahashi', '津門 尤二', '毛利 たけこ'],
+		'EATING WATERMELONS': ['夏目幸之'],
+		'SPECIAL THANKS': ['ウーユー', 'ゼロノート', '岡田 茂', 'Yuta Ono'],
+	},
 });
 
 // Define the images that will be available on your game's image gallery
@@ -262,6 +256,7 @@ monogatari.assets ('gallery', {
 // Define the music used in the game.
 monogatari.assets ('music', {
 	'normal': 'bgm_normal.mp3',
+	'normal2': 'bgm_normal2.mp3',
 	'internationale': 'bgm_internationale.mp3',
 	'sad': 'bgm_sad.mp3',
 	'crowd': 'bgm_crowd.mp3',
@@ -517,6 +512,19 @@ monogatari.$('next_day', {
 monogatari.script ({
 	// The game starts here.
 	'Start': [
+		'play sound typing',
+		'nvl <p></p>列位看官：你道此书从何而来？说来荒唐，细按则深有趣味。点击屏幕，待在下说来……',
+		'play sound typing',
+		'nvl 原是女娲氏炼石补天之时，单剩一块弃于青埂峰之下。谁知此石通了灵性，日夜嗟悼无缘世间繁华。一日，灵石见一仙人远远而来，便求着要去凡间受享。于是那仙人将其化为宝玉，投向凡间。',
+		'play sound typing',
+		'nvl 殊不知刚过数月，一个道人便在山下遇见一块刻字大石：字迹分明，编述历历，然而尽是痴言妄语，满篇荒唐。',
+		'play sound typing',
+		'nvl 道人向石头问起故事的来历，石头只说：来自诅咒之地，源于外部势力，邪魔秽语罢了，何必相信？若是气急败坏，只怕做贼心虚。',
+		'play sound typing',
+		'nvl 道人听如此说，思忖半响，将故事改编为网页游戏，以飨万千网友。',
+		'show scene #000000',
+		'centered  点击屏幕开始',
+		'play music normal2 loop',
 		'jump Day0'
 	],
 
@@ -540,6 +548,8 @@ monogatari.script ({
 
 	//==========================Day 2===============================
 	'Day2': [
+		'stop music normal2',
+		'play music normal loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
@@ -573,6 +583,8 @@ monogatari.script ({
 
 	//==========================Day 3===============================
 	'Day3': [
+		'stop music normal',
+		'play music normal2 loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
@@ -607,6 +619,8 @@ monogatari.script ({
 
 	//==========================Day 4===============================
 	'Day4': [
+		'stop music normal2',
+		'play music normal loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
@@ -652,6 +666,8 @@ monogatari.script ({
 
 	//==========================Day 5===============================
 	'Day5': [
+		'stop music normal',
+		'play music normal2 loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
@@ -695,6 +711,8 @@ monogatari.script ({
 
 	//==========================Day 6===============================
 	'Day6': [
+		'stop music normal2',
+		'play music normal loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
@@ -751,6 +769,8 @@ monogatari.script ({
 
 	// ========================== Day 7 ===============================
 	'Day7': [
+		'stop music normal',
+		'play music normal2 loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
@@ -814,6 +834,8 @@ monogatari.script ({
 
 	// ========================== Day 8 ===============================
 	'Day8': [
+		'stop music normal2',
+		'play music normal loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
@@ -882,6 +904,8 @@ monogatari.script ({
 
     // ========================== Day 9 ===============================
 	'Day9': [
+		'stop music normal',
+		'play music normal2 loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
@@ -935,6 +959,8 @@ monogatari.script ({
 
 	// ========================== Day 10 ===============================
 	'Day10': [
+		'stop music normal2',
+		'play music normal loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
@@ -991,6 +1017,8 @@ monogatari.script ({
 
 	// ========================== Day 11 ===============================
 	'Day11': [
+		'stop music normal',
+		'play music normal2 loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
@@ -1051,6 +1079,8 @@ monogatari.script ({
 
 	// ========================== Day 12 ===============================
 	'Day12': [
+		'stop music normal2',
+		'play music normal loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
@@ -1085,6 +1115,8 @@ monogatari.script ({
 
 	// ========================== Day 13 ===============================
 	'Day13': [
+		'stop music normal',
+		'play music normal2 loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',
@@ -1121,6 +1153,8 @@ monogatari.script ({
 
 	// ========================== Day 14 ===============================
 	'Day14': [
+		'stop music normal2',
+		'play music normal loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
 		'show message Day-start',

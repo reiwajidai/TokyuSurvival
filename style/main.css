@@ -74,6 +74,10 @@ game-title {
 	background-color: white;
 }
 
+[data-ui="credits"] {
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
 /**
  * ===========================
  * Save and Load Menus Styling

@@ -29,19 +29,6 @@ monogatari.action ('message').messages ({
 monogatari.script ({
 	// The game starts here.
 	'Day0-begin': [
-		'play sound typing',
-		'nvl <p></p>列位看官：你道此书从何而来？说来荒唐，细按则深有趣味。点击屏幕，待在下说来……',
-		'play sound typing',
-		'nvl 原是女娲氏炼石补天之时，单剩一块弃于青埂峰之下。谁知此石通了灵性，日夜嗟悼无缘世间繁华。一日，灵石见一仙人远远而来，便求着要去凡间受享。于是那仙人将其化为宝玉，投向凡间。',
-		'play sound typing',
-		'nvl 殊不知刚过数月，一个道人便在山下遇见一块刻字大石：字迹分明，编述历历，然而尽是痴言妄语，满篇荒唐。',
-		'play sound typing',
-		'nvl 道人向石头问起故事的来历，石头只说：来自诅咒之地，源于外部势力，邪魔秽语罢了，何必相信？若是气急败坏，只怕做贼心虚。',
-		'play sound typing',
-		'nvl 道人听如此说，思忖半响，将故事改编为网页游戏，以飨万千网友。',
-		'show scene #000000',
-		'centered  点击屏幕开始',
-		'play music normal loop',
 		's 我是谁？',
 		's 我在哪儿？',
 		's 我仿佛做了一个梦……',
@@ -166,6 +153,7 @@ monogatari.script ({
 		'fdy 我先提醒一下这学期的注意事项哦：',
 		'fdy 右上角有一个存档按钮，可以对这学期的生活进行存档',
 		'fdy 另外，你有一些个人属性和物品数量，你看一下',
+		'play sound new_message',
 		'show message Day-start',
 		'fdy 健康值归零之后可解锁“凉了”结局，精神值归零之后可解锁“破大防”结局……',
 		'fdy 在第11天会有考试，当天学业值小于1会解锁“挂科”结局。此外还有很多其他结局可以探索哦~',

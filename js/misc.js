@@ -17,6 +17,7 @@ monogatari.action ('Canvas').objects ({
 		props: {
 			drawText: (bar) => {
 				bar = stats_bar;
+				bar.getContext('2d').clearRect (0, 0, bar.width, bar.height);
                 const ctx = bar.getContext('2d');
 
                 ctx.fillStyle="#FFFFFF";
@@ -40,12 +41,21 @@ monogatari.action ('Canvas').objects ({
                 ctx.fillText("第"+day+"天 健康="+health+"，精神="+sanity+"，物资="+food+"，学业="+ study,10* p_ratio,60* p_ratio);
 
 				// For debug and Testing
-				ctx.fillStyle="#333333";
-                ctx.fillRect(0, 70 * p_ratio, bar.width*0.25, 30 * p_ratio);
-				ctx.fillStyle="#FFFFFF";
-				ctx.font= 1*p_ratio + "rem Arial";
-				ctx.fillText('s=' + school+" c="+care,10* p_ratio,90* p_ratio);
-
+				let debug_text = 's=' + school+" c="+care;
+				let remaining = 11 - day;
+				let additional_text = '';
+				if (remaining >= 0){
+					if (remaining > 0){
+						additional_text = '离考试还有' + remaining +'天'
+					} else {
+						additional_text = '今天考试！'
+					}
+					ctx.fillStyle="#333333";
+					ctx.fillRect(0, 70 * p_ratio, bar.width*0.4, 30 * p_ratio);
+					ctx.fillStyle="#FFFFFF";
+					ctx.font= 1*p_ratio + "rem Arial";
+					ctx.fillText(additional_text ,10* p_ratio, 90* p_ratio);
+				}
 			},
 		},
 		start: function ({ bar }, props, state, container) {
