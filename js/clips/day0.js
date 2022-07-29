@@ -94,7 +94,21 @@ monogatari.script ({
 				'Warning': '不说？不说你怎么报到？'
 			}
 		},
-		'jump Day0-instruction'
+		{
+			'Conditional': {
+				'Condition': function(){
+                    let {name} = monogatari.storage('player');
+					const mySet = new Set(['虚渊流子', '伊东阳一', '平田一郎', '测试员']);
+					if(mySet.has(name)) {
+                        return "tester";
+                    }  else {
+                        return 'Other';
+                    }
+				},
+				'tester': 'jump Day0-tester',
+                'Other': 'jump Day0-instruction',
+			}
+		},
 	],
 	'Day0-silence':[
 		'fdy 同学，同学，你咋不说话啊，怎么了？',
@@ -105,14 +119,6 @@ monogatari.script ({
 				'give-name': {
 					'Text': '哦哦不好意思，我叫……',
 					'Do': 'jump Day0-enter-name'
-				},
-				'test': {
-					'Text': '我是测试员',
-					'Do': 'jump Day0-tester',
-					'Condition': function(){
-						const r = check_gallery('badge');
-						return r;
-					}
 				},
 				'weird': {
 					'Text': '我觉得不太对劲……我要回家',

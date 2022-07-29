@@ -217,13 +217,13 @@ monogatari.configuration ('credits', {
 		`
 	,
 	'制作名单':{
-		'PRODUCER': ['Ichiro Hirata'],
+		'PRODUCER': ['レイワジダイ株式会社'],
 		'STORY': ['伊東 陽一', '虚渊 流子', 'Michiko Sasaki', '<br>津門 尤二', '藤本 啓介'],
 		'GAME ENGINE': ['Monogatari', 'Apache Cordova'],
-		'PROGRAM': ['Takayoshi Reiwa'],
+		'PROGRAM': ['Takayoshi Reiwa', '武田 昭彦', 'Koji Saito'],
 		'GRAPHICS': ['岡田 茂', 'Yoko Yamada', '虚渊 流子'],
-		'MUSIC & SFX': ['渡辺徹', 'ガレージバンド'],
-		'TESTING': ['虚渊 流子', 'Koji Saito', '伊東 陽一', '<br>Louis Brandon', 'Mayo Nagashima'],
+		'MUSIC & SFX': ['渡辺徹', 'ガレージバンド', 'Miho Araki'],
+		'TESTING': ['虚渊 流子', 'Koji Saito', '伊東 陽一', '<br>Louis Brandon', '平田 一郎', 'Mayo Nagashima'],
 		'PROMOTION': ['Bandaimi Takahashi', '津門 尤二', '毛利 たけこ'],
 		'EATING WATERMELONS': ['夏目幸之'],
 		'SPECIAL THANKS': ['ウーユー', 'ゼロノート', '岡田 茂', 'Yuta Ono'],
