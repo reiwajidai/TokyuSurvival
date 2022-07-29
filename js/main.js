@@ -65,7 +65,7 @@ $_ready (() => {
 		// 在主界面加入新的页面元素
 		monogatari.component ('main-screen').template (() => {
 			return `
-				<game-title>東急求生記</game-title>
+				<game-logo-container></game-logo-container>
 				<main-menu></main-menu>
 			`;
 		});

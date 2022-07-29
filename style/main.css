@@ -45,7 +45,8 @@ button:hover {
 
 /* Main Menu Styling */
 [data-screen="main"] {
-	background-image: url("../assets/scenes/gate.png");
+	background-image: url("../assets/images/main_menu.png");
+	background-position-y: bottom;
 }
 
 /* Main Menu Buttons Styling */
@@ -62,16 +63,12 @@ button:hover {
 	border-width: 2px;
 }
 
-game-title {
-	margin-top: 60px;
-	border-top-width: 2px;
-	border-top-style: solid;
-	padding-top: 20px;
-	border-bottom-width: 2px;
-	border-bottom-style: solid;
-	padding-bottom: 20px;
-	font-size: 2rem;
-	background-color: white;
+game-logo-container {
+	margin-top: 40px;
+	width: 50vw;
+	height: 66vw;
+	background-image: url("../assets/images/title.svg");
+	align-self: center;
 }
 
 [data-ui="credits"] {
@@ -272,6 +269,14 @@ input[type=range]::-ms-fill-upper {
 	/* Quick Menu Buttons Style on Hover */
 	[data-component="quick-menu"] span:hover {
 
+	}
+
+	game-logo-container {
+		margin-top: 40px;
+		width: 300px;
+		height: 396px;
+		background-image: url("../assets/images/title.svg");
+		align-self: center;
 	}
 }
 
