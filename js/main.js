@@ -70,6 +70,12 @@ $_ready (() => {
 			`;
 		});
 
+		// 随机主界面
+		let main_screen_element = document.querySelector("main-screen.animated");
+		let screen_num = Math.floor(Math.random() * 2.99)
+		let screen_link = [`url("./assets/images/main_menu.png")`, `url("./assets/images/main_menu_2.png")`, `url("./assets/images/main_menu_3.png")`]
+		main_screen_element.style.backgroundImage = screen_link[screen_num];
+
 		// 修复credits界面标题不是中文的问题
 		const credit_title = document.querySelector ('credits-screen [data-content="title"]');
 		credit_title.innerHTML = '<h2 data-string="Credits" data-content="title">制作名单</h2>'

@@ -45,7 +45,6 @@ button:hover {
 
 /* Main Menu Styling */
 [data-screen="main"] {
-	background-image: url("../assets/images/main_menu.png");
 	background-position-y: bottom;
 }
 
