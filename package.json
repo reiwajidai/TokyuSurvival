@@ -1,14 +1,14 @@
 {
   "name": "tokyu-survival",
   "productName": "Tokyu Survival",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "main": "engine/electron/index.js",
   "description": "A visual novel about pandemic lockdown life in a university",
   "author": "Your Name",
   "license": "MIT",
   "homepage": "https://example.com",
   "build": {
-    "appId": "com.tsteam.tokyusurvival",
+    "appId": "com.reiwa.tokyusurvival",
     "win": {
       "target": [
         "nsis"

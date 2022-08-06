@@ -18,7 +18,24 @@ monogatari.action ('message').messages ({
 		body: `
 			<p>健康={{player.health}} 精神={{player.sanity}} 学业={{player.study}}</p>
 			<p>物资x{{player.food}}</p>
-			<p>记得第11天要考试哦~</p>
+			<p>记得第11天要考试，届时学业值要大于零哦~</p>
+		`
+	},
+	'Day-start-11': {
+		title: '第{{player.day}}天',
+		subtitle: '看看你的状态和物品如何',
+		body: `
+			<p>健康={{player.health}} 精神={{player.sanity}} 学业={{player.study}}</p>
+			<p>物资x{{player.food}}</p>
+			<p>今天考试！</p>
+		`
+	},
+	'Day-start-after': {
+		title: '第{{player.day}}天',
+		subtitle: '看看你的状态和物品如何',
+		body: `
+			<p>健康={{player.health}} 精神={{player.sanity}} 学业={{player.study}}</p>
+			<p>物资x{{player.food}}</p>
 		`
 	},
 	'Final-Day-start': {
@@ -224,7 +241,7 @@ monogatari.configuration ('credits', {
 		'GRAPHICS': ['岡田 茂', 'Yoko Yamada', '虚渊 流子'],
 		'MUSIC & SFX': ['渡辺徹', 'ガレージバンド', 'Miho Araki'],
 		'TESTING': ['虚渊 流子', 'Koji Saito', '伊東 陽一', '<br>Louis Brandon', '平田 一郎', 'Mayo Nagashima'],
-		'PROMOTION': ['Bandaimi Takahashi', '津門 尤二', '毛利 たけこ'],
+		'PROMOTION': ['Bandaimi Takahashi', '虚渊 流子', '伊東 陽一', '<br>津門 尤二', '毛利 たけこ'],
 		'EATING WATERMELONS': ['夏目幸之'],
 		'SPECIAL THANKS': ['ウーユー', 'ゼロノート', '岡田 茂', 'Yuta Ono'],
 	},
@@ -1021,7 +1038,7 @@ monogatari.script ({
 		'play music normal2 loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
-		'show message Day-start',
+		'show message Day-start-11',
 		'a {{player.name}}，今天是一万两千',
 		'i 又少了五百，是吗？',
 		'a 对，按这个减弱速度推算的话……约莫二十天之后东京可以社会面清零',
@@ -1083,7 +1100,7 @@ monogatari.script ({
 		'play music normal loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
-		'show message Day-start',
+		'show message Day-start-after',
 		'i 冈田，今天是一万一千四',
 		'a 嗯……',
 		's 今日份的早饭是一个菜包，一个花卷，一个鸡蛋，一袋豆浆。你把它们塞进了嘴里。',
@@ -1119,7 +1136,7 @@ monogatari.script ({
 		'play music normal2 loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
-		'show message Day-start',
+		'show message Day-start-after',
 		's 你躺着床上看了看手机，今天东京播报的新增病例数是一万零五百，你没再跟冈田聊起这事',
 		's 今日份的早饭是一个菜包，一个花卷，一个鸡蛋，一袋豆浆。',
 		'jump Day13-1'
@@ -1157,7 +1174,7 @@ monogatari.script ({
 		'play music normal loop',
 		'show scene dorm with fadeIn',
 		'play sound new_day',
-		'show message Day-start',
+		'show message Day-start-after',
 		's 今早你起的很晚，于是把早饭与午饭合着吃了',
 		'jump Day14-1'
 	],
