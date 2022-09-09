@@ -382,7 +382,7 @@ monogatari.script ({
 				add_sanity(2);
 			},
 		}},
-        's 但是你也砍价砍到崩溃（健康-2）',
+        's 但是你也砍价砍到崩溃（精神-2）',
         'jump swap-ending'
     ],
 
