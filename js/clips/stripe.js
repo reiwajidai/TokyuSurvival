@@ -219,7 +219,7 @@ monogatari.script ({
                     'Do': 'jump stripe2-report',
                     'Condition': function(){
 						const {school} = monogatari.storage('player');
-						return 6 > school > 4;
+						return school === 5;
 					}
                 }, 
                 'report2': {
@@ -252,7 +252,7 @@ monogatari.script ({
                     'Do': 'jump stripe2-report',
                     'Condition': function(){
 						const {school} = monogatari.storage('player');
-						return 6 > school > 4;
+						return school === 5;
 					}
                 }, 
                 'report2': {
@@ -285,7 +285,7 @@ monogatari.script ({
                     'Do': 'jump stripe2-report',
                     'Condition': function(){
 						const {school} = monogatari.storage('player');
-						return 6 > school > 4;
+						return school === 5;
 					}
                 }, 
                 'report2': {
@@ -318,7 +318,7 @@ monogatari.script ({
                     'Do': 'jump stripe2-report',
                     'Condition': function(){
 						const {school} = monogatari.storage('player');
-						return 6 > school > 4;
+						return school === 5;
 					}
                 }, 
                 'report2': {
@@ -357,7 +357,7 @@ monogatari.script ({
                     'Do': 'jump stripe2-report',
                     'Condition': function(){
 						const {school} = monogatari.storage('player');
-						return 6 > school > 4;
+						return school === 5;
 					}
                 }, 
                 'report2': {
@@ -489,7 +489,7 @@ monogatari.script ({
                     'Do': 'jump stripe3-report',
                     'Condition': function(){
 						const {school} = monogatari.storage('player');
-						return 6 > school > 4;
+						return school === 5;
 					}
                 }, 
                 'report2': {
