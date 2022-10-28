@@ -28,6 +28,11 @@
 
 参与内测的玩家反馈道，整个游戏挑战十足，玩家在游戏中屡屡破防，部分玩家首次试玩仅获得了生存三天的好成绩。
 
+游戏详细介绍可移步以下微信公众号的相关文章：
++ [无知路上](https://mp.weixin.qq.com/s/LAAaEHzSFcYoDRARcBSfHA)
++ [无隅](https://mp.weixin.qq.com/s/hNVUHMdqwhB1OgDNravQIQ)
++ [零号笔记本](https://mp.weixin.qq.com/s/QE5rJKlU21M-6-Is5xNFWQ)
+
 ## 欢迎投稿
 
 如果大家在东京之外的其他城市遭遇过类似的故事，欢迎向开发者团队投稿，一经采用，您的故事将成为游戏剧情的一部分！
@@ -40,8 +45,9 @@
 
 本游戏采用[Monogatari](https://monogatari.io/)作为视觉小说的引擎，Monogatari的开发文档[参见此处](https://developers.monogatari.io/documentation)。
 
-水平所限，代码有些混乱，注释也不怎么加，敬请谅解。但Monogatari的脚本不难读，所以应该还好。
+大家亦可访问本项目的[Wiki页面](https://github.com/reiwajidai/TokyuSurvival/wiki)，对Monogatari的开发做一个基本了解。
 
+---
 再次感谢对本项目感兴趣并参与其中的大家！
 
 ---
